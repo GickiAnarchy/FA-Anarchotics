@@ -1,0 +1,10 @@
+DRUGS:
+    Meth
+
+OBJECTS:
+    Processing Table
+    Beaker
+    Medicinal Iodine
+    Phosphorus         from Matchbox
+    Oil Burner
+    
