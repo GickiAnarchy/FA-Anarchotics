@@ -1,4 +1,4 @@
-class Heroin extends Drug
+class Heroin extends DrugBase
 {
 	//CODE
 };

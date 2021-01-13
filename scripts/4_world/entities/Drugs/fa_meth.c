@@ -1,4 +1,4 @@
-class Meth extends Drug
+class Meth extends DrugBase
 {
 	//CODE
 };

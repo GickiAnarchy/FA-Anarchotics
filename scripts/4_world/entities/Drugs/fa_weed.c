@@ -1,4 +1,4 @@
-class Weed extends Drug
+class Weed extends DrugBase
 {
 	//CODE
 };

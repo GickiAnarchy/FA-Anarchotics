@@ -1,4 +1,4 @@
-class Shrooms extends Drug
+class Shrooms extends DrugBase
 {
 	//CODE
 };
