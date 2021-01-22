@@ -5,7 +5,7 @@ class DrugBase extends Inventory_Base
   void ~DrugBase(){};
   
   
-	override bool isDrug()
+	bool isDrug()
 	{
 		return true;
 	};	

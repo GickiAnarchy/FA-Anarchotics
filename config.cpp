@@ -1,6 +1,6 @@
 class CfgPatches
 {
-  class FA_Drugs
+  class Anarchotics
   {
     units[] = {};
 		weapons[] = {};
@@ -10,9 +10,9 @@ class CfgPatches
 };
 class CfgMods
 {
-  class FA_Drugs
+  class Anarchotics
   {
-    dir = "FA_Drugs";
+    dir = "Anarchotics";
 		picture = "";
 		action = "";
 		hideName = 1;
@@ -28,17 +28,17 @@ class CfgMods
 			class gameScriptModule
 			{
 				value = "";
-				files[] = {"FA_Drugs/scripts/3_Game"};
+				files[] = {"Anarchotics/scripts/3_Game"};
 			};
 			class worldScriptModule
 			{
 				value = "";
-				files[] = {"FA_Drugs/scripts/4_World"};
+				files[] = {"Anarchotics/scripts/4_World"};
 			};
 			class missionScriptModule
 			{
 				value = "";
-				files[] = {"FA_Drugs/scripts/5_Mission"};
+				files[] = {"Anarchotics/scripts/5_Mission"};
 			};
 		};
   };
