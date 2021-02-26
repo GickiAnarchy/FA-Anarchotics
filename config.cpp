@@ -10,9 +10,9 @@ class CfgPatches
 };
 class CfgMods
 {
-  class Anarchotics
-  {
-    dir = "Anarchotics";
+	class Anarchotics
+	{
+	dir = "Anarchotics";
 		picture = "";
 		action = "";
 		hideName = 1;
@@ -41,5 +41,5 @@ class CfgMods
 				files[] = {"Anarchotics/scripts/5_Mission"};
 			};
 		};
-  };
+	};
 };

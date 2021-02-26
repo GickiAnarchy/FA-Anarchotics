@@ -1,9 +1,9 @@
 class DrugTable extends ItemBase
 {
-	float						m_Fuel;
-	private static float		m_FuelTankCapacity; // Capacity in ml.
-	private static float		m_FuelToEnergyRatio; // Conversion ratio of 1 ml of fuel to X Energy
-	private int					m_FuelPercentage;
+	// float						m_Fuel;
+	// private static float		m_FuelTankCapacity; // Capacity in ml.
+	// private static float		m_FuelToEnergyRatio; // Conversion ratio of 1 ml of fuel to X Energy
+	// private int					m_FuelPercentage;
 	
 	static const string			START_SOUND = "powerGeneratorTurnOn_SoundSet";
 	static const string			LOOP_SOUND = "powerGeneratorLoop_SoundSet";
@@ -11,31 +11,30 @@ class DrugTable extends ItemBase
 	static const string 		SPARKPLUG_ATTACH_SOUND = "sparkplug_attach_SoundSet";
 	static const string 		SPARKPLUG_DETACH_SOUND = "sparkplug_detach_SoundSet";
 	
-	protected EffectSound 		m_EngineLoop;
-	protected EffectSound 		m_EngineStart;
-	protected EffectSound 		m_EngineStop;
 	ref Timer 					m_SoundLoopStartTimer;
-	ref protected Effect 		m_Smoke;
 	
 	
-	// Constructor
+	// CONSTRUCTOR
 	void DrugTable()
 	{
 		SetEventMask(EntityEvent.INIT); // Enable EOnInit event
-		
-
 	}
 
+
+	//INIT
 	override void EOnInit( IEntity other, int extra)
 	{
 
 	}
+	
+	
 	
 	// Play the loop sound
 	void StartLoopSound()
 	{
 		
 	}
+	
 	
 	// Taking item into inventory
 	override bool CanPutInCargo( EntityAI parent )
@@ -93,7 +92,11 @@ class DrugTable extends ItemBase
 		
 	}
 	
-	// Called when this generator is picked up
+	
+	/*===================================
+					EE ITEMS
+	===================================*/	
+
 	override void OnItemLocationChanged  ( EntityAI old_owner, EntityAI new_owner ) 
 	{
 		super.OnItemLocationChanged(old_owner, new_owner);
@@ -122,10 +125,10 @@ class DrugTable extends ItemBase
 		SetIsPlaceSound( true );
 	}
 	
-	override string GetPlaceSoundset()
-	{
-		return "placePowerGenerator_SoundSet";
-	}
+	// override string GetPlaceSoundset()
+	// {
+		// return "placePowerGenerator_SoundSet";
+	// }
 	
 	override void SetActions()
 	{

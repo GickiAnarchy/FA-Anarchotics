@@ -4,13 +4,13 @@ class CfgPatches
 	{
 		units[] = 
 		{
-
+			"DrugTable"
 		};
 		weapons[] = {};
 		requiredVersion = 0.1;
 		requiredAddons[] = 
 		{
-
+			"DZ_Data"
 		};
 	};
 };
@@ -18,10 +18,6 @@ class CfgPatches
 class CfgVehicles
 {
 	class Inventory_Base;
-	class Container_Base;
-	class WorldContainer_Base;
-	class HouseNoDestruct;
-	class Static;
 	
 	class DrugTable: Inventory_Base
 	{
@@ -29,15 +25,10 @@ class CfgVehicles
 		displayName = "Drug Processing Work Table";
 		descriptionShort = "A place to cook your crank, bag your weed, cut your shrooms and probably more than that too!!";
 		model = "\Anarchotics\data\drugtable\drugtable.p3d";
-		//rotationFlags = 2;
-		slopeTolerance = 0.4;
-		yawPitchRollLimit[] = {45,45,45};
+		// slopeTolerance = 0.4;
+		// yawPitchRollLimit[] = {45,45,45};
 		weight = 25000;
 		itemSize[] = {10,10};
-		//itemBehaviour = 0;
-		//attachments[] = {};
-		//fuelTankCapacity = 7000;
-		//carveNavmesh = 1;
 		heavyItem = 1;
 		hiddenSelections[] = {"camoGround"};
 		hiddenSelectionsTextures[] = {"\Anarchotics\data\drugtable\drugtable_co.paa"};
@@ -52,8 +43,6 @@ class CfgVehicles
 				};
 			};
 		};
-		//repairableWithKits[] = {7};
-		//repairCosts[] = {25.0};
 		class EnergyManager
 		{
 			hasIcon = 1;
@@ -65,18 +54,5 @@ class CfgVehicles
 			powerSocketsCount = 4;
 			compatiblePlugTypes[] = {2,6};
 		};
-		//	class AnimationSources
-		//	{
-			
-		//	}
-		
-		//	class AnimEvents
-		//	{
-		//		class SoundWeapon
-		//		{
-			
-		//		};
-		//	};
 	};
-	
-}
+};
