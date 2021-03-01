@@ -43,7 +43,7 @@ class CfgVehicles
 				};
 			};
 		};
-		class EnergyManager
+/* 		class EnergyManager
 		{
 			hasIcon = 1;
 			autoSwitchOff = 1;
@@ -53,6 +53,6 @@ class CfgVehicles
 			energyAtSpawn = 5000;
 			powerSocketsCount = 4;
 			compatiblePlugTypes[] = {2,6};
-		};
+		}; */
 	};
 };

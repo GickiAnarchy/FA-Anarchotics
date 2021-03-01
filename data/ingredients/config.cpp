@@ -30,7 +30,7 @@ class CfgVehicles
 		weight=60;
 		hiddenSelections[] = 
 		{
-			"camoGround"
+			"zbytek"
 		};
 		hiddenSelectionsTextures[] = 
 		{

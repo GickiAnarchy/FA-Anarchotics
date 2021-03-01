@@ -5,7 +5,7 @@ modded class PluginRecipesManager
 	{
 		super.RegisterRecipies();
 		
-		//! Basebuilding
+		//Ingredients
 		RegisterRecipe(new CraftRed);
 	}
 }

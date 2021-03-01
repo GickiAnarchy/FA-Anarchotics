@@ -5,6 +5,6 @@ OBJECTS:
     Processing Table
     Beaker
     Medicinal Iodine
-    Phosphorus         from Matchbox
+    Phosphorus         from Matchbox - DONE
     Oil Burner
     
