@@ -1,4 +1,4 @@
-class DrugTable extends ItemBase
+class DrugTable extends FA_Item
 {
 	// float						m_Fuel;
 	// private static float		m_FuelTankCapacity; // Capacity in ml.
@@ -17,6 +17,7 @@ class DrugTable extends ItemBase
 	// CONSTRUCTOR
 	void DrugTable()
 	{
+		Set_FA_KitName("DrugTableKit");
 		SetEventMask(EntityEvent.INIT); // Enable EOnInit event
 	}
 
@@ -26,7 +27,6 @@ class DrugTable extends ItemBase
 	{
 
 	}
-	
 	
 	
 	// Play the loop sound
@@ -43,6 +43,7 @@ class DrugTable extends ItemBase
 		return CanManipulate();
 	}
 
+
 	// Taking item into inventory
 	override bool CanPutIntoHands ( EntityAI player ) 
 	{
@@ -52,6 +53,7 @@ class DrugTable extends ItemBase
 		}
 		return CanManipulate();
 	}
+
 
 	// Returns true/false if this item can be moved into inventory/hands
 	bool CanManipulate()
@@ -64,15 +66,15 @@ class DrugTable extends ItemBase
 		return false;
 	}
 	
+	
 	/*===================================
 					EVENTS
 	===================================*/
-	
-	// Init
 	override void OnInitEnergy()
 	{
 		
 	}
+	
 	
 	// Generator is working
 	override void OnWorkStart()
@@ -80,11 +82,13 @@ class DrugTable extends ItemBase
 		
 	}
 
+
 	// Do work
 	override void OnWork( float consumed_energy )
 	{
 
 	}
+
 
 	// Turn off when this runs out of fuel
 	override void OnWorkStop()
@@ -96,16 +100,17 @@ class DrugTable extends ItemBase
 	/*===================================
 					EE ITEMS
 	===================================*/	
-
 	override void OnItemLocationChanged  ( EntityAI old_owner, EntityAI new_owner ) 
 	{
 		super.OnItemLocationChanged(old_owner, new_owner);
 	}
 	
+	
 	override void EEItemAttached ( EntityAI item, string slot_name )
 	{
 		super.EEItemAttached ( item, slot_name );
 	}
+	
 	
 	override void EEItemDetached ( EntityAI item, string slot_name )
 	{
@@ -114,27 +119,21 @@ class DrugTable extends ItemBase
 	}
 	
 	
-	//================================================================
-	// ADVANCED PLACEMENT
-	//================================================================
-	
-	override void OnPlacementComplete( Man player, vector position = "0 0 0", vector orientation = "0 0 0" )
-	{
-		super.OnPlacementComplete( player, position, orientation );
-			
-		SetIsPlaceSound( true );
-	}
-	
-	// override string GetPlaceSoundset()
-	// {
-		// return "placePowerGenerator_SoundSet";
-	// }
-	
 	override void SetActions()
 	{
 		super.SetActions();
-
-		AddAction(ActionTogglePlaceObject);
-		AddAction(ActionPlaceObject);
 	}
+	
+	
+}
+
+
+
+class DrugTableKit extends FA_Item_Kit
+{
+	void DrugTableKit()
+	{
+		Set_FA_ItemName("DrugTable");
+	}
+	
 }
