@@ -70,7 +70,7 @@ class CfgVehicles
 		scope = 2;
 		displayName="Anarchotics Drug Desk In a Box";
 		descriptionShort="A deployable kit that contains the Anarchotics Desk.";
-		model="\Anarchotics\data\drugtable\TableKit.p3d";
+		model="\Anarchotics\data\drugtable\tablekit\TableKit.p3d";
 	};
 	
 	class DrugTable: FA_Item
@@ -91,16 +91,8 @@ class CfgVehicles
 				};
 			};
 		};
-/* 		class EnergyManager
-		{
-			hasIcon = 1;
-			autoSwitchOff = 1;
-			energyStorageMax = 10000;
-			energyUsagePerSecond = 0.28;
-			reduceMaxEnergyByDamageCoef = 0.5;
-			energyAtSpawn = 5000;
-			powerSocketsCount = 4;
-			compatiblePlugTypes[] = {2,6};
-		}; */
+
 	};
+	
+	
 };
