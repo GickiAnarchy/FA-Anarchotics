@@ -58,8 +58,8 @@ class CfgVehicles
 		scope=0;
 		displayName="Anarchotics Drug Desk In a Box";
 		descriptionShort="A deployable kit that contains the Anarchotics Desk.";
-		model="\Anarchotics\data\drugtable\TableKit.p3d";
-		itemSize[]={8,8};
+		model="\Anarchotics\data\drugtable\tablekit\TableKit.p3d";
+		itemSize[]={4,3};
 		simulation="inventoryItem";
 		physLayer="item_small";
 		weight=300;

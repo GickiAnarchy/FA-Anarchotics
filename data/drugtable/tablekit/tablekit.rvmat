@@ -8,7 +8,7 @@ PixelShaderID="Super";
 VertexShaderID="Super";
 class Stage1
 {
-	texture="DOM_Box\data\dom_box_nohq.paa";
+	texture="Anarchotics\data\drugtable\tablekit\tablekit_nohq.paa";
 	uvSource="tex";
 	class uvTransform
 	{
