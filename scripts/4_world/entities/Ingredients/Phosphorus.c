@@ -19,4 +19,11 @@ class Phosphorus extends ItemBase
 		return true;
 	}
 	
+	
+	override void SetActions()
+    {
+        super.SetActions();
+        AddAction(ActionAttach);
+    }
+	
 }

@@ -13,6 +13,8 @@ class DrugTable extends FA_Item
 	
 	ref Timer 					m_SoundLoopStartTimer;
 	
+	typename ATTACHMENT_PHOSPHORUS = Phosphorus;
+	
 	
 	// CONSTRUCTOR
 	void DrugTable()
@@ -119,6 +121,44 @@ class DrugTable extends FA_Item
 	}
 	
 	
+	//================================================================
+	// ATTACHMENT
+	//================================================================
+	override bool CanLoadAttachment( EntityAI attachment )
+	{
+		if ( !super.CanLoadAttachment(attachment) )
+			return false;	
+		
+		ItemBase item = ItemBase.Cast( attachment );
+		
+		if (item.Type() == ATTACHMENT_PHOSPHORUS)
+		{
+			return true;
+		}
+		
+		return false;
+	}
+
+
+	override bool CanReleaseAttachment( EntityAI attachment )
+	{
+		if( !super.CanReleaseAttachment( attachment ) )
+			return false;
+		
+		ItemBase item = ItemBase.Cast( attachment );
+	
+		if (item.Type() == ATTACHMENT_PHOSPHORUS)
+		{
+			return true;
+		}
+		
+		return false;
+	}
+
+
+	//================================================================
+	//ACTIONS
+	//================================================================
 	override void SetActions()
 	{
 		super.SetActions();
