@@ -16,6 +16,16 @@ class CfgPatches
 	};
 };
 
+class CfgSlots
+{
+    class Slot_Phosphorus
+    {
+        name = "Phosphorus";
+        displayName = "Phosphorus";
+        ghostIcon = "gascanister";
+    };
+};
+
 class CfgVehicles
 {
 	class Inventory_Base;
@@ -80,6 +90,10 @@ class CfgVehicles
 		descriptionShort = "A place to cook your crank, bag your weed, cut your shrooms and probably more than that too!!";
 		model = "\Anarchotics\data\drugtable\drugtable.p3d";
 		weight = 25000;
+		attachments[] = 
+		{
+			"Phosphorus"
+		};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -94,5 +108,15 @@ class CfgVehicles
 
 	};
 	
-	
+};
+
+class CfgnonAIVehicles
+{
+	class ProxyAttachment;
+	class ProxyPhosphorus: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Phosphorus";
+		model = "\Anarchotics\data\ingredients\red\phosphorus_co.paa";
+	};
 };
