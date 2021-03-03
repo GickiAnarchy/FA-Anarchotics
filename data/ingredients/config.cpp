@@ -15,6 +15,18 @@ class CfgPatches
 	};
 };
 
+class CfgSlots
+{
+    class Slot_Phosphorus
+    {
+        name = "Phosphorus";
+        displayName = "Phosphorus";
+        ghostIcon = "gascanister";
+    };
+};
+
+
+
 class CfgVehicles
 {
 	class Inventory_Base;
@@ -35,6 +47,10 @@ class CfgVehicles
 		hiddenSelectionsTextures[] = 
 		{
 			"\Anarchotics\data\ingredients\red\phosphorus_co.paa"
+		};
+		attachments[] =
+		{
+			"Phosphorus"
 		};
 		class DamageSystem
 		{
@@ -92,3 +108,17 @@ class CfgVehicles
 	};
 	
 };
+
+	
+class CfgnonAIVehicles
+{
+	class ProxyAttachment;
+	class ProxyPhosphorus: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Phosphorus";
+		model = "\DZ\gear\medical\dexamphetamine.p3d";
+	};
+};
+
+

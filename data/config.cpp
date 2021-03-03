@@ -11,7 +11,7 @@ class CfgPatches
 		requiredVersion = 0.1;
 		requiredAddons[] = 
 		{
-			"DZ_Data"
+			"DZ_Data", "DZ_Gear"
 		};
 	};
 };
@@ -117,6 +117,6 @@ class CfgnonAIVehicles
 	{
 		scope = 2;
 		inventorySlot = "Phosphorus";
-		model = "\Anarchotics\data\ingredients\red\phosphorus_co.paa";
+		model = "\DZ\gear\medical\dexamphetamine.p3d";
 	};
 };

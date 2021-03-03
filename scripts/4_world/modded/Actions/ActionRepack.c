@@ -1,4 +1,4 @@
-class void ActionRepackCB : ActionContinuousBaseCB
+class ActionRepackCB : ActionContinuousBaseCB
 {
 	override void CreateActionComponent()
 	{
