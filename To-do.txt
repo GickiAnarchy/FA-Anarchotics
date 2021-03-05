@@ -1,3 +1,4 @@
--Fix Phosphorus Proxy
+-Fix Phosphorus Proxy FIXED
 -Fix Kit Collision
--Fix Kit hand placement (Heavy item in config)
+-Fix Kit hand placement (Heavy item in config) FIXED
+-Fix phosphorus detach ability
