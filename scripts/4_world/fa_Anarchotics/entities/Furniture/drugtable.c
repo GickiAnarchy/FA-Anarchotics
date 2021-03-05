@@ -15,6 +15,9 @@ class DrugTable extends FA_Item
 	
 	typename ATTACHMENT_PHOSPHORUS = Phosphorus;
 	
+	const int INGREDIENT_SLOT_COUNT = 4;
+	protected ItemBase fa_IngredientSlots[INGREDIENT_SLOT_COUNT];
+	
 	
 	// CONSTRUCTOR
 	void DrugTable()
@@ -111,12 +114,28 @@ class DrugTable extends FA_Item
 	override void EEItemAttached ( EntityAI item, string slot_name )
 	{
 		super.EEItemAttached ( item, slot_name );
+		ItemBase item_base = ItemBase.Cast( item );
+		
+		switch (slot_name)
+		{
+			case "Phosphorus":
+				fa_IngredientSlots[0] = item_base;
+				break;
+		}
 	}
 	
 	
 	override void EEItemDetached ( EntityAI item, string slot_name )
 	{
 		super.EEItemDetached ( item, slot_name );
+		ItemBase item_base = ItemBase.Cast( item );
+		
+		switch (slot_name)
+		{
+			case "Phosphorus":
+				fa_IngredientSlots[0] = NULL;
+				break;
+		}
 		
 	}
 	
@@ -131,7 +150,7 @@ class DrugTable extends FA_Item
 		
 		ItemBase item = ItemBase.Cast( attachment );
 		
-		if (item.Type() == ATTACHMENT_PHOSPHORUS)
+		if (item.fa_isIngredient() == true)
 		{
 			return true;
 		}
@@ -147,10 +166,27 @@ class DrugTable extends FA_Item
 		
 		ItemBase item = ItemBase.Cast( attachment );
 	
-		if (item.Type() == ATTACHMENT_PHOSPHORUS)
+		if (item.fa_isIngredient() == true)
 		{
 			return true;
 		}
+		
+		return false;
+	}
+	
+	
+	override bool CanReceiveAttachment( EntityAI attachment, int slotId )
+	{
+		if ( !super.CanReceiveAttachment(attachment, slotId) )
+		{
+			return false;
+		}
+		
+		ItemBase item = ItemBase.Cast( attachment );
+		
+		
+		if (item.fa_isIngredient() == true)
+			return true;
 		
 		return false;
 	}

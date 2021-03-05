@@ -5,7 +5,7 @@ class CfgPatches
 		units[] = 
 		{
 			"DrugTable",
-			"DrugTable"
+			"DrugTableKit"
 		};
 		weapons[] = {};
 		requiredVersion = 0.1;
@@ -22,7 +22,7 @@ class CfgSlots
     {
         name = "Phosphorus";
         displayName = "Phosphorus";
-        ghostIcon = "gascanister";
+        ghostIcon = "missing";
     };
 };
 
@@ -90,6 +90,8 @@ class CfgVehicles
 		descriptionShort = "A place to cook your crank, bag your weed, cut your shrooms and probably more than that too!!";
 		model = "\Anarchotics\data\drugtable\drugtable.p3d";
 		weight = 25000;
+		physLayer = "item_large";
+		simulation = "inventoryItem";
 		attachments[] = 
 		{
 			"Phosphorus"
@@ -113,7 +115,7 @@ class CfgVehicles
 class CfgnonAIVehicles
 {
 	class ProxyAttachment;
-	class ProxyPhosphorus: ProxyAttachment
+	class Proxydexamphetamine: ProxyAttachment
 	{
 		scope = 2;
 		inventorySlot = "Phosphorus";

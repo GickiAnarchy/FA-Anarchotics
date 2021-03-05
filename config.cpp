@@ -5,7 +5,12 @@ class CfgPatches
     units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {};
+		requiredAddons[] = 
+		{
+			"DZ_Data",
+			"DZ_Scripts",
+			"DZ_Gear_Tools"
+		};
   };
 };
 class CfgMods
@@ -13,12 +18,12 @@ class CfgMods
 	class Anarchotics
 	{
 	dir = "Anarchotics";
-		picture = "";
+		picture = "Anarchotics\assets\anarchotics_icon.ico";
 		action = "";
 		hideName = 1;
 		hidePicture = 1;
 		name = "Anarchotics";
-		credits = "GickiAnarchy";
+		credits = "Code: GickiAnarchy	Modeling: SHoover";
 		author = "GickiAnarchy";
 		version = "1.0";
 		type = "mod";

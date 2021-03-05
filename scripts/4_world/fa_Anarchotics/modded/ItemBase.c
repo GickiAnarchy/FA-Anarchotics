@@ -37,6 +37,11 @@ modded class ItemBase
 			return "FA_ItemName";
 	};
 	
+	bool fa_isIngredient()
+	{
+		return false;
+	};
+	
    
 	vector Get_faItemPos()
 	{

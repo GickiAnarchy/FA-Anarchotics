@@ -15,17 +15,6 @@ class CfgPatches
 	};
 };
 
-class CfgSlots
-{
-    class Slot_Phosphorus
-    {
-        name = "Phosphorus";
-        displayName = "Phosphorus";
-        ghostIcon = "gascanister";
-    };
-};
-
-
 
 class CfgVehicles
 {
@@ -36,7 +25,7 @@ class CfgVehicles
 		scope=2;
 		displayName="Phosphorus";
 		descriptionShort="An ingredient in making meth.";
-		model="\dz\gear\medical\dexamphetamine.p3d";
+		model="\DZ\gear\medical\dexamphetamine.p3d";
 		rotationFlags=17;
 		itemSize[]={1,2};
 		weight=60;
@@ -48,7 +37,7 @@ class CfgVehicles
 		{
 			"\Anarchotics\data\ingredients\red\phosphorus_co.paa"
 		};
-		attachments[] =
+		inventorySlot[] =
 		{
 			"Phosphorus"
 		};
@@ -109,16 +98,6 @@ class CfgVehicles
 	
 };
 
-	
-class CfgnonAIVehicles
-{
-	class ProxyAttachment;
-	class ProxyPhosphorus: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "Phosphorus";
-		model = "\DZ\gear\medical\dexamphetamine.p3d";
-	};
-};
+
 
 

@@ -1,11 +1,11 @@
-class Phosphorus extends ItemBase
+class FA_Ingredient extends ItemBase
 {
 	
 	
 	//
 	//CONSTRUCTOR
 	//
-	void Phosphorus()
+	void FA_Ingredient()
 	{
 		
 	}
@@ -14,7 +14,7 @@ class Phosphorus extends ItemBase
 	//
 	//ANARCHOTICS
 	//
-	bool isIngredient()
+	override bool fa_isIngredient()
 	{
 		return true;
 	}
@@ -24,6 +24,7 @@ class Phosphorus extends ItemBase
     {
         super.SetActions();
         AddAction(ActionAttach);
+		AddAction(ActionDetachFromTarget);
     }
 	
 }
