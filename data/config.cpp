@@ -71,7 +71,8 @@ class CfgVehicles
 		model="\Anarchotics\data\drugtable\tablekit\TableKit.p3d";
 		itemSize[]={4,3};
 		simulation="inventoryItem";
-		physLayer="item_small";
+		physLayer="item_large";
+                heavyItem = 1;
 		weight=300;
 	};
 	
