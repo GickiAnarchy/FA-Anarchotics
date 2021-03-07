@@ -14,7 +14,7 @@ modded class Hologram
 		}
 	}
 
-	EntityAI PlaceEntity(EntityAI entity_for_placing)
+	override EntityAI PlaceEntity(EntityAI entity_for_placing)
 	{
 		if (entity_for_placing.IsInherited(FA_Item_Kit))
 			return entity_for_placing;

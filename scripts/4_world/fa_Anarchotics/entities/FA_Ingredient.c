@@ -7,8 +7,15 @@ class FA_Ingredient extends ItemBase
 	//
 	void FA_Ingredient()
 	{
-		
+		SetTakeable(true);
 	}
+	
+
+	override bool IsTakeable()
+	{
+		return m_IsTakeable;
+	}
+	
 	
 	
 	//
@@ -24,7 +31,7 @@ class FA_Ingredient extends ItemBase
     {
         super.SetActions();
         AddAction(ActionAttach);
-		AddAction(ActionDetachFromTarget);
+		AddAction(ActionDetach);
     }
 	
 }

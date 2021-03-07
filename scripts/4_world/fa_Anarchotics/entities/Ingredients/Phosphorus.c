@@ -7,7 +7,7 @@ class Phosphorus extends FA_Ingredient
 	//
 	void Phosphorus()
 	{
-		
+		SetTakeable(true);
 	}
 	
 	
