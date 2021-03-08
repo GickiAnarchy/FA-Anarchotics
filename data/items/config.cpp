@@ -4,6 +4,7 @@ class CfgPatches
 	{
 		units[] = 
 		{
+			"Heisenberg_Base",
 			"Heisenberg"
 		};
 		weapons[] = {};
@@ -35,73 +36,71 @@ class CfgVehicles
 		{
 			"can"
 		};
+		class GlobalHealth
 		{
-			class GlobalHealth
+			class Health
 			{
-				class Health
+				hitpoints = 30;
+				healthLevels[] = 
 				{
-					hitpoints = 30;
-					healthLevels[] = 
 					{
+						1.0,
 						{
-							1.0,
-							{
-								"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"
-							}
-						},
-						{
-							0.7,
-							{
-								"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"
-							}
-						},
-						{
-							0.5,
-							{
-								"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"
-							}
-						},
-						{
-							0.3,
-							{
-								"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"
-							}
-						},
-						{
-							0.0,
-							{
-								"DZ\gear\drinks\data\Drink_WaterPouch_Natural_destruct.rvmat"
-							}
+							"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"
 						}
-					};
+					},
+					{
+						0.7,
+						{
+							"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"
+						}
+					},
+					{
+						0.5,
+						{
+							"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"
+						}
+					},
+					{
+						0.3,
+						{
+							"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"
+						}
+					},
+					{
+						0.0,
+						{
+							"DZ\gear\drinks\data\Drink_WaterPouch_Natural_destruct.rvmat"
+						}
+					}
 				};
 			};
-		};*/
-		class Nutrition
-		{
-			totalVolume = 1;
-			energy = 43.5;
-			water = 89;
-			nutritionalIndex = 1;
-			toxicity = 0;
 		};
-		class MeleeModes
+	};
+	class Nutrition
+	{
+		totalVolume = 1;
+		energy = 43.5;
+		water = 89;
+		nutritionalIndex = 1;
+		toxicity = 0;
+	};
+	class MeleeModes
+	{
+		class Default
 		{
-			class Default
-			{
-				ammo = "MeleeLightBlunt";
-				range = 1.0;
-			};
-			class Heavy
-			{
-				ammo = "MeleeLightBlunt_Heavy";
-				range = 1.0;
-			};
-			class Sprint
-			{
-				ammo = "MeleeLightBlunt_Heavy";
-				range = 2.8;
-			};
+			ammo = "MeleeLightBlunt";
+			range = 1.0;
+		};
+		class Heavy
+		{
+			ammo = "MeleeLightBlunt_Heavy";
+			range = 1.0;
+		};
+		class Sprint
+		{
+			ammo = "MeleeLightBlunt_Heavy";
+			range = 2.8;
 		};
 	};
 	
