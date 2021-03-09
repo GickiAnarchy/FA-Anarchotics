@@ -8,7 +8,7 @@ class MethMdfr: ModifierBase
 	  
 		m_TrackActivatedTime = true;
 		m_IsPersistent = true;
-		m_ID 					= eModifiers.MDF_EPINEPHRINE;
+		m_ID 					= AnarchoticsModifiers.FA_METH;
 		m_TickIntervalInactive 	= DEFAULT_TICK_TIME_INACTIVE;
 		m_TickIntervalActive 	= 1;
 	};
@@ -25,7 +25,7 @@ class MethMdfr: ModifierBase
 	
 	override string GetDebugText()
 	{
-		return (LIFETIME - GetAttachedTime()).ToString();
+		return (fa_lifetime - GetAttachedTime()).ToString();
 	};
  
 	
@@ -49,7 +49,7 @@ class MethMdfr: ModifierBase
 	{
 		float attached_time = GetAttachedTime();
 		
-		if( attached_time >= LIFETIME )
+		if( attached_time >= fa_lifetime )
 		{
 			return true;
 		}

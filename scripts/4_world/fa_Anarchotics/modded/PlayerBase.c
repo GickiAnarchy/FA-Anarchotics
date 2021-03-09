@@ -1,4 +1,4 @@
-nodded class PlayerBas extends ManBase
+modded class PlayerBase extends ManBase
 {
   //Players drug tolerance
   private int fa_methTolerance = 0;
