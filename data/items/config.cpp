@@ -73,38 +73,52 @@ class CfgVehicles
 				};
 			};
 		};
-	};
-	class Nutrition
-	{
-		totalVolume = 1;
-		energy = 43.5;
-		water = 89;
-		nutritionalIndex = 1;
-		toxicity = 0;
-	};
-	class MeleeModes
-	{
-		class Default
+		class Nutrition
 		{
-			ammo = "MeleeLightBlunt";
-			range = 1.0;
+			totalVolume = 1;
+			energy = 43.5;
+			water = 89;
+			nutritionalIndex = 1;
+			toxicity = 0;
 		};
-		class Heavy
+		class MeleeModes
 		{
-			ammo = "MeleeLightBlunt_Heavy";
-			range = 1.0;
+			class Default
+			{
+				ammo = "MeleeLightBlunt";
+				range = 1.0;
+			};
+			class Heavy
+			{
+				ammo = "MeleeLightBlunt_Heavy";
+				range = 1.0;
+			};
+			class Sprint
+			{
+				ammo = "MeleeLightBlunt_Heavy";
+				range = 2.8;
+			};
 		};
-		class Sprint
+	};
+	
+	class RedHeisenberg: Heisenberg_Base
+	{
+		scope = 2;
+		displayName = "Crimson Heisenberg";
+		class Nutrition
 		{
-			ammo = "MeleeLightBlunt_Heavy";
-			range = 2.8;
+			totalVolume = 1;
+			energy = 33.5;
+			water = 60;
+			nutritionalIndex = 1;
+			toxicity = 1;
 		};
 	};
 	
 	class Heisenberg: Heisenberg_Base
 	{
 		scope = 2;
-		displayName = "";
+		displayName = "Heisenberg";
 		descriptionShort = "";
 		hiddenSelections[] = 
 		{
@@ -112,7 +126,7 @@ class CfgVehicles
 		};
 		hiddenSelectionsTextures[] = 
 		{
-			"\Anarchotics\data\items\Heisenberg\data\Heisenberg_co.paa"
+			"Anarchotics\data\items\Heisenberg\data\Heisenberg_co.paa"
 		};
 		class AnimEvents
 		{
@@ -146,5 +160,4 @@ class CfgVehicles
 			};
 		};
 	};
-
 };

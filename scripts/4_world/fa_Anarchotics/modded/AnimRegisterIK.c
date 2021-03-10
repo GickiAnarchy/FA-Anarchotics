@@ -6,6 +6,16 @@ modded class ModItemRegisterCallbacks
         //pType.AddItemInHandsProfileIK("DOM_MilitaryBox", "dz/anims/workspaces/player/player_main/player_main_heavy.asi", pBehavior,"DZ\anims\anm\player\ik\heavy/tent_large.anm");
     };
 	
+	override void RegisterOneHanded(DayZPlayerType pType, DayzPlayerItemBehaviorCfg pBehavior)
+	{
+		super.RegisterOneHanded(pType,pBehavior);
+		
+		pType.AddItemInHandsProfileIK("Heisenberg", "dz/anims/workspaces/player/player_main/player_main_1h.asi", pBehavior, "dz/anims/anm/player/ik/gear/water_bottle.anm");
+		pType.AddItemInHandsProfileIK("RedHeisenberg", "dz/anims/workspaces/player/player_main/player_main_1h.asi", pBehavior, "dz/anims/anm/player/ik/gear/water_bottle.anm");
+
+		
+	};
+	
 	override void RegisterTwoHanded(DayZPlayerType pType, DayzPlayerItemBehaviorCfg pBehavior)
     {
         super.RegisterTwoHanded(pType, pBehavior);
