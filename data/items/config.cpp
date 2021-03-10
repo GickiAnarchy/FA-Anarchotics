@@ -32,10 +32,6 @@ class CfgVehicles
 		varQuantityMin = 0;
 		varQuantityMax = 330;
 		isMeleeWeapon = 1;
-		hiddenSelections[] = 
-		{
-			"can"
-		};
 		class GlobalHealth
 		{
 			class Health
@@ -109,6 +105,10 @@ class CfgVehicles
 		scope = 2;
 		displayName = "";
 		descriptionShort = "";
+		hiddenSelections[] = 
+		{
+			"can"
+		};
 		hiddenSelectionsTextures[] = 
 		{
 			"\Anarchotics\data\items\Heisenberg\data\Heisenberg_co.paa"
