@@ -23,7 +23,8 @@ class CfgVehicles
 	
 	class Heisenberg_Base: Edible_Base
 	{
-		model = "\Anarchotics\data\items\Heisenberg\Heisenberg.p3d";
+		scope = 0;
+		model = "Anarchotics\data\items\Heisenberg\Heisenberg.p3d";
 		stackedRandom = 0;
 		itemSize[] = {1,2};
 		weight = 15;
