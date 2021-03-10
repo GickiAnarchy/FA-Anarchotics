@@ -4,7 +4,7 @@ class Heisenberg extends Edible_Base
 	void Heisenberg()
 	{
 		
-	}
+	};
 	
 	
 	//FOR TESTING
@@ -15,7 +15,7 @@ class Heisenberg extends Edible_Base
 			consumer.GetModifiersManager().DeactivateModifier( AnarchoticsModifiers.FA_METH );
 		}
 		consumer.GetModifiersManager().ActivateModifier( AnarchoticsModifiers.FA_METH );
-	}
+	};
 	
 	override void SetActions()
 	{
@@ -23,5 +23,15 @@ class Heisenberg extends Edible_Base
 		
 		AddAction(ActionForceDrink);
 		AddAction(ActionDrink);
-	}
+	};
+};
+
+class RedHeisenberg extends Heisenberg
+{
+	
+	override void OnConsume(float amount, PlayerBase consumer)
+	{
+		
+	};
+	
 }

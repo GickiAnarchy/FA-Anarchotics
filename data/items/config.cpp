@@ -11,6 +11,7 @@ class CfgPatches
 		requiredVersion = 0.1;
 		requiredAddons[] = 
 		{
+			"DZ_Data",
 			"DZ_Gear"
 		};
 	};
@@ -25,14 +26,6 @@ class CfgVehicles
 	{
 		scope = 0;
 		model = "Anarchotics\data\items\heisenberg\Heisenberg.p3d";
-		hiddenSelections[] = 
-		{
-			"can"
-		};
-		hiddenSelectionsTextures[] = 
-		{
-			"\Anarchotics\data\items\heisenberg\data\Heisenberg_co.paa"
-		};
 		stackedRandom = 0;
 		itemSize[] = {1,2};
 		weight = 15;
@@ -119,7 +112,7 @@ class CfgVehicles
 		};
 		hiddenSelectionsTextures[] = 
 		{
-			"Anarchotics\data\items\Heisenberg\data\Heisenberg_co.paa"
+			"\Anarchotics\data\items\Heisenberg\data\Heisenberg_co.paa"
 		};
 		class Nutrition
 		{
@@ -176,4 +169,5 @@ class CfgVehicles
 			};
 		};
 	};
+	
 };
