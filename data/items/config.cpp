@@ -24,7 +24,15 @@ class CfgVehicles
 	class Heisenberg_Base: Edible_Base
 	{
 		scope = 0;
-		model = "Anarchotics\data\items\Heisenberg\Heisenberg.p3d";
+		model = "Anarchotics\data\items\heisenberg\Heisenberg.p3d";
+		hiddenSelections[] = 
+		{
+			"can"
+		};
+		hiddenSelectionsTextures[] = 
+		{
+			"\Anarchotics\data\items\heisenberg\data\Heisenberg_co.paa"
+		};
 		stackedRandom = 0;
 		itemSize[] = {1,2};
 		weight = 15;
@@ -105,6 +113,14 @@ class CfgVehicles
 	{
 		scope = 2;
 		displayName = "Crimson Heisenberg";
+		hiddenSelections[] = 
+		{
+			"can"
+		};
+		hiddenSelectionsTextures[] = 
+		{
+			"Anarchotics\data\items\Heisenberg\data\Heisenberg_co.paa"
+		};
 		class Nutrition
 		{
 			totalVolume = 1;
@@ -126,7 +142,7 @@ class CfgVehicles
 		};
 		hiddenSelectionsTextures[] = 
 		{
-			"Anarchotics\data\items\Heisenberg\data\Heisenberg_co.paa"
+			"\Anarchotics\data\items\heisenberg\data\Heisenberg_co.paa"
 		};
 		class AnimEvents
 		{
