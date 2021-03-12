@@ -24,6 +24,13 @@ class CfgSlots
         displayName = "Phosphorus";
         ghostIcon = "missing";
     };
+	
+    class Slot_Heisenberg
+    {
+        name = "Heisenberg";
+        displayName = "Heisenberg";
+        ghostIcon = "missing";
+    };	
 };
 
 class CfgVehicles
@@ -95,7 +102,8 @@ class CfgVehicles
 		simulation = "inventoryItem";
 		attachments[] = 
 		{
-			"Phosphorus"
+			"Phosphorus",
+			"Heisenberg"
 		};
 		class DamageSystem
 		{
@@ -122,4 +130,11 @@ class CfgnonAIVehicles
 		inventorySlot = "Phosphorus";
 		model = "\DZ\gear\medical\dexamphetamine.p3d";
 	};
+	
+	class ProxyHeisenberg: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Heisenberg";
+		model = "Anarchotics\data\items\heisenberg\Heisenberg.p3d";
+	};	
 };

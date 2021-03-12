@@ -21,8 +21,9 @@ class CfgPatches
 class CfgVehicles
 {
 	class Edible_Base;
+	class SodaCan_ColorBase: Edible_Base {};
 	
-	class Heisenberg_Base: Edible_Base
+	class Heisenberg_Base:  SodaCan_ColorBase
 	{
 		scope = 0;
 		model = "Anarchotics\data\items\heisenberg\Heisenberg.p3d";
@@ -34,6 +35,10 @@ class CfgVehicles
 		varQuantityMin = 0;
 		varQuantityMax = 330;
 		isMeleeWeapon = 1;
+		hiddenSelections[] = 
+		{
+			"can"
+		};
 		class GlobalHealth
 		{
 			class Health
@@ -102,28 +107,6 @@ class CfgVehicles
 		};
 	};
 	
-	class RedHeisenberg: Heisenberg_Base
-	{
-		scope = 2;
-		displayName = "Crimson Heisenberg";
-		hiddenSelections[] = 
-		{
-			"can"
-		};
-		hiddenSelectionsTextures[] = 
-		{
-			"\Anarchotics\data\items\Heisenberg\data\Heisenberg_co.paa"
-		};
-		class Nutrition
-		{
-			totalVolume = 1;
-			energy = 33.5;
-			water = 60;
-			nutritionalIndex = 1;
-			toxicity = 1;
-		};
-	};
-	
 	class Heisenberg: Heisenberg_Base
 	{
 		scope = 2;
@@ -136,6 +119,10 @@ class CfgVehicles
 		hiddenSelectionsTextures[] = 
 		{
 			"\Anarchotics\data\items\heisenberg\data\Heisenberg_co.paa"
+		};
+		inventorySlot[] =
+		{
+			"Heisenberg"
 		};
 		class AnimEvents
 		{

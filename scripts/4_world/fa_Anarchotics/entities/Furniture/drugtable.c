@@ -13,7 +13,8 @@ class DrugTable extends FA_Item
 	
 	ref Timer 					m_SoundLoopStartTimer;
 	
-	typename ATTACHMENT_PHOSPHORUS = Phosphorus;
+	typename ATTACHMENT_PHOSPHORUS = Phosphorus;  //fa_IngredientSlots[0]
+	typename ATTACHMENT_HEISENBERG = Heisenberg;  //fa_IngredientSlots[1]
 	
 	const int INGREDIENT_SLOT_COUNT = 4;
 	protected ItemBase fa_IngredientSlots[INGREDIENT_SLOT_COUNT];
@@ -121,6 +122,12 @@ class DrugTable extends FA_Item
 			case "Phosphorus":
 				fa_IngredientSlots[0] = item_base;
 				break;
+				
+			case "Heisenberg":
+				fa_IngredientSlots[1] = item_base;
+				break;
+				
+				
 		}
 	}
 	
@@ -135,8 +142,14 @@ class DrugTable extends FA_Item
 			case "Phosphorus":
 				fa_IngredientSlots[0] = NULL;
 				break;
-		}
 		
+		
+			case "Heisenberg":
+				fa_IngredientSlots[1] = NULL;
+				break;		
+		
+		
+		}
 	}
 	
 	

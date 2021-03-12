@@ -6,15 +6,14 @@ class Heisenberg extends Edible_Base
 		
 	};
 	
+	bool fa_isIngredient()
+	{
+		return true;
+	}
 	
-	//FOR TESTING
 	override void OnConsume(float amount, PlayerBase consumer)
 	{
-		if( consumer.GetModifiersManager().IsModifierActive(AnarchoticsModifiers.FA_METH))//effectively resets the timer
-		{
-			consumer.GetModifiersManager().DeactivateModifier( AnarchoticsModifiers.FA_METH );
-		}
-		consumer.GetModifiersManager().ActivateModifier( AnarchoticsModifiers.FA_METH );
+		
 	};
 	
 	override void SetActions()
@@ -22,16 +21,11 @@ class Heisenberg extends Edible_Base
 		super.SetActions();
 		
 		AddAction(ActionForceDrink);
-		AddAction(ActionDrink);
+		AddAction(ActionDrinkCan);
+		
+		AddAction(ActionAttach);
+		AddAction(ActionDetach);
 	};
 };
 
-class RedHeisenberg extends Heisenberg
-{
-	
-	override void OnConsume(float amount, PlayerBase consumer)
-	{
-		
-	};
-	
-}
+
