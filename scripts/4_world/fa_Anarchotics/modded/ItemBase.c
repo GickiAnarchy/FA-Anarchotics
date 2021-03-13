@@ -46,7 +46,7 @@ modded class ItemBase
 	vector Get_faItemPos()
 	{
 		return "0 0 0";
-	}
+	};
 
     bool IsInvEmpty()
 	{   
@@ -55,6 +55,27 @@ modded class ItemBase
 			return true;
 		}
 		return false;
-	}
+	};
 
+};
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//MODDED VANILLA
+///////////////////////////////////////////////////////////////////////////////////
+
+modded class TruckBattery : VehicleBattery 
+{
+	override bool fa_isIngredient()
+	{
+		return true;
+	};	
+};
+modded class CarBattery : VehicleBattery 
+{
+	override bool fa_isIngredient()
+	{
+		return true;
+	};	
 };

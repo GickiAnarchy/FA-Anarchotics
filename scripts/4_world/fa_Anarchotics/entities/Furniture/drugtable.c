@@ -173,9 +173,6 @@ class DrugTable extends FA_Item
 	//================================================================
 	override bool CanLoadAttachment( EntityAI attachment )
 	{
-		if ( !super.CanLoadAttachment(attachment) )
-			return false;	
-		
 		ItemBase item = ItemBase.Cast( attachment );
 		
 		if (item.fa_isIngredient() == true )
@@ -183,10 +180,14 @@ class DrugTable extends FA_Item
 			return true;
 		}
 		
-		if (item.IsKindOf("VehicleBattery"))
+		if (item.GetName() == "CarBattery" || item.GetName() == "TruckBattery")
 		{
 			return true;
+		
 		}
+		if ( !super.CanLoadAttachment(attachment) )
+			return false;	
+		
 		
 		return false;
 	}
@@ -194,9 +195,7 @@ class DrugTable extends FA_Item
 
 	override bool CanReleaseAttachment( EntityAI attachment )
 	{
-		if( !super.CanReleaseAttachment( attachment ) )
-			return false;
-		
+			
 		ItemBase item = ItemBase.Cast( attachment );
 	
 		if (item.fa_isIngredient() == true )
@@ -204,10 +203,13 @@ class DrugTable extends FA_Item
 			return true;
 		}
 		
-		if (item.IsKindOf("VehicleBattery"))
+		if (item.GetName() == "CarBattery" || item.GetName() == "TruckBattery")
 		{
 			return true;
 		}		
+		
+		if( !super.CanReleaseAttachment( attachment ) )
+			return false;
 		
 		return false;
 	}
@@ -215,10 +217,6 @@ class DrugTable extends FA_Item
 	
 	override bool CanReceiveAttachment( EntityAI attachment, int slotId )
 	{
-		if ( !super.CanReceiveAttachment(attachment, slotId) )
-		{
-			return false;
-		}
 		
 		ItemBase item = ItemBase.Cast( attachment );
 		
@@ -227,9 +225,14 @@ class DrugTable extends FA_Item
 			return true;
 		}
 		
-		if (item.IsKindOf("VehicleBattery"))
+		if (item.GetName() == "CarBattery" || item.GetName() == "TruckBattery")
 		{
 			return true;
+		}		
+		
+		if ( !super.CanReceiveAttachment(attachment, slotId) )
+		{
+			return false;
 		}		
 		
 		return false;
