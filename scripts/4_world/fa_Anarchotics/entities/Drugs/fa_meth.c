@@ -8,12 +8,12 @@ class Meth extends FA_DrugBase
 	};
 	
 	
-	overrride void SetActions()
+	override void SetActions()
 	{
 		super.SetActions();
 		
 		AddAction(ActionEatSmall);
-	}
+	};
 	
 
 };

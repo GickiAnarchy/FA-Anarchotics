@@ -6,7 +6,7 @@ class Heisenberg extends Edible_Base
 		
 	};
 	
-	bool fa_isIngredient()
+	override bool fa_isIngredient()
 	{
 		return true;
 	}

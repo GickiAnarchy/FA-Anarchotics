@@ -10,5 +10,9 @@ class FA_DrugBase extends Inventory_Base
 		return true;
 	};
 
+	override void SetActions()
+	{
+		super.SetActions();
+	};	
 	
 };

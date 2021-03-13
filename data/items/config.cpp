@@ -4,7 +4,6 @@ class CfgPatches
 	{
 		units[] = 
 		{
-			"RedHeisenberg",
 			"Heisenberg"
 		};
 		weapons[] = {};

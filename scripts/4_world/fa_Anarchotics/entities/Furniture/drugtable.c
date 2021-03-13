@@ -13,8 +13,9 @@ class DrugTable extends FA_Item
 	
 	ref Timer 					m_SoundLoopStartTimer;
 	
-	typename ATTACHMENT_PHOSPHORUS = Phosphorus;  //fa_IngredientSlots[0]
-	typename ATTACHMENT_HEISENBERG = Heisenberg;  //fa_IngredientSlots[1]
+	typename ATTACHMENT_PHOSPHORUS = Phosphorus;  		//fa_IngredientSlots[0]
+	typename ATTACHMENT_HEISENBERG = Heisenberg;  		//fa_IngredientSlots[1]
+	typename ATTACHMENT_BATTERY_9V = Battery9V;			//fa_IngredientSlots[2]
 	
 	const int INGREDIENT_SLOT_COUNT = 4;
 	protected ItemBase fa_IngredientSlots[INGREDIENT_SLOT_COUNT];
@@ -127,8 +128,11 @@ class DrugTable extends FA_Item
 				fa_IngredientSlots[1] = item_base;
 				break;
 				
-				
-		}
+			case "Battery9V":
+				fa_IngredientSlots[2] = item_base;
+				break;
+			
+					}
 	}
 	
 	
@@ -148,7 +152,10 @@ class DrugTable extends FA_Item
 				fa_IngredientSlots[1] = NULL;
 				break;		
 		
-		
+			case "Battery9V":
+				fa_IngredientSlots[2] = NULL;
+				break;
+					
 		}
 	}
 	
@@ -163,7 +170,7 @@ class DrugTable extends FA_Item
 		
 		ItemBase item = ItemBase.Cast( attachment );
 		
-		if (item.fa_isIngredient() == true)
+		if (item.fa_isIngredient() == true || item.Type() == ATTACHMENT_BATTERY_9V)
 		{
 			return true;
 		}
@@ -179,7 +186,7 @@ class DrugTable extends FA_Item
 		
 		ItemBase item = ItemBase.Cast( attachment );
 	
-		if (item.fa_isIngredient() == true)
+		if (item.fa_isIngredient() == true || item.Type() == ATTACHMENT_BATTERY_9V)
 		{
 			return true;
 		}
@@ -198,7 +205,7 @@ class DrugTable extends FA_Item
 		ItemBase item = ItemBase.Cast( attachment );
 		
 		
-		if (item.fa_isIngredient() == true)
+		if (item.fa_isIngredient() == true || item.Type() == ATTACHMENT_BATTERY_9V)
 			return true;
 		
 		return false;

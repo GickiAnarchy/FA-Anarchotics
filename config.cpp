@@ -18,7 +18,7 @@ class CfgMods
 	class Anarchotics
 	{
 	dir = "Anarchotics";
-		picture = "Anarchotics\assets\anarchotics_icon.ico";
+		picture = "";
 		action = "";
 		hideName = 1;
 		hidePicture = 1;
