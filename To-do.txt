@@ -1,4 +1,13 @@
+Process Table Proxies:
+	Phosphorus 		DONE
+	Heisenberg 		DONE
+	PortableStove	
+	CookingTray
+	Battery
+
+
+
 -Fix Phosphorus Proxy FIXED
--Fix Kit Collision
+-Fix Kit Collision FIXED
 -Fix Kit hand placement (Heavy item in config) FIXED
--Fix phosphorus detach ability
+
