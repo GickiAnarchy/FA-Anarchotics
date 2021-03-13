@@ -31,13 +31,7 @@ class CfgSlots
         displayName = "Heisenberg";
         ghostIcon = "missing";
     };
-	
-	class Slot_FAblock
-	{
-		name = "Battery";
-		displayName = "Power source (Battery)";
-		ghostIcon = "missing";
-	};
+
 };
 
 class CfgVehicles
@@ -145,12 +139,18 @@ class CfgnonAIVehicles
 		inventorySlot = "Heisenberg";
 		model = "Anarchotics\data\items\heisenberg\Heisenberg.p3d";
 	};
-	
-	class ProxyFA_Block: ProxyAttachment
+	class Proxybattery_car: ProxyAttachment
 	{
 		scope = 2;
-		inventoryItem = "TableBattery";
-		model = "\Anarchotics\data\proxies\FA_Block.p3d";
+		inventorySlot = "TableBattery";
+		model = "\DZ\vehicles\parts\battery_car.p3d";
 	};
+	class Proxybattery_truck: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "TableBattery";
+		model = "\DZ\vehicles\parts\battery_truck.p3d";
+	};
+	
 
 };

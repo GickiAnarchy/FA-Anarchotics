@@ -130,11 +130,14 @@ class DrugTable extends FA_Item
 				fa_IngredientSlots[1] = item_base;
 				break;
 				
-			case "Battery9V":
+			case "CarBattery":
 				fa_IngredientSlots[2] = item_base;
 				break;
-			
-					}
+
+			case "TruckBattery":
+				fa_IngredientSlots[2] = item_base;
+				break;		
+		}
 	}
 	
 	
@@ -149,12 +152,15 @@ class DrugTable extends FA_Item
 				fa_IngredientSlots[0] = NULL;
 				break;
 		
-		
 			case "Heisenberg":
 				fa_IngredientSlots[1] = NULL;
 				break;		
 		
-			case "Battery9V":
+			case "CarBattery":
+				fa_IngredientSlots[2] = NULL;
+				break;
+
+			case "TruckBattery":
 				fa_IngredientSlots[2] = NULL;
 				break;
 					
@@ -177,6 +183,11 @@ class DrugTable extends FA_Item
 			return true;
 		}
 		
+		if (item.IsKindOf("VehicleBattery"))
+		{
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -193,6 +204,11 @@ class DrugTable extends FA_Item
 			return true;
 		}
 		
+		if (item.IsKindOf("VehicleBattery"))
+		{
+			return true;
+		}		
+		
 		return false;
 	}
 	
@@ -206,9 +222,15 @@ class DrugTable extends FA_Item
 		
 		ItemBase item = ItemBase.Cast( attachment );
 		
-		
 		if (item.fa_isIngredient() == true )
+		{
 			return true;
+		}
+		
+		if (item.IsKindOf("VehicleBattery"))
+		{
+			return true;
+		}		
 		
 		return false;
 	}
