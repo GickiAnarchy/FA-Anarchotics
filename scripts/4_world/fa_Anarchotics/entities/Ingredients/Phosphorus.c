@@ -1,7 +1,5 @@
 class Phosphorus extends FA_Ingredient
 {
-	
-	
 	//
 	//CONSTRUCTOR
 	//
