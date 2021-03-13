@@ -15,7 +15,7 @@ class MethMdfr: ModifierBase
  
 	override bool ActivateCondition(PlayerBase player)
 	{
-		return false;
+		return true;
 	};
 	
 	override void OnReconnect(PlayerBase player)

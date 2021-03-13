@@ -4,7 +4,9 @@ class OverdosingAgent: AgentBase
 	{
 		m_Type 					= AnarchoticsAgents.OVERDOSING;
 		m_Invasibility 			= 0;//increase the agent count by this number per second if potent enough to grow
-		m_TransferabilityIn		= 0;//to the player
+		//m_TransferabilityIn		= 0;//to the player
+		//TESTING
+		m_TransferabilityIn		= 5;
 		m_TransferabilityOut	= 0;//from the player
 		m_AntibioticsResistance = 1;//[0..1], 0 means antibiotics have full effect, 1 means no effect
 		m_MaxCount 				= 100;
