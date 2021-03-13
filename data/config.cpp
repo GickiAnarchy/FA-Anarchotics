@@ -32,26 +32,12 @@ class CfgSlots
         ghostIcon = "missing";
     };
 	
-    class Slot_9vBattery01
-    {
-        name = "9v Battery";
-        displayName = "9v Battery";
-        ghostIcon = "missing";
-    };
-	
-/* 	class Slot_9vBattery02
-    {
-        name = "9v Battery";
-        displayName = "9v Battery";
-        ghostIcon = "missing";
-    };
-	class Slot_9vBattery03
-    {
-        name = "9v Battery";
-        displayName = "9v Battery";
-        ghostIcon = "missing";
-    }; */
-	
+	class Slot_FAblock
+	{
+		name = "Battery";
+		displayName = "Power source (Battery)";
+		ghostIcon = "missing";
+	};
 };
 
 class CfgVehicles
@@ -125,7 +111,7 @@ class CfgVehicles
 		{
 			"Phosphorus",
 			"Heisenberg",
-			"BatteryD"
+			"TableBattery"
 		};
 		class DamageSystem
 		{
@@ -159,25 +145,12 @@ class CfgnonAIVehicles
 		inventorySlot = "Heisenberg";
 		model = "Anarchotics\data\items\heisenberg\Heisenberg.p3d";
 	};
-	class Proxy9v_battery: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "BatteryD";
-		model = "\DZ\gear\consumables\9v_battery.p3d";
-	};
 	
-	/* 
-	class Proxy9v_battery: ProxyAttachment
+	class ProxyFA_Block: ProxyAttachment
 	{
 		scope = 2;
-		inventorySlot = "9v_battery";
-		model = "\DZ\gear\consumables\9v_battery.p3d";
+		inventoryItem = "TableBattery";
+		model = "\Anarchotics\data\proxies\FA_Block.p3d";
 	};
-	class Proxy9v_battery: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "9v_battery";
-		model = "\DZ\gear\consumables\9v_battery.p3d";
-	};
-	 */
+
 };

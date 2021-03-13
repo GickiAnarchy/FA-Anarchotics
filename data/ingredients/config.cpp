@@ -96,8 +96,10 @@ class CfgVehicles
 		};		
 	};
 	
+	class Heisenberg_Ingredient: Inventory_Base
+	{
+		scope = 2;
+		displayName = "Heisenberg Product";
+	};
+	
 };
-
-
-
-

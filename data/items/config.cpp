@@ -11,7 +11,8 @@ class CfgPatches
 		requiredAddons[] = 
 		{
 			"DZ_Data",
-			"DZ_Gear"
+			"DZ_Gear",
+			"DZ_Vehicles_Parts"
 		};
 	};
 };
@@ -20,6 +21,7 @@ class CfgPatches
 class CfgVehicles
 {
 	class Edible_Base;
+	class Inventory_Base;
 	class SodaCan_ColorBase: Edible_Base {};
 	
 	class Heisenberg_Base:  SodaCan_ColorBase
@@ -111,6 +113,15 @@ class CfgVehicles
 		scope = 2;
 		displayName = "Heisenberg";
 		descriptionShort = "";
+		ChangeInventorySlot[]=
+		{
+			"Heisenberg"
+		};
+		ChangeIntoOnAttach[]=
+		{
+			"",
+			"Heisenberg_Ingredient"
+		};
 		hiddenSelections[] = 
 		{
 			"can"
@@ -119,10 +130,7 @@ class CfgVehicles
 		{
 			"\Anarchotics\data\items\heisenberg\data\Heisenberg_co.paa"
 		};
-		inventorySlot[] =
-		{
-			"Heisenberg"
-		};
+
 		class AnimEvents
 		{
 			class SoundWeapon
@@ -156,4 +164,24 @@ class CfgVehicles
 		};
 	};
 	
+	class CarBattery: Inventory_Base
+	{
+		inventorySlot[] =
+		{
+			"LargeBattery",
+			"CarBattery",
+			"TableBattery"
+		};
+	};
+	
+	class TruckBattery: Inventory_Base
+	{
+		inventorySlot[] =
+		{
+			"LargeBattery",
+			"TruckBattery",
+			"TableBattery"
+		};
+	};
+
 };

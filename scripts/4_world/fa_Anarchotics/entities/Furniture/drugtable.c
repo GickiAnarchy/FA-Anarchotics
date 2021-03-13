@@ -15,7 +15,9 @@ class DrugTable extends FA_Item
 	
 	typename ATTACHMENT_PHOSPHORUS = Phosphorus;  		//fa_IngredientSlots[0]
 	typename ATTACHMENT_HEISENBERG = Heisenberg;  		//fa_IngredientSlots[1]
-	typename ATTACHMENT_BATTERY_9V = Battery9V;			//fa_IngredientSlots[2]
+	
+	string Attachement00 = "Phosphorus";
+	string Attachement01 = "Heisenberg";
 	
 	const int INGREDIENT_SLOT_COUNT = 4;
 	protected ItemBase fa_IngredientSlots[INGREDIENT_SLOT_COUNT];
@@ -170,7 +172,7 @@ class DrugTable extends FA_Item
 		
 		ItemBase item = ItemBase.Cast( attachment );
 		
-		if (item.fa_isIngredient() == true || item.Type() == ATTACHMENT_BATTERY_9V)
+		if (item.fa_isIngredient() == true )
 		{
 			return true;
 		}
@@ -186,7 +188,7 @@ class DrugTable extends FA_Item
 		
 		ItemBase item = ItemBase.Cast( attachment );
 	
-		if (item.fa_isIngredient() == true || item.Type() == ATTACHMENT_BATTERY_9V)
+		if (item.fa_isIngredient() == true )
 		{
 			return true;
 		}
@@ -205,7 +207,7 @@ class DrugTable extends FA_Item
 		ItemBase item = ItemBase.Cast( attachment );
 		
 		
-		if (item.fa_isIngredient() == true || item.Type() == ATTACHMENT_BATTERY_9V)
+		if (item.fa_isIngredient() == true )
 			return true;
 		
 		return false;
