@@ -6,7 +6,9 @@ class CfgPatches
 		{
 			"DrugTable",
 			"DrugTableKit",
-			"Phosphorus"
+			"Phosphorus",
+			"RaidSpray",
+			"Heisenberg"
 		};
 		weapons[] = {};
 		requiredVersion = 0.1;
@@ -19,12 +21,76 @@ class CfgPatches
 
 class CfgSlots
 {
-
+	class Slot_Material_Phosphorus
+	{
+		name = "Material_Phosphorus";
+		displayName = "Phosphorus";
+		selection = "Material_Phosphorus";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	class Slot_Material_Heisenberg
+	{
+		name = "Material_Heisenberg";
+		displayName = "Heisenberg";
+		selection = "Material_Heisenberg";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	class Slot_Material_RaidSpray
+	{
+		name = "Material_RaidSpray";
+		displayName = "Raid";
+		selection = "Material_RaidSpray";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	class Slot_Material_Epinephrine
+	{
+		name = "Material_Epinephrine";
+		displayName = "Epinephrine";
+		selection = "Material_Epinephrine";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	class Slot_Material_Wok
+	{
+		name = "Material_Wok";
+		displayName = "Wok";
+		selection = "Material_Wok";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	class Slot_Material_PortableStove
+	{
+		name = "Material_PortableStove";
+		displayName = "Portable Stove";
+		selection = "Material_PortableStove";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	class Slot_Material_Battery
+	{
+		name = "Material_Battery";
+		displayName = "Power Source";
+		selection = "Material_Battery";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	
+	
 };
 
 class CfgVehicles
 {
 	class Inventory_Base;
+	class Spraycan_ColorBase: Inventory_Base{};
+	class Container_Base;
+	class Edible_Base;
+	class SodaCan_ColorBase: Edible_Base{};
+	class FA_Item: Container_Base {};
+	class FA_Item_Kit: FA_Item {};
+	
 		
 	//
 	//DRUG TABLE
@@ -44,9 +110,42 @@ class CfgVehicles
 		weight = 25000;
 		physLayer = "item_large";
 		simulation = "inventoryItem";
-		attachments[] =
+		class GUIInventoryAttachmentsProps
 		{
-			//TODO
+			class Materials
+			{
+				name = "Ingredients";
+				description = "";
+				attachmentSlots[] = 
+				{
+					"Material_Phosphorus",
+					"Material_Heisenberg",
+					"Material_RaidSpray",
+					"Material_Epinephrine"
+				};
+				icon = "missing";
+			};
+			class Power
+			{
+				name = "Power Source";
+				description = "";
+				attachmentSlots[] =
+				{
+					"Material_Battery"
+				};
+				icon = "missing";
+			};
+			class Equipment
+			{
+				name = "Equipment to cook with";
+				description = "";
+				attachmentSlots[] =
+				{
+					"Material_Wok",
+					"Material_PortableStove"
+				};
+				icon = "missing";
+			};
 		};
 		class DamageSystem
 		{
@@ -82,7 +181,7 @@ class CfgVehicles
 		};
 		inventorySlot[] =
 		{
-			//TODO
+			"Material_Phosphorus"
 		};
 		class DamageSystem
 		{
@@ -138,6 +237,154 @@ class CfgVehicles
 			};
 		};		
 	};	
+	class Heisenberg_Base:  SodaCan_ColorBase
+	{
+		scope = 0;
+		model = "\Anarchotics\data\items\heisenberg\Heisenberg.p3d";
+		stackedRandom = 0;
+		itemSize[] = {1,2};
+		weight = 15;
+		stackedUnit = "";
+		varQuantityInit = 330;
+		varQuantityMin = 0;
+		varQuantityMax = 330;
+		isMeleeWeapon = 1;
+		inventorySlot[] =
+		{
+			"Material_Heisenberg"
+		};
+		hiddenSelections[] = 
+		{
+			"can"
+		};
+		hiddenSelectionsTextures[] = 
+		{
+			"\Anarchotics\data\items\heisenberg\data\Heisenberg_co.paa"
+		};
+		class GlobalHealth
+		{
+			class Health
+			{
+				hitpoints = 30;
+				healthLevels[] = 
+				{
+					{
+						1.0,
+						{
+							"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"
+						}
+					},
+					{
+						0.7,
+						{
+							"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"
+						}
+					},
+					{
+						0.5,
+						{
+							"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"
+						}
+					},
+					{
+						0.3,
+						{
+							"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"
+						}
+					},
+					{
+						0.0,
+						{
+							"DZ\gear\drinks\data\Drink_WaterPouch_Natural_destruct.rvmat"
+						}
+					}
+				};
+			};
+		};
+		class Nutrition
+		{
+			totalVolume = 1;
+			energy = 59.5;
+			water = 69;
+			nutritionalIndex = 1;
+			toxicity = 0;
+		};
+		class MeleeModes
+		{
+			class Default
+			{
+				ammo = "MeleeLightBlunt";
+				range = 1.0;
+			};
+			class Heavy
+			{
+				ammo = "MeleeLightBlunt_Heavy";
+				range = 1.0;
+			};
+			class Sprint
+			{
+				ammo = "MeleeLightBlunt_Heavy";
+				range = 2.8;
+			};
+		};
+	};
+	class Heisenberg: Heisenberg_Base
+	{
+		scope = 2;
+		displayName = "Heisenberg's Blue Sky";
+		descriptionShort = "A high powered energy drink for the strong people with weak and heavy eyes. Guaranteed to give you a boost. Use with caution.";
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class SodaCan_in_B
+				{
+					soundSet = "SodaCan_in_B_SoundSet";
+					id = 202;
+				};
+				class WellPond_loop
+				{
+					soundSet = "WellPond_loop_SoundSet";
+					id = 209;
+				};
+				class WellBottle_loop
+				{
+					soundSet = "WellBottle_loop_SoundSet";
+					id = 210;
+				};
+				class pickup
+				{
+					soundSet = "SodaCan_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "SodaCan_drop_SoundSet";
+					id = 898;
+				};
+			};
+		};
+	};
+	class RaidSpray: Spraycan_ColorBase
+	{
+		scope = 2;
+		displayName = "";
+		descriptionShort = "";
+		model = "\DZ\gear\consumables\spraycan.p3d";
+		inventorySlot[] = 
+		{
+			"Material_RaidSpray"
+		};
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsTextures[] =
+		{
+			"\Anarchotics\data\items\raidspray\fa_raidspray_co.paa"
+		};
+	};
+	
 	
 	
 	//
@@ -149,5 +396,43 @@ class CfgVehicles
 
 class CfgnonAIVehicles
 {
-
+	class ProxyAttachment;
+	
+	
+	class ProxyMaterial_PortableStove: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_PortableStove";
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_PortableStove.p3d";
+	};
+	class ProxyMaterial_Battery: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_Battery";
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_Battery.p3d";
+	};
+	class Proxydexamphetamine: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_Phosphorus";
+		model="\DZ\gear\medical\dexamphetamine.p3d";
+	};
+	class ProxyHeisenberg: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_Heisenberg";
+		model = "\Anarchotics\data\items\heisenberg\Heisenberg.p3d";
+	};
+	class Proxyspraycan: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_RaidSpray";
+		model = "\DZ\gear\consumables\spraycan.p3d";
+	};
+	class ProxyEpinephrine: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_Epinephrine";
+		model="\dz\gear\medical\Epinephrine.p3d";
+	};	
 };

@@ -1,23 +1,35 @@
 class DrugTable extends FA_Item
 {
-	// float						m_Fuel;
-	// private static float		m_FuelTankCapacity; // Capacity in ml.
-	// private static float		m_FuelToEnergyRatio; // Conversion ratio of 1 ml of fuel to X Energy
-	// private int					m_FuelPercentage;
 	
-	static const string			START_SOUND = "powerGeneratorTurnOn_SoundSet";
-	static const string			LOOP_SOUND = "powerGeneratorLoop_SoundSet";
-	static const string			STOP_SOUND = "powerGeneratorTurnOff_SoundSet";
-	static const string 		SPARKPLUG_ATTACH_SOUND = "sparkplug_attach_SoundSet";
-	static const string 		SPARKPLUG_DETACH_SOUND = "sparkplug_detach_SoundSet";
+	//
+	const string ATTACHMENT_SLOT_PHOSPHORUS				=	"Material_Phosphorus";
+	const string ATTACHMENT_SLOT_HEISENBURG				=	"Material_Heisenberg";
+	const string ATTACHMENT_SLOT_RAIDSPRAY				=	"Material_RaidSpray";
+	const string ATTACHMENT_SLOT_EPINEPHRINE			=	"Material_Epinephrine";
+	const string ATTACHMENT_SLOT_WOK					=	"Material_Wok";
+	const string ATTACHMENT_SLOT_PORTABLESTOVE			=	"Material_PortableStove";
+	const string ATTACHMENT_SLOT_BATTERY				=	"Material_Battery";
 	
-	ref Timer 					m_SoundLoopStartTimer;
-	
+	ItemBase	fa_phosphorus;
+	ItemBase	fa_heisenberg;
+	ItemBase	fa_raidspray;
+	ItemBase	fa_epinephrine;
+	ItemBase	fa_wok;
+	ItemBase	fa_portablestove;
+	ItemBase	fa_battery;
 	
 	
 	// CONSTRUCTOR
 	void DrugTable()
 	{
+		fa_phosphorus			= NULL;
+		fa_heisenberg			= NULL;
+		fa_raidspray			= NULL;
+		fa_epinephrine			= NULL;
+		fa_wok					= NULL;
+		fa_portablestove		= NULL;
+		fa_battery				= NULL;
+		
 		Set_FA_KitName("DrugTableKit");
 		SetEventMask(EntityEvent.INIT); // Enable EOnInit event
 	}
@@ -104,12 +116,96 @@ class DrugTable extends FA_Item
 		super.EEItemAttached ( item, slot_name );
 		ItemBase item_base = ItemBase.Cast( item );
 		
+		string item_name;
+		item_name = item_base.getName();
+		
+		switch(item_name)
+		{
+			case "Phosphorus":
+				fa_phosphorus = item_base;
+				
+				break;
+				
+			case "TruckBattery":
+				fa_battery = item_base;
+				
+				break;
+				
+			case "Wok":
+				fa_wok = item_base;
+				
+				break;
+				
+			case "Epinephrine":
+				fa_epinephrine = item_base;
+				
+				break;
+				
+			case "PortableGasStove":
+				fa_portablestove = item_base;
+				
+				break;
+				
+			case "RaidSpray":
+				fa_raidspray = item_base;
+				
+				break;
+				
+			case "Heisenberg":
+				fa_heisenberg = item_base;
+				
+				break;
+				
+		}
+		
 	}
 	
 	override void EEItemDetached ( EntityAI item, string slot_name )
 	{
 		super.EEItemDetached ( item, slot_name );
 		ItemBase item_base = ItemBase.Cast( item );
+		
+		string item_name;
+		item_name = item_base.getName();
+		
+		switch(item_name)
+		{
+			case "Phosphorus":
+				fa_phosphorus = NULL;
+				
+				break;
+				
+			case "TruckBattery":
+				fa_battery = NULL;
+				
+				break;
+				
+			case "Wok":
+				fa_wok = NULL;
+				
+				break;
+				
+			case "Epinephrine":
+				fa_epinephrine = NULL;
+				
+				break;
+				
+			case "PortableGasStove":
+				fa_portablestove = NULL;
+				
+				break;
+				
+			case "RaidSpray":
+				fa_raidspray = NULL;
+				
+				break;
+				
+			case "Heisenberg":
+				fa_heisenberg = NULL;
+				
+				break;
+				
+		}
 		
 	}
 	
@@ -150,7 +246,56 @@ class DrugTable extends FA_Item
 		
 		ItemBase item = ItemBase.Cast( attachment );
 		
-		return false;
+		/* string item_name;
+		item_name = item.getName();
+		
+		switch(item_name)
+		{
+			case "Phosphorus":
+				fa_phosphorus = item;
+				
+				break;
+				
+			case "TruckBattery":
+				fa_battery= item;
+				
+				break;
+				
+			case "Wok":
+				fa_wok= item;
+				
+				break;
+				
+			case "Epinephrine":
+				fa_epinephrine= item;
+				
+				break;
+				
+			case "PortableGasStove":
+				fa_portablestove= item;
+				
+				break;
+				
+			case "RaidSpray":
+				fa_raidspray= item;
+				
+				break;
+				
+			case "Heisenberg":
+				fa_heisenberg= item;
+				
+				break;
+				
+		} */
+		
+		if (item.fa_isIngredient() == true)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 
