@@ -117,8 +117,8 @@ class DrugTable extends FA_Item
 		ItemBase item_base = ItemBase.Cast( item );
 		
 		string item_name;
-		item_name = item_base.getName();
-		
+		item_name = item_base.GetName();
+				
 		switch(item_name)
 		{
 			case "Phosphorus":
@@ -166,7 +166,7 @@ class DrugTable extends FA_Item
 		ItemBase item_base = ItemBase.Cast( item );
 		
 		string item_name;
-		item_name = item_base.getName();
+		item_name = item_base.GetName();
 		
 		switch(item_name)
 		{
