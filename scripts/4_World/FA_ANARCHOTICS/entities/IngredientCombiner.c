@@ -1,0 +1,9 @@
+class IngredientCombiner
+{
+
+	void IngredientCombiner()
+	{
+		
+	}
+	
+}

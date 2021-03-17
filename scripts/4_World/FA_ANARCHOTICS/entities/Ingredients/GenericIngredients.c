@@ -59,3 +59,9 @@ modded class TruckBattery : VehicleBattery
 	};
 	
 };
+
+
+class RedPhosphorus extends FA_Ingredient
+{
+	
+};

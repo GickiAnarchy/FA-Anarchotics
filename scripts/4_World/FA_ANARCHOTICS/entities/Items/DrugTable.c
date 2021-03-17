@@ -1,40 +1,30 @@
 class DrugTable extends FA_Item
 {
+		
+	typename ATTACHMENT_PHOSPHORUS 						= Phosphorus;
+	typename ATTACHMENT_HEISENBERG						= Heisenberg;
+	typename ATTACHMENT_RAID							= RaidSpray;
+	typename ATTACHMENT_EPINEPHRINE						= Epinephrine;
+	typename ATTACHMENT_GASSTOVE						= PortableGasStove;
+	//typename ATTACHMENT_WOK							= FA_Wok;
+	typename ATTACHMENT_BATTERY							= TruckBattery;
 	
-	//
-	const string ATTACHMENT_SLOT_PHOSPHORUS				=	"Material_Phosphorus";
-	const string ATTACHMENT_SLOT_HEISENBURG				=	"Material_Heisenberg";
-	const string ATTACHMENT_SLOT_RAIDSPRAY				=	"Material_RaidSpray";
-	const string ATTACHMENT_SLOT_EPINEPHRINE			=	"Material_Epinephrine";
-	const string ATTACHMENT_SLOT_WOK					=	"Material_Wok";
-	const string ATTACHMENT_SLOT_PORTABLESTOVE			=	"Material_PortableStove";
-	const string ATTACHMENT_SLOT_BATTERY				=	"Material_Battery";
+	const int INGREDIENTS_SLOT_COUNT = 6;
+	ItemBase fa_Ingredients[INGREDIENTS_SLOT_COUNT];
 	
-	ItemBase	fa_phosphorus;
-	ItemBase	fa_heisenberg;
-	ItemBase	fa_raidspray;
-	ItemBase	fa_epinephrine;
-	ItemBase	fa_wok;
-	ItemBase	fa_portablestove;
-	ItemBase	fa_battery;
+	bool hasBattery;
 	
+	protected ref IngredientCombiner FA_IngredientCombiner;
 	
 	// CONSTRUCTOR
 	void DrugTable()
-	{
-		fa_phosphorus			= NULL;
-		fa_heisenberg			= NULL;
-		fa_raidspray			= NULL;
-		fa_epinephrine			= NULL;
-		fa_wok					= NULL;
-		fa_portablestove		= NULL;
-		fa_battery				= NULL;
-		
+	{	
+		hasBattery= false;
+	
 		Set_FA_KitName("DrugTableKit");
 		SetEventMask(EntityEvent.INIT); // Enable EOnInit event
 	}
-
-
+	
 	//INIT
 	override void EOnInit( IEntity other, int extra)
 	{
@@ -81,7 +71,7 @@ class DrugTable extends FA_Item
 	===================================*/
 	override void OnInitEnergy()
 	{
-		
+		hasBattery = false;
 	}
 	
 	// Generator is working
@@ -116,48 +106,42 @@ class DrugTable extends FA_Item
 		super.EEItemAttached ( item, slot_name );
 		ItemBase item_base = ItemBase.Cast( item );
 		
-		string item_name;
-		item_name = item_base.GetName();
-				
-		switch(item_name)
+		if (item_base.Type() == ATTACHMENT_PHOSPHORUS)
 		{
-			case "Phosphorus":
-				fa_phosphorus = item_base;
-				
-				break;
-				
-			case "TruckBattery":
-				fa_battery = item_base;
-				
-				break;
-				
-			case "Wok":
-				fa_wok = item_base;
-				
-				break;
-				
-			case "Epinephrine":
-				fa_epinephrine = item_base;
-				
-				break;
-				
-			case "PortableGasStove":
-				fa_portablestove = item_base;
-				
-				break;
-				
-			case "RaidSpray":
-				fa_raidspray = item_base;
-				
-				break;
-				
-			case "Heisenberg":
-				fa_heisenberg = item_base;
-				
-				break;
-				
-		}
+			fa_Ingredients[0] = item_base;
+		};
+
+		if (item_base.Type() == ATTACHMENT_HEISENBERG)
+		{
+			fa_Ingredients[1] = item_base;
+		};
 		
+		if (item_base.Type() == ATTACHMENT_RAID)
+		{
+			fa_Ingredients[2] = item_base;
+		};
+		
+		if (item_base.Type() == ATTACHMENT_EPINEPHRINE)
+		{
+			fa_Ingredients[3] = item_base;
+		};
+
+		/*if (item_base.Type() == ATTACHMENT_WOK)
+		{
+			fa_Ingredients[4] = item_base;
+		};*/
+		
+		if (item_base.Type() == ATTACHMENT_GASSTOVE)
+		{
+			fa_Ingredients[5] = item_base;
+		};
+		
+		
+		if (item_base.Type() == ATTACHMENT_BATTERY)
+		{
+			hasBattery = true;
+		};
+				
 	}
 	
 	override void EEItemDetached ( EntityAI item, string slot_name )
@@ -165,47 +149,41 @@ class DrugTable extends FA_Item
 		super.EEItemDetached ( item, slot_name );
 		ItemBase item_base = ItemBase.Cast( item );
 		
-		string item_name;
-		item_name = item_base.GetName();
-		
-		switch(item_name)
+		if (item_base.Type() == ATTACHMENT_PHOSPHORUS)
 		{
-			case "Phosphorus":
-				fa_phosphorus = NULL;
-				
-				break;
-				
-			case "TruckBattery":
-				fa_battery = NULL;
-				
-				break;
-				
-			case "Wok":
-				fa_wok = NULL;
-				
-				break;
-				
-			case "Epinephrine":
-				fa_epinephrine = NULL;
-				
-				break;
-				
-			case "PortableGasStove":
-				fa_portablestove = NULL;
-				
-				break;
-				
-			case "RaidSpray":
-				fa_raidspray = NULL;
-				
-				break;
-				
-			case "Heisenberg":
-				fa_heisenberg = NULL;
-				
-				break;
-				
-		}
+			fa_Ingredients[0] = NULL;
+		};
+		
+		if (item_base.Type() == ATTACHMENT_HEISENBERG)
+		{
+			fa_Ingredients[1] = NULL;
+		};
+		
+		if (item_base.Type() == ATTACHMENT_RAID)
+		{
+			fa_Ingredients[2] = NULL;
+		};
+		
+		if (item_base.Type() == ATTACHMENT_EPINEPHRINE)
+		{
+			fa_Ingredients[3] = NULL;
+		};
+
+		/*if (item_base.Type() == ATTACHMENT_WOK)
+		{
+			fa_Ingredients[4] = NULL;
+		};*/
+		
+		if (item_base.Type() == ATTACHMENT_GASSTOVE)
+		{
+			fa_Ingredients[5] = NULL;
+		};
+		
+		
+		if (item_base.Type() == ATTACHMENT_BATTERY)
+		{
+			hasBattery = false;
+		};
 		
 	}
 	
@@ -215,89 +193,61 @@ class DrugTable extends FA_Item
 	//================================================================
 	override bool CanLoadAttachment( EntityAI attachment )
 	{
+		ItemBase item = ItemBase.Cast( attachment );
+		
 		if ( !super.CanLoadAttachment(attachment) )
 		{
 			return false;
 		}
-			
-		ItemBase item = ItemBase.Cast( attachment );
+		
+		if (item.fa_isIngredient() == true)
+		{
+			return true;
+		}
 		
 		return false;
 	}
 
 	override bool CanReleaseAttachment( EntityAI attachment )
 	{	
+		ItemBase item = ItemBase.Cast( attachment );
+		
 		if( !super.CanReleaseAttachment( attachment ) )
 		{
 			return false;
 		}
-			
-		ItemBase item = ItemBase.Cast( attachment );
-		
-		return false;
-	}
-	
-	override bool CanReceiveAttachment( EntityAI attachment, int slotId )
-	{
-		if ( !super.CanReceiveAttachment(attachment, slotId) )
-		{
-			return false;
-		}		
-		
-		ItemBase item = ItemBase.Cast( attachment );
-		
-		/* string item_name;
-		item_name = item.getName();
-		
-		switch(item_name)
-		{
-			case "Phosphorus":
-				fa_phosphorus = item;
-				
-				break;
-				
-			case "TruckBattery":
-				fa_battery= item;
-				
-				break;
-				
-			case "Wok":
-				fa_wok= item;
-				
-				break;
-				
-			case "Epinephrine":
-				fa_epinephrine= item;
-				
-				break;
-				
-			case "PortableGasStove":
-				fa_portablestove= item;
-				
-				break;
-				
-			case "RaidSpray":
-				fa_raidspray= item;
-				
-				break;
-				
-			case "Heisenberg":
-				fa_heisenberg= item;
-				
-				break;
-				
-		} */
 		
 		if (item.fa_isIngredient() == true)
 		{
 			return true;
 		}
-		else
+			
+		return false;
+	}
+	
+	override bool CanReceiveAttachment( EntityAI attachment, int slotId )
+	{
+		ItemBase item = ItemBase.Cast( attachment );
+		
+		if ( !super.CanReceiveAttachment(attachment, slotId) )
 		{
 			return false;
 		}
-	}
+		
+		if (item.fa_isIngredient() == true)
+		{
+			return true;
+		}		
+		
+		return false;
 
+	}
+	
+	bool isBatteryAttached()
+	{
+		return hasBattery;
+	}
+	
 
 	//================================================================
 	//ACTIONS
@@ -307,6 +257,38 @@ class DrugTable extends FA_Item
 		super.SetActions();
 	}
 	
+	
+	//================================================================
+	//COMBINE INGREDIENTS
+	//================================================================	
+	bool hasCookingItems()
+	{
+		if (fa_Ingredients[5] != NULL)	//(fa_Ingredients[4] != NULL && fa_Ingredients[5] != NULL)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	bool ReadyToProcess()
+	{
+		if ( !hasBattery || !hasCookingItems )
+		{
+			return false;
+		}
+		return true;
+		
+		
+		
+	}
+	
+	
+	
+	//REFERENCE TO CREATE AN ITEM IN THIS ITEMS INVENTORY
+	//entity.GetInventory().CreateInInventory( "TruckBattery" );
 	
 }
 

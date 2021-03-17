@@ -19,67 +19,6 @@ class CfgPatches
 	};
 };
 
-class CfgSlots
-{
-	class Slot_Material_Phosphorus
-	{
-		name = "Material_Phosphorus";
-		displayName = "Phosphorus";
-		selection = "Material_Phosphorus";
-		ghostIcon = "missing";
-		show = "false";
-	};
-	class Slot_Material_Heisenberg
-	{
-		name = "Material_Heisenberg";
-		displayName = "Heisenberg";
-		selection = "Material_Heisenberg";
-		ghostIcon = "missing";
-		show = "false";
-	};
-	class Slot_Material_RaidSpray
-	{
-		name = "Material_RaidSpray";
-		displayName = "Raid";
-		selection = "Material_RaidSpray";
-		ghostIcon = "missing";
-		show = "false";
-	};
-	class Slot_Material_Epinephrine
-	{
-		name = "Material_Epinephrine";
-		displayName = "Epinephrine";
-		selection = "Material_Epinephrine";
-		ghostIcon = "missing";
-		show = "false";
-	};
-	class Slot_Material_Wok
-	{
-		name = "Material_Wok";
-		displayName = "Wok";
-		selection = "Material_Wok";
-		ghostIcon = "missing";
-		show = "false";
-	};
-	class Slot_Material_PortableStove
-	{
-		name = "Material_PortableStove";
-		displayName = "Portable Stove";
-		selection = "Material_PortableStove";
-		ghostIcon = "missing";
-		show = "false";
-	};
-	class Slot_Material_Battery
-	{
-		name = "Material_Battery";
-		displayName = "Power Source";
-		selection = "Material_Battery";
-		ghostIcon = "missing";
-		show = "false";
-	};
-	
-	
-};
 
 class CfgVehicles
 {
@@ -110,7 +49,18 @@ class CfgVehicles
 		weight = 25000;
 		physLayer = "item_large";
 		simulation = "inventoryItem";
-		class GUIInventoryAttachmentsProps
+		attachments[] =
+		{
+			"Material_Phosphorus",
+			"Material_Heisenberg",
+			"Material_RedHeisenberg"
+			// "Material_RaidSpray",
+			// "Material_Epinephrine",
+			// "Material_Battery",
+			// "Material_Wok",
+			// "Material_PortableStove"
+		};
+		/* class GUIInventoryAttachmentsProps
 		{
 			class Materials
 			{
@@ -146,7 +96,7 @@ class CfgVehicles
 				};
 				icon = "missing";
 			};
-		};
+		}; */
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -365,6 +315,20 @@ class CfgVehicles
 			};
 		};
 	};
+	class RedHeisenberg: Heisenberg_Base
+	{
+		scope = 2;
+		displayName = "Red Heisenberg";
+		descriptionShort = "Heisenberg with phosphorus mixed in";
+		hiddenSelections[] =
+		{
+			"\Anarchotics\data\items\heisenberg\data\RedHeisenberg_co.paa"
+		};
+		inventorySlot[] =
+		{
+			"Material_RedHeisenberg"
+		};
+	}
 	class RaidSpray: Spraycan_ColorBase
 	{
 		scope = 2;
@@ -394,35 +358,107 @@ class CfgVehicles
 	
 };
 
+class CfgSlots
+{
+	//Phase 1
+	class Slot_Material_Phosphorus
+	{
+		name = "Material_Phosphorus";
+		displayName = "Phosphorus";
+		selection = "Material_Phosphorus";
+		ghostIcon = "missing";
+		//show = "false";
+	};
+	class Slot_Material_Heisenberg
+	{
+		name = "Material_Heisenberg";
+		displayName = "Heisenberg";
+		selection = "Material_Heisenberg";
+		ghostIcon = "missing";
+		//show = "false";
+	};	
+	/*
+	class Slot_Material_RaidSpray
+	{
+		name = "Material_RaidSpray";
+		displayName = "Raid";
+		selection = "Material_RaidSpray";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	class Slot_Material_Epinephrine
+	{
+		name = "Material_Epinephrine";
+		displayName = "Epinephrine";
+		selection = "Material_Epinephrine";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	class Slot_Material_Wok
+	{
+		name = "Material_Wok";
+		displayName = "Wok";
+		selection = "Material_Wok";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	class Slot_Material_PortableStove
+	{
+		name = "Material_PortableStove";
+		displayName = "Portable Stove";
+		selection = "Material_PortableStove";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	class Slot_Material_Battery
+	{
+		name = "Material_Battery";
+		displayName = "Power Source";
+		selection = "Material_Battery";
+		ghostIcon = "missing";
+		show = "false";
+	}; */
+	
+	//Phase 2
+	class Slot_Material_RedHeisenberg
+	{
+		name = "Material_RedHeisenberg";
+		displayName = "Red Heisenberg";
+		selection = "Material_RedHeisenberg";
+		ghostIcon = "missing";
+		//show = "false";
+	};
+	
+	
+};
+
 class CfgnonAIVehicles
 {
 	class ProxyAttachment;
 	
-	
-	class ProxyMaterial_PortableStove: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "Material_PortableStove";
-		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_PortableStove.p3d";
-	};
-	class ProxyMaterial_Battery: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "Material_Battery";
-		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_Battery.p3d";
-	};
+	//Phase 1
 	class Proxydexamphetamine: ProxyAttachment
 	{
 		scope = 2;
 		inventorySlot = "Material_Phosphorus";
 		model="\DZ\gear\medical\dexamphetamine.p3d";
 	};
-	class ProxyHeisenberg: ProxyAttachment
+	class ProxyMaterial_Heisenberg: ProxyAttachment
 	{
 		scope = 2;
 		inventorySlot = "Material_Heisenberg";
-		model = "\Anarchotics\data\items\heisenberg\Heisenberg.p3d";
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_Heisenberg.p3d";
 	};
+
+	//Phase 2
+	class ProxyMaterial_RedHeisenberg: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_RedHeisenberg";
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_RedHeisenberg.p3d";
+	};
+	
+	/*
 	class Proxyspraycan: ProxyAttachment
 	{
 		scope = 2;
@@ -434,5 +470,17 @@ class CfgnonAIVehicles
 		scope = 2;
 		inventorySlot = "Material_Epinephrine";
 		model="\dz\gear\medical\Epinephrine.p3d";
-	};	
+	};
+	class ProxyMaterial_PortableStove: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_PortableStove";
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_PortableStove.p3d";
+	};
+	class ProxyMaterial_Battery: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_Battery";
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_Battery.p3d";
+	}; */
 };
