@@ -8,6 +8,8 @@ class ActionProcessMethCB : ActionContinuousBaseCB
  
 class ActionProcessMeth: ActionContinuousBase
 {
+	const string debugmsg = "CALLED WITH FA_TESTING FUNCTION";
+	
 	void ActionProcessMeth()
 	{
 		m_CallbackClass = ActionProcessMethCB;
@@ -34,7 +36,7 @@ class ActionProcessMeth: ActionContinuousBase
 		Object targetObject = target.GetObject();
 		if ( targetObject )
 		{	
-			ItemBase fa_item = ItemBase.Cast( targetObject );
+			DrugTable fa_item = DrugTable.Cast( targetObject );
 			if(fa_item){
 				if(fa_item.IsInvEmpty())
 				{
@@ -44,10 +46,19 @@ class ActionProcessMeth: ActionContinuousBase
 				{
 				    return false;
 				}
-				//if (fa_item.)
-				//{
-				//	return true;            
-				//}
+				
+				if ( fa_item.ReadyToProcess() && fa_item.HasAllIngredients() )
+				{
+					return true;            
+				}
+				
+				//BELOW IS OR TESTING
+				if ( fa_item.isBatteryAttached() == true )
+				{
+					DebugPrint dp = new DebugPrint();
+					dp.Log(debugmsg);
+					return true;
+				}
 			}
 		}
 		return false;

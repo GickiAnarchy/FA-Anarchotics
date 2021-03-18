@@ -275,14 +275,38 @@ class DrugTable extends FA_Item
 	
 	bool ReadyToProcess()
 	{
-		if ( !hasBattery || !hasCookingItems )
+		if ( isBatteryAttached() == false || hasCookingItems() == false )
 		{
 			return false;
 		}
 		return true;
+	}
+	
+	bool HasAllIngredients()
+	{
+		int total = 0;
+		for (int i = 0; i <= INGREDIENTS_SLOT_COUNT; i++)
+		{
+			ItemBase item = fa_Ingredients[i];
+			
+			if (item == NULL)
+			{	
+				return false;
+			}
+			else
+			{
+				total++;
+			}	
+		}
 		
-		
-		
+		if (total == 5)		//(total == 6)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	
