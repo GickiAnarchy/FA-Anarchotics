@@ -1,9 +1,27 @@
+enum PROCESSABLE_DRUGS
+{
+	METH = 1,
+	HEROIN = 2,
+	SHROOMS = 3,
+	SERENITY = 4,
+}
+
 class FA_Item extends ItemBase
 {
+	FA_Item(int type)
+	{
+		
+	}
+	
+	
+	
+	
 	//
 	//VARIABLES
 	//
 	protected string FA_KitName = "null";
+	
+	protected FA_DrugBase finalDrug;
 	
 	
 	//

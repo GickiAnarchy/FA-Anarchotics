@@ -35,9 +35,20 @@ class ActionProcessMeth: ActionContinuousBase
 	{	
 		Object targetObject = target.GetObject();
 		if ( targetObject )
-		{	
-			DrugTable fa_item = DrugTable.Cast( targetObject );
-			if(fa_item){
+		{
+			DrugTable_Meth fa_item = DrugTable_Meth.Cast( targetObject );
+						
+			//BELOW IS FOR TESTING
+			if ( fa_item.isBatteryAttached() == true )
+			{
+				DebugPrint dp = new DebugPrint();
+				dp.Log(debugmsg);
+				return true;
+			}
+			
+			/*
+			if(fa_item)
+			{
 				if(fa_item.IsInvEmpty())
 				{
 				    return false;
@@ -52,15 +63,10 @@ class ActionProcessMeth: ActionContinuousBase
 					return true;            
 				}
 				
-				//BELOW IS OR TESTING
-				if ( fa_item.isBatteryAttached() == true )
-				{
-					DebugPrint dp = new DebugPrint();
-					dp.Log(debugmsg);
-					return true;
-				}
 			}
+			*/
 		}
+		
 		return false;
 	}
 		
