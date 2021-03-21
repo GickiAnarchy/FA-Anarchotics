@@ -13,7 +13,10 @@ class RaidSpray extends FA_Ingredient
 
 
 //MUST MOVE LATER
-class EpiRaid extends RaidSpray
+class EpiRaid extends FA_Ingredient
 {
-	
+  override bool fa_isIngredient()
+	{
+		return true;
+	};
 }
