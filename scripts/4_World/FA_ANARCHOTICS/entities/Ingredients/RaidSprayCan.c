@@ -8,3 +8,12 @@ class RaidSpray extends FA_Ingredient
 		
 	
 };
+
+
+
+
+//MUST MOVE LATER
+class EpiRaid extends RaidSpray
+{
+	
+}

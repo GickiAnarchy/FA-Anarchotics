@@ -199,18 +199,10 @@ class CfgVehicles
 		varQuantityInit = 330;
 		varQuantityMin = 0;
 		varQuantityMax = 330;
-		isMeleeWeapon = 1;
-		inventorySlot[] =
-		{
-			"Material_Heisenberg"
-		};
+		isMeleeWeapon = 1;	
 		hiddenSelections[] = 
 		{
 			"can"
-		};
-		hiddenSelectionsTextures[] = 
-		{
-			"\Anarchotics\data\items\heisenberg\data\Heisenberg_co.paa"
 		};
 		class GlobalHealth
 		{
@@ -284,6 +276,14 @@ class CfgVehicles
 		scope = 2;
 		displayName = "Heisenberg's Blue Sky";
 		descriptionShort = "A high powered energy drink for the strong people with weak and heavy eyes. Guaranteed to give you a boost. Use with caution.";
+		inventorySlot[] =
+		{
+			"Material_Heisenberg"
+		};
+		hiddenSelectionsTextures[] = 
+		{
+			"\Anarchotics\data\items\heisenberg\data\Heisenberg_co.paa"
+		};		
 		class AnimEvents
 		{
 			class SoundWeapon
@@ -349,6 +349,18 @@ class CfgVehicles
 			"\Anarchotics\data\items\raidspray\fa_raidspray_co.paa"
 		};
 	};
+	class EpiRaid: RaidSpray
+	{
+		scope =2;
+		inventorySlot[] = 
+		{
+			"Material_EpiRaid"
+		};
+		hiddenSelectionsTextures[] =
+		{
+			"\Anarchotics\data\items\raidspray\fa_epiraid_test.paa"
+		};		
+	}
 	
 	
 	
@@ -378,7 +390,6 @@ class CfgSlots
 		ghostIcon = "missing";
 		//show = "false";
 	};	
-	/*
 	class Slot_Material_RaidSpray
 	{
 		name = "Material_RaidSpray";
@@ -395,6 +406,7 @@ class CfgSlots
 		ghostIcon = "missing";
 		show = "false";
 	};
+	/*
 	class Slot_Material_Wok
 	{
 		name = "Material_Wok";
@@ -429,6 +441,14 @@ class CfgSlots
 		ghostIcon = "missing";
 		//show = "false";
 	};
+	class Slot_Material_EpiRaid
+	{
+		name = "Material_EpiRaid";
+		displayName = "EpiRaid";
+		selection = "Material_EpiRaid";
+		ghostIcon = "missing";
+		//show = "false";
+	};
 	
 	
 };
@@ -438,11 +458,11 @@ class CfgnonAIVehicles
 	class ProxyAttachment;
 	
 	//Phase 1
-	class Proxydexamphetamine: ProxyAttachment
+	class ProxyMaterial_Phosphorus: ProxyAttachment
 	{
 		scope = 2;
 		inventorySlot = "Material_Phosphorus";
-		model="\DZ\gear\medical\dexamphetamine.p3d";
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_Phosphorus.p3d";
 	};
 	class ProxyMaterial_Heisenberg: ProxyAttachment
 	{
@@ -450,7 +470,20 @@ class CfgnonAIVehicles
 		inventorySlot = "Material_Heisenberg";
 		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_Heisenberg.p3d";
 	};
-
+	class ProxyMaterial_RaidSpray: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_RaidSpray";
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_RaidSpray.p3d";
+	};
+	class ProxyMaterial_Epinephrine: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_Epinephrine";
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_Epinephrine.p3d";
+	};	
+	
+	
 	//Phase 2
 	class ProxyMaterial_RedHeisenberg: ProxyAttachment
 	{
@@ -458,20 +491,14 @@ class CfgnonAIVehicles
 		inventorySlot = "Material_RedHeisenberg";
 		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_RedHeisenberg.p3d";
 	};
+	class ProxyMaterial_EpiRaid: ProxyAttachment
+	{
+		scope = 2;
+		inventorySlot = "Material_EpiRaid";
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_EpiRaid.p3d";
+	};	
 	
 	/*
-	class Proxyspraycan: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "Material_RaidSpray";
-		model = "\DZ\gear\consumables\spraycan.p3d";
-	};
-	class ProxyEpinephrine: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "Material_Epinephrine";
-		model="\dz\gear\medical\Epinephrine.p3d";
-	};
 	class ProxyMaterial_PortableStove: ProxyAttachment
 	{
 		scope = 2;

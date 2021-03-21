@@ -10,6 +10,7 @@ class DrugTable extends FA_Item
 	typename ATTACHMENT_BATTERY							= TruckBattery;
 	
 	typename ATTACHMENT_REDHEISENBERG					= RedHeisenberg;
+	typename ATTACHMENT_EPIRAID							= EpiRaid;
 	
 	const int INGREDIENTS_SLOT_COUNT = 6;
 	ItemBase fa_Ingredients[INGREDIENTS_SLOT_COUNT];
@@ -271,6 +272,13 @@ class DrugTable extends FA_Item
 			GetAttachmentByType(ATTACHMENT_HEISENBERG).Delete();
 			GetAttachmentByType(ATTACHMENT_PHOSPHORUS).Delete();
 			GetInventory().CreateInInventory(ATTACHMENT_REDHEISENBERG.ToString());
+		}
+		
+		if (fa_Ingredients[2] && fa_Ingredients[3])
+		{
+			GetAttachmentByType(ATTACHMENT_EPINEPHRINE).Delete();
+			GetAttachmentByType(ATTACHMENT_RAID).Delete();
+			GetInventory().CreateInInventory(ATTACHMENT_EPIRAID.ToString());
 		}
 	}
 	
