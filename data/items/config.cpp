@@ -54,9 +54,9 @@ class CfgVehicles
 		{
 			"Material_Phosphorus",
 			"Material_Heisenberg",
-			"Material_RedHeisenberg"
-		  "Material_RaidSpray",
-		  "Material_EpiRaid"
+			"Material_RedHeisenberg",
+			"Material_RaidSpray",
+			"Material_EpiRaid"
 			// "Material_Epinephrine",
 			// "Material_Battery",
 			// "Material_Wok",
@@ -414,20 +414,20 @@ class CfgSlots
 		ghostIcon = "missing";
 		show = "false";
 	};
+	class Slot_Material_PortableStove
+	{
+		name = "Material_PortableStove";
+		displayName = "Portable Stove";
+		selection = "Material_PortableStove";
+		ghostIcon = "missing";
+		show = "false";
+	};	
 	/*
 	class Slot_Material_Wok
 	{
 		name = "Material_Wok";
 		displayName = "Wok";
 		selection = "Material_Wok";
-		ghostIcon = "missing";
-		show = "false";
-	};
-	class Slot_Material_PortableStove
-	{
-		name = "Material_PortableStove";
-		displayName = "Portable Stove";
-		selection = "Material_PortableStove";
 		ghostIcon = "missing";
 		show = "false";
 	};
@@ -505,14 +505,13 @@ class CfgnonAIVehicles
 		inventorySlot = "Material_EpiRaid";
 		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_EpiRaid.p3d";
 	};	
-	
-	/*
 	class ProxyMaterial_PortableStove: ProxyAttachment
 	{
 		scope = 2;
 		inventorySlot = "Material_PortableStove";
 		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_PortableStove.p3d";
 	};
+	/*
 	class ProxyMaterial_Battery: ProxyAttachment
 	{
 		scope = 2;

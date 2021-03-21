@@ -10,6 +10,7 @@ modded class PortableGasStove extends ItemBase
 		return true;
 	};
 	
+	
 	override void SetActions()
 	{
 		super.SetActions();
