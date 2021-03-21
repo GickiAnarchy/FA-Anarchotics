@@ -55,7 +55,8 @@ class CfgVehicles
 			"Material_Phosphorus",
 			"Material_Heisenberg",
 			"Material_RedHeisenberg"
-			// "Material_RaidSpray",
+		  "Material_RaidSpray",
+		  "Material_EpiRaid"
 			// "Material_Epinephrine",
 			// "Material_Battery",
 			// "Material_Wok",
@@ -360,6 +361,13 @@ class CfgVehicles
 		{
 			"\Anarchotics\data\items\raidspray\fa_epiraid_test.paa"
 		};		
+	}
+	class Epinephrine 
+	{
+	  inventorySlot[] =
+		{
+			"Material_EpiRaid"
+		};
 	}
 	
 	
