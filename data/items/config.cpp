@@ -8,7 +8,8 @@ class CfgPatches
 			"DrugTableKit",
 			"Phosphorus",
 			"RaidSpray",
-			"Heisenberg"
+			"Heisenberg",
+			"RedHeisenberg"
 		};
 		weapons[] = {};
 		requiredVersion = 0.1;

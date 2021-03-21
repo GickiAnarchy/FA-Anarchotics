@@ -36,7 +36,7 @@ class ActionProcessMeth: ActionContinuousBase
 		Object targetObject = target.GetObject();
 		if ( targetObject )
 		{
-			DrugTable_Meth fa_item = DrugTable_Meth.Cast( targetObject );
+			DrugTable fa_item = DrugTable.Cast( targetObject );
 						
 			//BELOW IS FOR TESTING
 			if ( fa_item.isBatteryAttached() == true )

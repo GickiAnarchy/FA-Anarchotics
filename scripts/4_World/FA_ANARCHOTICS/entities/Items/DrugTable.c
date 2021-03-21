@@ -9,12 +9,13 @@ class DrugTable extends FA_Item
 	//typename ATTACHMENT_WOK							= FA_Wok;
 	typename ATTACHMENT_BATTERY							= TruckBattery;
 	
+	typename ATTACHMENT_REDHEISENBERG					= RedHeisenberg;
+	
 	const int INGREDIENTS_SLOT_COUNT = 6;
 	ItemBase fa_Ingredients[INGREDIENTS_SLOT_COUNT];
 	
 	bool hasBattery;
 	
-	protected ref IngredientCombiner FA_IngredientCombiner;
 	
 	// CONSTRUCTOR
 	void DrugTable()
@@ -141,6 +142,8 @@ class DrugTable extends FA_Item
 		{
 			hasBattery = true;
 		};
+		
+		checkItems();
 				
 	}
 	
@@ -184,7 +187,6 @@ class DrugTable extends FA_Item
 		{
 			hasBattery = false;
 		};
-		
 	}
 	
 
@@ -195,14 +197,14 @@ class DrugTable extends FA_Item
 	{
 		ItemBase item = ItemBase.Cast( attachment );
 		
-		if ( !super.CanLoadAttachment(attachment) )
-		{
-			return false;
-		}
-		
 		if (item.fa_isIngredient() == true)
 		{
 			return true;
+		}
+		
+		if ( !super.CanLoadAttachment(attachment) )
+		{
+			return false;
 		}
 		
 		return false;
@@ -212,14 +214,14 @@ class DrugTable extends FA_Item
 	{	
 		ItemBase item = ItemBase.Cast( attachment );
 		
-		if( !super.CanReleaseAttachment( attachment ) )
-		{
-			return false;
-		}
-		
 		if (item.fa_isIngredient() == true)
 		{
 			return true;
+		}		
+		
+		if( !super.CanReleaseAttachment( attachment ) )
+		{
+			return false;
 		}
 			
 		return false;
@@ -229,18 +231,17 @@ class DrugTable extends FA_Item
 	{
 		ItemBase item = ItemBase.Cast( attachment );
 		
-		if ( !super.CanReceiveAttachment(attachment, slotId) )
-		{
-			return false;
-		}
-		
 		if (item.fa_isIngredient() == true)
 		{
 			return true;
 		}		
 		
+		if ( !super.CanReceiveAttachment(attachment, slotId) )
+		{
+			return false;
+		}
+		
 		return false;
-
 	}
 	
 	bool isBatteryAttached()
@@ -261,55 +262,17 @@ class DrugTable extends FA_Item
 	//================================================================
 	//COMBINE INGREDIENTS
 	//================================================================	
-	bool hasCookingItems()
+	void checkItems()
 	{
-		if (fa_Ingredients[5] != NULL)	//(fa_Ingredients[4] != NULL && fa_Ingredients[5] != NULL)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
-	bool ReadyToProcess()
-	{
-		if ( isBatteryAttached() == false || hasCookingItems() == false )
-		{
-			return false;
-		}
-		return true;
-	}
-	
-	bool HasAllIngredients()
-	{
-		int total = 0;
-		for (int i = 0; i <= INGREDIENTS_SLOT_COUNT; i++)
-		{
-			ItemBase item = fa_Ingredients[i];
-			
-			if (item == NULL)
-			{	
-				return false;
-			}
-			else
-			{
-				total++;
-			}	
-		}
+		int id;
 		
-		if (total == 5)		//(total == 6)
+		if ( fa_Ingredients[0] && fa_Ingredients[1] )
 		{
-			return true;
-		}
-		else
-		{
-			return false;
+			GetAttachmentByType(ATTACHMENT_HEISENBERG).Delete();
+			GetAttachmentByType(ATTACHMENT_PHOSPHORUS).Delete();
+			GetInventory().CreateInInventory(ATTACHMENT_REDHEISENBERG.ToString());
 		}
 	}
-	
-	
 	
 	//REFERENCE TO CREATE AN ITEM IN THIS ITEMS INVENTORY
 	//entity.GetInventory().CreateInInventory( "TruckBattery" );

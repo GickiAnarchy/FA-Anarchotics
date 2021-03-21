@@ -1,20 +1,5 @@
-enum PROCESSABLE_DRUGS
-{
-	METH = 1,
-	HEROIN = 2,
-	SHROOMS = 3,
-	SERENITY = 4,
-}
-
 class FA_Item extends ItemBase
 {
-	FA_Item(int type)
-	{
-		
-	}
-	
-	
-	
 	
 	//
 	//VARIABLES
@@ -22,6 +7,15 @@ class FA_Item extends ItemBase
 	protected string FA_KitName = "null";
 	
 	protected FA_DrugBase finalDrug;
+	
+	
+	//
+	//CONSTRUCTOR
+	//
+	void FA_Item()
+	{
+		
+	}
 	
 	
 	//
@@ -35,19 +29,15 @@ class FA_Item extends ItemBase
 		};
 	};
 	
-	
 	override string Get_FA_KitName()
 	{
 			return FA_KitName;
 	};
 	
-	
-	
 	override bool CanPutInCargo( EntityAI parent )
     {
         return false;
     };
-    
 	
     override bool CanPutIntoHands(EntityAI parent)
     {
