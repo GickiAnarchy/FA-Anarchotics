@@ -2,14 +2,11 @@ class CfgPatches
 {
 	class _data
 	{
-		units[] = 
-		{
-			"DrugTable",
-			"DrugTableKit"
-		};
+		units[] =
+		{};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = 
+		requiredAddons[] =
 		{
 			"DZ_Data", "DZ_Gear"
 		};
@@ -18,19 +15,7 @@ class CfgPatches
 
 class CfgSlots
 {
-    class Slot_Phosphorus
-    {
-        name = "Phosphorus";
-        displayName = "Phosphorus";
-        ghostIcon = "missing";
-    };
-	
-    class Slot_Heisenberg
-    {
-        name = "Heisenberg";
-        displayName = "Heisenberg";
-        ghostIcon = "missing";
-    };	
+
 };
 
 class CfgVehicles
@@ -79,62 +64,13 @@ class CfgVehicles
 		itemSize[]={4,3};
 		simulation="inventoryItem";
 		physLayer="item_large";
-                heavyItem = 1;
+		heavyItem = 1;
 		weight=300;
 	};
-	
-	class DrugTableKit: FA_Item_Kit
-	{
-		scope = 2;
-		displayName="Anarchotics Drug Desk In a Box";
-		descriptionShort="A deployable kit that contains the Anarchotics Desk.";
-		model="\Anarchotics\data\drugtable\tablekit\TableKit.p3d";
-	};
-	
-	class DrugTable: FA_Item
-	{
-		scope = 2;
-		displayName = "Drug Processing Work Table";
-		descriptionShort = "A place to cook your crank, bag your weed, cut your shrooms and probably more than that too!!";
-		model = "\Anarchotics\data\drugtable\drugtable.p3d";
-		weight = 25000;
-		physLayer = "item_large";
-		simulation = "inventoryItem";
-		attachments[] = 
-		{
-			"Phosphorus",
-			"Heisenberg"
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints = 200;
-					healthLevels[] = {{1.0,{"DZ\gear\camping\data\power_generator.rvmat"}},{0.7,{"DZ\gear\camping\data\power_generator.rvmat"}},{0.5,{"DZ\gear\camping\data\power_generator_damage.rvmat"}},{0.3,{"DZ\gear\camping\data\power_generator_damage.rvmat"}},{0.0,{"DZ\gear\camping\data\power_generator_destruct.rvmat"}}};
-				};
-			};
-		};
 
-	};
-	
 };
 
 class CfgnonAIVehicles
 {
-	class ProxyAttachment;
-	class Proxydexamphetamine: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "Phosphorus";
-		model = "\DZ\gear\medical\dexamphetamine.p3d";
-	};
-	
-	class ProxyHeisenberg: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "Heisenberg";
-		model = "Anarchotics\data\items\heisenberg\Heisenberg.p3d";
-	};	
+
 };
