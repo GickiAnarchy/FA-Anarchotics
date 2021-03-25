@@ -18,6 +18,10 @@ class High_MethMdfr: ModifierBase
 		{
 			return true;
 		}
+		else 
+		{
+			return false;
+		}
 	}
 	
 	override void OnReconnect(PlayerBase player)
@@ -47,7 +51,7 @@ class High_MethMdfr: ModifierBase
 		player.GetStaminaHandler().SetDepletionMultiplier(1);
 		player.m_EmoteManager.CanPlayEmote(EmoteConstants.ID_EMOTE_LYINGDOWN) = true;
 		activated_hp /= 2;
-		player.SetHealth("", "", (activated_hp);
+		player.SetHealth("", "", activated_hp);
 	}
 	
 	override bool DeactivateCondition(PlayerBase player)
