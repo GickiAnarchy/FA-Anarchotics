@@ -8,6 +8,7 @@ modded class ActionConstructor
 		//Disassemble || Repacking || Reboxing
 		actions.Insert(ActionRepack);
 		actions.Insert(ActionCreateMethStove);
-
+		actions.Insert(ActionConsumeDrug);
+		
     }
 }   

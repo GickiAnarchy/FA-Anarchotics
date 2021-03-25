@@ -14,7 +14,7 @@ class High_MethMdfr: ModifierBase
 
 	override bool ActivateCondition(PlayerBase player)
 	{
-		if (!player.m_ModifiersManager.IsModifierActive(fa_Modifiers.HIGH_METH))
+		if (!player.m_ModifiersManager.IsModifierActive(fa_Modifiers.HIGH_METH) && player.GetSingleAgentCount(faAgents.METH_HIGH) <= 2)
 		{
 			return true;
 		}

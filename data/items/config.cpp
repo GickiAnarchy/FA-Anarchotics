@@ -460,6 +460,104 @@ class CfgVehicles
 		};
 	}
 
+
+	class Drug_Meth: Edible_Base
+	{
+		scope = 2;
+		model = "\DZ\gear\medical\charcoal_tablets.p3d"
+		displayName = "Meth Pill";
+		descriptionShort = "";
+		itemSize[]={1,2};
+		weight=20;
+		rotationFlags=17;
+		canBeSplit=1;
+		quantityBar=0;
+		absorbency=0.69999999;		
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=30;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\medical\data\tetracycline.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\medical\data\tetracycline.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\medical\data\tetracycline_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\medical\data\tetracycline_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\medical\data\tetracycline_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class Tablets_open
+				{
+					soundSet="Tablets_open_SoundSet";
+					id=201;
+				};
+				class Tablets_catch
+				{
+					soundSet="Tablets_catch_SoundSet";
+					id=202;
+				};
+				class Tablets_close
+				{
+					soundSet="Tablets_close_SoundSet";
+					id=203;
+				};
+				class pickup
+				{
+					soundSet="purificationtablets_pickup_SoundSet";
+					id=797;
+				};
+				class drop
+				{
+					soundset="purificationtablets_drop_SoundSet";
+					id=898;
+				};
+			};
+		};
+	}
 	
 	//
 	//METH TOOLS
