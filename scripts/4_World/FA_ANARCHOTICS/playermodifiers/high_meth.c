@@ -50,7 +50,6 @@ class High_MethMdfr: ModifierBase
 		if( player.GetNotifiersManager() ) player.GetNotifiersManager().DeactivateByType(eNotifiers.NTF_PILLS);
 		player.GetStaminaHandler().SetDepletionMultiplier(1);
 		player.m_EmoteManager.CanPlayEmote(EmoteConstants.ID_EMOTE_LYINGDOWN) = true;
-		activated_hp /= 2;
 		player.SetHealth("", "", activated_hp);
 	}
 	
@@ -71,7 +70,7 @@ class High_MethMdfr: ModifierBase
 	override void OnTick(PlayerBase player, float deltaT)
 	{
 		player.GetStaminaHandler().SetStamina(100);
-		player.SetHealth("", "", activated_hp);		
+		player.SetHealth("", "", 100);
 
 	}
 

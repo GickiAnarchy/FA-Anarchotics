@@ -39,7 +39,7 @@ class ActionConsumeDrug: ActionSingleUseBase
 
 	override string GetText()
 	{
-		return "#Do Drugs";
+		return "#Do_Drugs";
 	}
 	
 	override void OnExecuteServer( ActionData action_data )

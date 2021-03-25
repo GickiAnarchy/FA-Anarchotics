@@ -471,6 +471,10 @@ class CfgVehicles
 		weight=20;
 		rotationFlags=17;
 		canBeSplit=1;
+		varQuantityInit=4;
+		varQuantityMin=0;
+		varQuantityMax=4;
+		varQuantityDestroyOnMin=1;
 		quantityBar=0;
 		absorbency=0.69999999;		
 		class DamageSystem
