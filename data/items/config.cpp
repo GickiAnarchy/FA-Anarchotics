@@ -27,6 +27,7 @@ class CfgVehicles
 	class Spraycan_ColorBase: Inventory_Base{};
 	class Container_Base;
 	class Edible_Base;
+	class Bottle_Base: Edible_Base{};
 	class SodaCan_ColorBase: Edible_Base{};
 	class FA_Item: Container_Base {};
 	class FA_Item_Kit: FA_Item {};
@@ -56,11 +57,11 @@ class CfgVehicles
 			"Material_Heisenberg",
 			"Material_RedHeisenberg",
 			"Material_RaidSpray",
-			"Material_EpiRaid"
-			// "Material_Epinephrine",
-			// "Material_Battery",
+			"Material_EpiRaid",
+			"Material_Epinephrine",
+			"Material_Battery",
 			// "Material_Wok",
-			// "Material_PortableStove"
+			"Material_PortableStove"
 		};
 		/* class GUIInventoryAttachmentsProps
 		{
@@ -362,15 +363,103 @@ class CfgVehicles
 			"\Anarchotics\data\items\raidspray\fa_epiraid_test.paa"
 		};		
 	}
-	class Epinephrine 
+	class SomeDopeDope: Inventory_Base
 	{
-	  inventorySlot[] =
+		scope=2;
+		displayName="Some ""Dope"" Dope";
+		descriptionShort="";
+		model="\dz\gear\medical\InjectionVial.p3d";
+		hiddenSelectionsTextures[] =
 		{
-			"Material_EpiRaid"
+			"Anarchotics\data\items\somedopedope\somedopedope_co.paa"
+		};
+		itemSize[]={1,1};
+		weight=50;
+		inventorySlot[] =
+		{
+			"Material_Epinephrine"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=20;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\medical\data\InjectionVial.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\medical\data\InjectionVial.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\medical\data\InjectionVial_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\medical\data\InjectionVial_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\medical\data\InjectionVial_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet="injectionvial_pickup_SoundSet";
+					id=797;
+				};
+			};
+		};
+	};
+	
+	class Pot: Bottle_Base
+	{
+		inventorySlot[] =
+		{
+			"Material_Cooking_1"
 		};
 	}
-	
-	
+	class FryingPan: Inventory_Base
+	{
+		inventorySlot[] =
+		{
+			"Material_Cooking_1"
+		};
+	}
+
 	
 	//
 	//METH TOOLS
@@ -409,36 +498,12 @@ class CfgSlots
 	class Slot_Material_Epinephrine
 	{
 		name = "Material_Epinephrine";
-		displayName = "Epinephrine";
+		displayName = "Dope Stuff";
 		selection = "Material_Epinephrine";
 		ghostIcon = "missing";
 		show = "false";
 	};
-	class Slot_Material_PortableStove
-	{
-		name = "Material_PortableStove";
-		displayName = "Portable Stove";
-		selection = "Material_PortableStove";
-		ghostIcon = "missing";
-		show = "false";
-	};	
-	/*
-	class Slot_Material_Wok
-	{
-		name = "Material_Wok";
-		displayName = "Wok";
-		selection = "Material_Wok";
-		ghostIcon = "missing";
-		show = "false";
-	};
-	class Slot_Material_Battery
-	{
-		name = "Material_Battery";
-		displayName = "Power Source";
-		selection = "Material_Battery";
-		ghostIcon = "missing";
-		show = "false";
-	}; */
+
 	
 	//Phase 2
 	class Slot_Material_RedHeisenberg
@@ -458,6 +523,43 @@ class CfgSlots
 		//show = "false";
 	};
 	
+	
+	//Cooking
+/*	class Slot_Material_Wok
+	{
+		name = "Material_Wok";
+		displayName = "Wok";
+		selection = "Material_Wok";
+		ghostIcon = "missing";
+		show = "false";
+	};
+*/
+	class Slot_Material_PortableStove
+	{
+		name = "Material_PortableStove";
+		displayName = "Portable Stove";
+		selection = "Material_PortableStove";
+		ghostIcon = "missing";
+		show = "false";
+	};	
+	class Slot_Material_Cooking_1
+	{
+		name = "Material_Cooking_1";
+		displayName = "Cooking Item";
+		selection = "Material_Cooking_1";
+		ghostIcon = "missing";
+		show = "false";
+	};
+	
+	//Battery
+	class Slot_Material_Battery
+	{
+		name = "Material_Battery";
+		displayName = "Power Source";
+		selection = "Material_Battery";
+		ghostIcon = "missing";
+		show = "false";
+	}; 
 	
 };
 
@@ -491,7 +593,6 @@ class CfgnonAIVehicles
 		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_Epinephrine.p3d";
 	};	
 	
-	
 	//Phase 2
 	class ProxyMaterial_RedHeisenberg: ProxyAttachment
 	{
@@ -504,18 +605,30 @@ class CfgnonAIVehicles
 		scope = 2;
 		inventorySlot = "Material_EpiRaid";
 		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_EpiRaid.p3d";
-	};	
+	};
+	
+	//Cooking
 	class ProxyMaterial_PortableStove: ProxyAttachment
 	{
 		scope = 2;
 		inventorySlot = "Material_PortableStove";
 		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_PortableStove.p3d";
 	};
-	/*
+	class ProxyMaterial_Cooking_1: ProxyAttachment
+	{
+		scope=2;
+		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_Cooking_1.p3d";
+		inventorySlot[]=
+		{
+			"Material_Cooking_1"
+		};
+	};
+	
+	//Battery
 	class ProxyMaterial_Battery: ProxyAttachment
 	{
 		scope = 2;
 		inventorySlot = "Material_Battery";
 		model = "\Anarchotics\data\items\drugtable\data\proxies\Material_Battery.p3d";
-	}; */
+	};
 };

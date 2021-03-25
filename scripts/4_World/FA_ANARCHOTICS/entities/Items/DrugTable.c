@@ -4,19 +4,27 @@ class DrugTable extends FA_Item
 	typename ATTACHMENT_PHOSPHORUS 						= Phosphorus;
 	typename ATTACHMENT_HEISENBERG						= Heisenberg;
 	typename ATTACHMENT_RAID							= RaidSpray;
-	typename ATTACHMENT_EPINEPHRINE						= Epinephrine;
-	typename ATTACHMENT_GASSTOVE						= PortableGasStove;
-	//typename ATTACHMENT_WOK							= FA_Wok;
+	typename ATTACHMENT_EPINEPHRINE						= SomeDopeDope;
 	typename ATTACHMENT_BATTERY							= TruckBattery;
 	
 	typename ATTACHMENT_REDHEISENBERG					= RedHeisenberg;
 	typename ATTACHMENT_EPIRAID							= EpiRaid;
+
 	
-	const int INGREDIENTS_SLOT_COUNT = 6;
+	typename ATTACHMENT_GASSTOVE						= PortableGasStove;
+	typename ATTACHMENT_PAN								= FryingPan;
+	typename ATTACHMENT_POT								= Pot;
+	//typename ATTACHMENT_WOK							= FA_Wok;
+	
+	ref TStringArray fa_attachmentsList = new TStringArray;
+	
+	const int COOKING_SLOT_COUNT = 2;	
+	const int INGREDIENTS_SLOT_COUNT = 4;
 	ItemBase fa_Ingredients[INGREDIENTS_SLOT_COUNT];
+	ItemBase fa_CookingItems[COOKING_SLOT_COUNT];
 	
 	bool hasBattery;
-	
+
 	
 	// CONSTRUCTOR
 	void DrugTable()
@@ -25,6 +33,15 @@ class DrugTable extends FA_Item
 	
 		Set_FA_KitName("DrugTableKit");
 		SetEventMask(EntityEvent.INIT); // Enable EOnInit event
+		
+		fa_attachmentsList.Insert(ATTACHMENT_EPINEPHRINE.ToString());
+		fa_attachmentsList.Insert(ATTACHMENT_RAID.ToString());
+		fa_attachmentsList.Insert(ATTACHMENT_EPIRAID.ToString());
+		fa_attachmentsList.Insert(ATTACHMENT_HEISENBERG.ToString());
+		fa_attachmentsList.Insert(ATTACHMENT_REDHEISENBERG.ToString());
+		fa_attachmentsList.Insert(ATTACHMENT_PHOSPHORUS.ToString());
+		fa_attachmentsList.Insert(ATTACHMENT_BATTERY.ToString());
+		
 	}
 	
 	//INIT
@@ -127,15 +144,36 @@ class DrugTable extends FA_Item
 		{
 			fa_Ingredients[3] = item_base;
 		};
-
-		/*if (item_base.Type() == ATTACHMENT_WOK)
-		{
-			fa_Ingredients[4] = item_base;
-		};*/
 		
 		if (item_base.Type() == ATTACHMENT_GASSTOVE)
 		{
-			fa_Ingredients[5] = item_base;
+			fa_CookingItems[0] = item_base;
+		};
+		
+		/*if (item_base.Type() == ATTACHMENT_WOK)
+		{
+			if (fa_CookingItems[1] == NULL) 
+			{
+				fa_CookingItems[1] = item_base;
+			}
+		};*/
+		
+		if (item_base.Type() == ATTACHMENT_PAN)
+		{
+			if (fa_CookingItems[1] == NULL)
+			{
+				fa_CookingItems[1] = item_base;
+				GetInventory().CreateAttachment(ATTACHMENT_PAN.ToString());
+			}
+		};
+		
+		if (item_base.Type() == ATTACHMENT_POT)
+		{
+			if (fa_CookingItems[1] == NULL)
+			{
+				fa_CookingItems[1] = item_base;
+				GetInventory().CreateAttachment(ATTACHMENT_POT.ToString());
+			}
 		};
 		
 		
@@ -172,21 +210,43 @@ class DrugTable extends FA_Item
 		{
 			fa_Ingredients[3] = NULL;
 		};
-
-		/*if (item_base.Type() == ATTACHMENT_WOK)
-		{
-			fa_Ingredients[4] = NULL;
-		};*/
-		
-		if (item_base.Type() == ATTACHMENT_GASSTOVE)
-		{
-			fa_Ingredients[5] = NULL;
-		};
 		
 		
 		if (item_base.Type() == ATTACHMENT_BATTERY)
 		{
 			hasBattery = false;
+		};
+		
+		
+		if (item_base.Type() == ATTACHMENT_GASSTOVE)
+		{
+			fa_CookingItems[0] = NULL;
+		};
+		
+		/*if (item_base.Type() == ATTACHMENT_WOK)
+		{
+			if (fa_CookingItems[1] != NULL) 
+			{
+				fa_CookingItems[1] = NULL;
+			}
+		};*/
+		
+		if (item_base.Type() == ATTACHMENT_PAN)
+		{
+			if (fa_CookingItems[1] != NULL)
+			{
+				fa_CookingItems[1] = NULL;
+				GetInventory().FindAttachmentByName(ATTACHMENT_PAN.ToString()).Delete();
+			}
+		};
+		
+		if (item_base.Type() == ATTACHMENT_POT)
+		{
+			if (fa_CookingItems[1] != NULL)
+			{
+				fa_CookingItems[1] = NULL;
+				GetInventory().FindAttachmentByName(ATTACHMENT_POT.ToString()).Delete();
+			}
 		};
 	}
 	
@@ -196,9 +256,18 @@ class DrugTable extends FA_Item
 	//================================================================
 	override bool CanLoadAttachment( EntityAI attachment )
 	{
-		ItemBase item = ItemBase.Cast( attachment );
+		EntityAI item = EntityAI.Cast( attachment );
 		
-		if (item.fa_isIngredient() == true)
+		for (int i = 0; i <= fa_attachmentsList.Count(); i++)
+		{
+			string name = fa_attachmentsList.Get(i);
+			if (item.GetName() == name)
+			{
+				return true;
+			}
+		}
+		
+		if (item.Type() == ATTACHMENT_PAN || item.Type() == ATTACHMENT_POT || item.Type() == ATTACHMENT_GASSTOVE )
 		{
 			return true;
 		}
@@ -213,11 +282,20 @@ class DrugTable extends FA_Item
 
 	override bool CanReleaseAttachment( EntityAI attachment )
 	{	
-		ItemBase item = ItemBase.Cast( attachment );
+		EntityAI item = EntityAI.Cast( attachment );
 		
-		if (item.fa_isIngredient() == true)
+		if (item.Type() == ATTACHMENT_PAN || item.Type() == ATTACHMENT_POT || item.Type() == ATTACHMENT_GASSTOVE )
 		{
 			return true;
+		}
+		
+		for (int i = 0; i <= fa_attachmentsList.Count(); i++)
+		{
+			string name = fa_attachmentsList.Get(i);
+			if (item.GetName() == name)
+			{
+				return true;
+			}
 		}		
 		
 		if( !super.CanReleaseAttachment( attachment ) )
@@ -230,11 +308,20 @@ class DrugTable extends FA_Item
 	
 	override bool CanReceiveAttachment( EntityAI attachment, int slotId )
 	{
-		ItemBase item = ItemBase.Cast( attachment );
+		EntityAI item = EntityAI.Cast( attachment );
 		
-		if (item.fa_isIngredient() == true)
+		if (item.Type() == ATTACHMENT_PAN || item.Type() == ATTACHMENT_POT || item.Type() == ATTACHMENT_GASSTOVE )
 		{
 			return true;
+		}
+		
+		for (int i = 0; i <= fa_attachmentsList.Count(); i++)
+		{
+			string name = fa_attachmentsList.Get(i);
+			if (item.GetName() == name)
+			{
+				return true;
+			}
 		}		
 		
 		if ( !super.CanReceiveAttachment(attachment, slotId) )
@@ -257,6 +344,7 @@ class DrugTable extends FA_Item
 	override void SetActions()
 	{
 		super.SetActions();
+		AddAction(ActionCreateMethStove);
 	}
 	
 	
@@ -282,9 +370,22 @@ class DrugTable extends FA_Item
 		}
 	}
 	
+	bool isReadyToCraftCooking()
+	{
+		if (fa_CookingItems[0] != NULL && fa_CookingItems[1] != NULL) 
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 	//REFERENCE TO CREATE AN ITEM IN THIS ITEMS INVENTORY
 	//entity.GetInventory().CreateInInventory( "TruckBattery" );
-	
+
+
 }
 
 

@@ -37,11 +37,6 @@ modded class ItemBase
 			return "FA_ItemName";
 	};
 	
-	bool fa_isIngredient()
-	{
-		return false;
-	};
-	
    
 	vector Get_faItemPos()
 	{
@@ -57,25 +52,4 @@ modded class ItemBase
 		return false;
 	};
 
-};
-
-
-
-///////////////////////////////////////////////////////////////////////////////////
-//MODDED VANILLA
-///////////////////////////////////////////////////////////////////////////////////
-
-modded class TruckBattery : VehicleBattery 
-{
-	override bool fa_isIngredient()
-	{
-		return true;
-	};	
-};
-modded class CarBattery : VehicleBattery 
-{
-	override bool fa_isIngredient()
-	{
-		return true;
-	};	
 };

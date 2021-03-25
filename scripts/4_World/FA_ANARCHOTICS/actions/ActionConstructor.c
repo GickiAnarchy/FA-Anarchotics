@@ -7,7 +7,7 @@ modded class ActionConstructor
 		
 		//Disassemble || Repacking || Reboxing
 		actions.Insert(ActionRepack);
-		actions.Insert(ActionProcessMeth);
+		actions.Insert(ActionCreateMethStove);
 
     }
-}
+}   

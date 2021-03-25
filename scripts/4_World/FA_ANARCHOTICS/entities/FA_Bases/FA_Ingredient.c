@@ -18,10 +18,6 @@ class FA_Ingredient extends ItemBase
 	//
 	//ANARCHOTICS
 	//
-	override bool fa_isIngredient()
-	{
-		return true;
-	}
 	
 	override void SetActions()
     {

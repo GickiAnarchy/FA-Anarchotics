@@ -1,12 +1,5 @@
 class Heisenberg extends Edible_Base
 {
-		
-	override bool fa_isIngredient()
-	{
-		return true;
-	};
-	
-	
 	override void SetActions()
 	{
 		super.SetActions();

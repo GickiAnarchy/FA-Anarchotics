@@ -200,11 +200,6 @@ class DrugTable extends FA_Item
 			return false;
 		}
 		
-		if (item.fa_isIngredient() == true)
-		{
-			return true;
-		}
-		
 		return false;
 	}
 
@@ -215,11 +210,6 @@ class DrugTable extends FA_Item
 		if( !super.CanReleaseAttachment( attachment ) )
 		{
 			return false;
-		}
-		
-		if (item.fa_isIngredient() == true)
-		{
-			return true;
 		}
 			
 		return false;
@@ -232,12 +222,7 @@ class DrugTable extends FA_Item
 		if ( !super.CanReceiveAttachment(attachment, slotId) )
 		{
 			return false;
-		}
-		
-		if (item.fa_isIngredient() == true)
-		{
-			return true;
-		}		
+		}	
 		
 		return false;
 
