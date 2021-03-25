@@ -17,13 +17,6 @@ class FA_DrugBase extends Edible_Base
 		AddAction(ActionConsumeDrug);
 	};
 	
-	override void OnConsume(float amount, PlayerBase consumer)
-	{
-		if( consumer.GetModifiersManager().IsModifierActive(fa_Modifiers.HIGH_METH) )//effectively resets the timer
-		{
-			consumer.GetModifiersManager().DeactivateModifier( fa_Modifiers.HIGH_METH, false );
-		}
-		consumer.GetModifiersManager().ActivateModifier( fa_Modifiers.HIGH_METH );
-	}
+
 	
 };

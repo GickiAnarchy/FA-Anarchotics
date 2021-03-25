@@ -39,7 +39,7 @@ class ActionConsumeDrug: ActionSingleUseBase
 
 	override string GetText()
 	{
-		return "#Do_Drugs";
+		return "Do Drugs";
 	}
 	
 	override void OnExecuteServer( ActionData action_data )
@@ -59,9 +59,9 @@ class ActionConsumeDrug: ActionSingleUseBase
 			action_data.m_MainItem.SetQuantity( 0 );
 		}
 		
-		if ( action_data.m_Player.HasBloodyHands() && !action_data.m_Player.GetInventory().FindAttachment( InventorySlots.GLOVES ) )
-		{
-			action_data.m_Player.SetBloodyHandsPenalty();
-		}
+		//if ( action_data.m_Player.HasBloodyHands() && !action_data.m_Player.GetInventory().FindAttachment( InventorySlots.GLOVES ) )
+		//{
+		//	action_data.m_Player.SetBloodyHandsPenalty();
+		//}
 	}
 };

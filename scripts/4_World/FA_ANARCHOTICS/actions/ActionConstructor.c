@@ -5,9 +5,11 @@ modded class ActionConstructor
     {
         super.RegisterActions(actions);
 		
-		//Disassemble || Repacking || Reboxing
+		//Assemble || Repacking ||
 		actions.Insert(ActionRepack);
 		actions.Insert(ActionCreateMethStove);
+		
+		//Drugs
 		actions.Insert(ActionConsumeDrug);
 		
     }

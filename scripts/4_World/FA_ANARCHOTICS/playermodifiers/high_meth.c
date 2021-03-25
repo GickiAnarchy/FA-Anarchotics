@@ -1,5 +1,6 @@
 class High_MethMdfr: ModifierBase
 {
+	
 	const int LIFETIME = 450;
 	private float activated_hp;
 	
@@ -10,6 +11,7 @@ class High_MethMdfr: ModifierBase
 		m_ID 					= fa_Modifiers.HIGH_METH;
 		m_TickIntervalInactive 	= DEFAULT_TICK_TIME_INACTIVE;
 		m_TickIntervalActive 	= 1;
+	
 	}
 
 	override bool ActivateCondition(PlayerBase player)
@@ -71,7 +73,9 @@ class High_MethMdfr: ModifierBase
 	{
 		player.GetStaminaHandler().SetStamina(100);
 		player.SetHealth("", "", 100);
-
+		
+		Print(GetDebugText());
+		
 	}
 
 	
