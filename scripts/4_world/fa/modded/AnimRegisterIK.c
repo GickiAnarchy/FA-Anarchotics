@@ -10,8 +10,8 @@ modded class ModItemRegisterCallbacks
 	{
 		super.RegisterOneHanded(pType,pBehavior);
 		
-		pType.AddItemInHandsProfileIK("Heisenberg", "dz/anims/workspaces/player/player_main/player_main_1h.asi", pBehavior, "dz/anims/anm/player/ik/gear/water_bottle.anm");
-		pType.AddItemInHandsProfileIK("RedHeisenberg", "dz/anims/workspaces/player/player_main/player_main_1h.asi", pBehavior, "dz/anims/anm/player/ik/gear/water_bottle.anm");
+		//pType.AddItemInHandsProfileIK("Heisenberg", "dz/anims/workspaces/player/player_main/player_main_1h.asi", pBehavior, "dz/anims/anm/player/ik/gear/water_bottle.anm");
+
 
 		
 	};
@@ -21,10 +21,10 @@ modded class ModItemRegisterCallbacks
         super.RegisterTwoHanded(pType, pBehavior);
 		
 		//Furniture
-		pType.AddItemInHandsProfileIK("DrugTable", "dz/anims/workspaces/player/player_main/player_main_heavy.asi", pBehavior, "dz/anims/anm/player/ik/heavy/tent_large.anm");
+		//pType.AddItemInHandsProfileIK("DrugTable", "dz/anims/workspaces/player/player_main/player_main_heavy.asi", pBehavior, "dz/anims/anm/player/ik/heavy/tent_large.anm");
 		
 		//Ingredients
-		pType.AddItemInHandsProfileIK("DrugTableKit", "dz/anims/workspaces/player/player_main/player_main_heavy.asi", pBehavior, "dz/anims/anm/player/ik/heavy/tent_large.anm");
+		//pType.AddItemInHandsProfileIK("DrugTableKit", "dz/anims/workspaces/player/player_main/player_main_heavy.asi", pBehavior, "dz/anims/anm/player/ik/heavy/tent_large.anm");
         
         //pType.AddItemInHandsProfileIK("DOM_GasStove", "dz/anims/workspaces/player/player_main/weapons/player_main_2h_extinguisher.asi", pBehavior, "dz/anims/anm/player/ik/two_handed/mountain_g.anm");
     };
