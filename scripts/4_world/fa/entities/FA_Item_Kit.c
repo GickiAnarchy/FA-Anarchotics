@@ -1,12 +1,9 @@
 class FA_Item_Kit extends ItemBase
 {
-	//
 	//VARIABLES
 	//
 	protected string FA_ItemName = "null";
 
-
-	//
 	//MEMBERS
 	//
 	void Set_FA_ItemName(string name)
@@ -15,14 +12,12 @@ class FA_Item_Kit extends ItemBase
 		{
 			FA_ItemName = name;
 		};
-	};
-	
-	
+	};	
+
 	override string Get_FA_ItemName()
 	{
 			return FA_ItemName;
 	};
-
 	
 	override void OnPlacementComplete(Man player, vector position = "0 0 0", vector orientation = "0 0 0")
 	{
@@ -37,13 +32,11 @@ class FA_Item_Kit extends ItemBase
 		
 		SetIsPlaceSound( true );
 	};
-	
-	
+		
 	override bool IsDeployable()
 	{
 		return true;
 	};
-
 
     override void SetActions()
     {

@@ -1,15 +1,9 @@
 class FA_Item extends ItemBase
 {
-	
-	//
 	//VARIABLES
 	//
-	protected string FA_KitName = "null";
-	
-	protected FA_DrugBase finalDrug;
-	
-	
-	//
+	protected string FA_KitName = "null";	
+
 	//CONSTRUCTOR
 	//
 	void FA_Item()
@@ -17,8 +11,6 @@ class FA_Item extends ItemBase
 		
 	}
 	
-	
-	//
 	//MEMBERS
 	//
 	void Set_FA_KitName(string name)
