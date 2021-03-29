@@ -16,7 +16,16 @@ enum SymptomIDs {
 };
  */
  
- enum fa_SymptomIDs
+ enum fa_SymptomIDs: SymptomIDs
  {
 	 SYMPTOM_FABLUR = 6913
+ }
+ 
+ modded class SymptomManager
+ {
+	 override void Init()
+	 {
+		 RegisterSymptom(new FA_BlurSymptom);
+	 }
+	 
  }

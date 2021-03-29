@@ -131,6 +131,10 @@ class CfgVehicles
 		{
 			"can"
 		};
+		hiddenSelectionsTextures[] = 
+		{
+			"\Anarchotics\data\heisenberg\data\Heisenberg_co.paa"
+		};
 		class GlobalHealth
 		{
 			class Health
@@ -203,10 +207,7 @@ class CfgVehicles
 		scope = 2;
 		displayName = "Heisenberg's Blue Sky";
 		descriptionShort = "A high powered energy drink for the strong people with weak and heavy eyes. Guaranteed to give you a boost. Use with caution.";
-		hiddenSelectionsTextures[] = 
-		{
-			"\Anarchotics\data\heisenberg\data\Heisenberg_co.paa"
-		};		
+	
 		class AnimEvents
 		{
 			class SoundWeapon

@@ -12,20 +12,20 @@ class FA_BlurSymptom extends SymptomBase
 	const float BLUR_STRENGTH_MIN = 0.3;
 	const float BLUR_STRENGTH_MAX = 0.6;
 	
-	const int BLUR_DURATION_TIME_MIN = 7;
-	const int BLUR_DURATION_TIME_MAX = 17;
+	const int BLUR_DURATION_TIME_MIN = 9;
+	const int BLUR_DURATION_TIME_MAX = 19;
 	
-	const int MIN_TIME_BETWEEN_EFFECTS = 7.0;
-	const int MAX_TIME_BETWEEN_EFFECTS = 16.0;
+	const int MIN_TIME_BETWEEN_EFFECTS = 5.5;
+	const int MAX_TIME_BETWEEN_EFFECTS = 9.5;
 
 	//this is just for the Symptom parameters set-up and is called even if the Symptom doesn't execute, don't put any gameplay code in here
 	override void OnInit()
 	{
 		m_SymptomType = SymptomTypes.SECONDARY;
-		m_Priority = 0;
+		m_Priority = 100;
 		m_ID = fa_SymptomIDs.SYMPTOM_FABLUR;
 		m_DestroyOnAnimFinish = true;
-		m_IsPersistent = false;
+		m_IsPersistent = true;
 		m_SyncToClient = true;
 	}
 	
@@ -86,5 +86,10 @@ class FA_BlurSymptom extends SymptomBase
 	{
 		PPEffects.SetBlurDrunk(0);
 		if (LogManager.IsSymptomLogEnable()) Debug.SymptomLog("n/a", this.ToString(), "n/a", "OnGetDeactivated");
+	}
+	
+	override bool CanActivate()
+	{
+		return super.CanActivate();
 	}
 }
