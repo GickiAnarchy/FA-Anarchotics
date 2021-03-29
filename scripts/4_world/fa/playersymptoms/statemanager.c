@@ -18,7 +18,8 @@ enum SymptomIDs {
  
  enum fa_SymptomIDs: SymptomIDs
  {
-	 SYMPTOM_FABLUR = 6913
+	 SYMPTOM_FABLUR = 6913,
+	 SYMPTOM_FACOLORBLUR
  }
  
  modded class SymptomManager
