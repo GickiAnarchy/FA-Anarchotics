@@ -4,7 +4,7 @@ class High_DopeMdfr: ModifierBase
 	
 	override void Init()
 	{
-		m_TrackActivatedTime = false;
+		m_TrackActivatedTime 	= false;
 		m_ID 					= faModifiers.MDF_HIGH_DOPE;
 		m_TickIntervalInactive 	= DEFAULT_TICK_TIME_INACTIVE_LONG;
 		m_TickIntervalActive 	= DEFAULT_TICK_TIME_ACTIVE;
