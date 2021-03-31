@@ -240,7 +240,28 @@ class CfgVehicles
 			};
 		};
 	};	
-
+	class BlurSoda: Heisenberg_Base
+	{
+		scope = 2;
+		displayName = "Blur Soda";
+		descriptionShort = "Taste of BLUR with the added flavor of the acai berry!";
+		hiddenSelections[] = 
+		{
+			"can"
+		};
+		hiddenSelectionsTextures[] = 
+		{
+			"\Anarchotics\data\heisenberg\data\blursoda_co.paa"
+		};
+		class Nutrition
+		{
+			totalVolume = 1;
+			energy = 15.5;
+			water = 75;
+			nutritionalIndex = 1;
+			toxicity = 0;
+		};
+	}
 
 };
 
