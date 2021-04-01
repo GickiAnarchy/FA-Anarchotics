@@ -1,6 +1,7 @@
 enum faModifiers: eModifiers
 {
-	MDF_HIGH_DOPE = 6913
+	MDF_HIGH_DOPE = 6913,
+	MDF_TRIPPY
 }
 
 /*

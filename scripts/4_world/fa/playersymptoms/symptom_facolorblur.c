@@ -1,12 +1,13 @@
 class FA_ColorBlurSymptom extends SymptomBase
 {
+
 	Material m_MatGauss;
-	
+		
 	//this is just for the Symptom parameters set-up and is called even if the Symptom doesn't execute, don't put any gameplay code in here
 	override void OnInit()
 	{
 		m_SymptomType = SymptomTypes.SECONDARY;
-		m_Priority = 50;
+		m_Priority = 100;
 		m_ID = fa_SymptomIDs.SYMPTOM_FACOLORBLUR;
 		m_DestroyOnAnimFinish = true;
 		m_IsPersistent = true;
@@ -31,7 +32,7 @@ class FA_ColorBlurSymptom extends SymptomBase
 
 	override void OnGetActivatedClient(PlayerBase player)
 	{
-		PPEffects.ReadyFAShock(true);
+		
 	}
 
 	override void OnGetDeactivatedServer(PlayerBase player)
@@ -42,7 +43,11 @@ class FA_ColorBlurSymptom extends SymptomBase
 	//!only gets called once on an active Symptom that is being deactivated
 	override void OnGetDeactivatedClient(PlayerBase player)
 	{
-		PPEffects.ReadyFAShock(false);
+	
 	}
 	
+	//override bool CanActivate()
+	//{
+	//	return true;
+	//}
 }

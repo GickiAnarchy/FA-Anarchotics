@@ -6,7 +6,8 @@ class CfgPatches
 		{
 			"DrugTableKit",
 			"DrugTable",
-			"Heisenberg"
+			"Heisenberg",
+			"BlurSoda"
 		};
 		weapons[] = {};
 		requiredVersion = 0.1;
@@ -117,8 +118,7 @@ class CfgVehicles
 	//ITEMS
 	class Heisenberg_Base: SodaCan_ColorBase
 	{
-		scope = 0;
-		model = "\Anarchotics\data\heisenberg\Heisenberg.p3d";
+		scope = 0;		
 		stackedRandom = 0;
 		itemSize[] = {1,2};
 		weight = 15;
@@ -127,14 +127,6 @@ class CfgVehicles
 		varQuantityMin = 0;
 		varQuantityMax = 330;
 		isMeleeWeapon = 1;	
-		hiddenSelections[] = 
-		{
-			"can"
-		};
-		hiddenSelectionsTextures[] = 
-		{
-			"\Anarchotics\data\heisenberg\data\Heisenberg_co.paa"
-		};
 		class GlobalHealth
 		{
 			class Health
@@ -207,7 +199,15 @@ class CfgVehicles
 		scope = 2;
 		displayName = "Heisenberg's Blue Sky";
 		descriptionShort = "A high powered energy drink for the strong people with weak and heavy eyes. Guaranteed to give you a boost. Use with caution.";
-	
+		model = "\Anarchotics\data\heisenberg\Heisenberg.p3d";
+		hiddenSelections[] = 
+		{
+			"can"
+		};
+		hiddenSelectionsTextures[] = 
+		{
+			"Anarchotics\data\heisenberg\data\Heisenberg_co.paa"
+		};
 		class AnimEvents
 		{
 			class SoundWeapon
@@ -245,19 +245,43 @@ class CfgVehicles
 		scope = 2;
 		displayName = "Blur Soda";
 		descriptionShort = "Taste of BLUR with the added flavor of the acai berry!";
+		model = "\Anarchotics\data\heisenberg\BlurSoda.p3d";
 		hiddenSelections[] = 
 		{
 			"can"
 		};
 		hiddenSelectionsTextures[] = 
 		{
-			"\Anarchotics\data\heisenberg\data\blursoda_co.paa"
+			"Anarchotics\data\heisenberg\data\blursoda_co.paa"
 		};
 		class Nutrition
 		{
 			totalVolume = 1;
 			energy = 15.5;
 			water = 75;
+			nutritionalIndex = 1;
+			toxicity = 0;
+		};
+	}
+	class WarpedWaters: Heisenberg_Base
+	{
+		scope = 2;
+		displayName = "Warped Water";
+		descriptionShort = "The wonderful taste of interdimensional water from no less than 3 dimension jumps from today!";
+		model = "\Anarchotics\data\heisenberg\WarpedWaters.p3d";
+		hiddenSelections[] = 
+		{
+			"can"
+		};
+		hiddenSelectionsTextures[] = 
+		{
+			"Anarchotics\data\heisenberg\data\warpedwaters_co.paa"
+		};
+		class Nutrition
+		{
+			totalVolume = 1;
+			energy = 5;
+			water = 97;
 			nutritionalIndex = 1;
 			toxicity = 0;
 		};

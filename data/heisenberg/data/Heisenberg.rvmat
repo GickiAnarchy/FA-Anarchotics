@@ -8,7 +8,7 @@ PixelShaderID = "Super";
 VertexShaderID = "Super";
 class Stage1
 {
-	texture = "Anarchotics\data\items\heisenberg\data\Heisenberg_nohq.paa";
+	texture = "Anarchotics\data\heisenberg\data\Heisenberg_nohq.paa";
 	uvSource = "tex";
 	class uvTransform
 	{
