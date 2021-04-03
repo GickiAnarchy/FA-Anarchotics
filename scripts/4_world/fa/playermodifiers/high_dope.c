@@ -1,4 +1,4 @@
-class High_DopeMdfr: ModifierBase
+	class High_DopeMdfr: ModifierBase
 {
 	int counter;
 	

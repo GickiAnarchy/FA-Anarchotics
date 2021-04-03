@@ -24,6 +24,11 @@ class Heisenberg extends Edible_Base
 class BlurSoda extends Edible_Base
 {
 	
+	void BlurSoda()
+	{
+		InsertAgent(faAgents.TRIPPING, 1);
+	}
+	
 	override void SetActions()
 	{
 		super.SetActions();
@@ -34,15 +39,11 @@ class BlurSoda extends Edible_Base
 	
 	override void OnConsume(float amount, PlayerBase consumer)
 	{
-		//if (consumer.GetHealth() <= 55)
-		if (consumer)
+		if( consumer.GetModifiersManager().IsModifierActive(faModifiers.MDF_TRIPPY) )//effectively resets the timer
 		{
-			if( consumer.GetModifiersManager().IsModifierActive(faModifiers.MDF_TRIPPY) )//effectively resets the timer
-			{
-				consumer.GetModifiersManager().DeactivateModifier( faModifiers.MDF_TRIPPY, false );
-			}
-				consumer.GetModifiersManager().ActivateModifier( faModifiers.MDF_TRIPPY );
+			consumer.GetModifiersManager().DeactivateModifier( faModifiers.MDF_TRIPPY, false );
 		}
+			consumer.GetModifiersManager().ActivateModifier( faModifiers.MDF_TRIPPY );
 	}
 	
 }
