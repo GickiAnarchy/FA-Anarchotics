@@ -120,6 +120,11 @@ class CfgVehicles
 	{
 		scope = 0;
 		model = "\Anarchotics\data\heisenberg\Heisenberg.p3d";
+		hiddenSelections[] = 
+		{
+			"can",
+			"can_blur"
+		};		
 		stackedRandom = 0;
 		itemSize[] = {1,2};
 		weight = 15;
