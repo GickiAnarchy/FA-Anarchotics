@@ -41,18 +41,28 @@ class FA_ColorBlurSymptom extends SymptomBase
 	//!gets called every frame
 	override void OnUpdateServer(PlayerBase player, float deltatime)
 	{
-	  	if (GetLife() > 0)
+	  	if (GetLife() > 10)
 		{
-			FAEffects.SetTrippyVignette(Math.RandomFloat(0.1,0.9));
+			FAEffects.SetTrippyVignette(Math.RandomFloat(0.5,0.9));
 			FAEffects.EnableTrippyColor();
 			Print(GetLife());
-			CountdownLife();
 		}
-		else
+		
+		if (GetLife() > 0 && GetLife() <= 10)
+		{
+		  FAEffects.SetTrippyVignette(Math.RandomFloat(0.1,0.4));
+			FAEffects.EnableTrippyColor();
+			Print(GetLife());
+		}
+		
+		if (GetLife() <=0)
 		{
 			FAEffects.DisableTrippyVignette();
 			FAEffects.DisableTrippyColor();
 		}
+		
+		CountdownLife();
+		
 	}
 
 	override void OnUpdateClient(PlayerBase player, float deltatime)
