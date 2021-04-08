@@ -1,9 +1,6 @@
 class FA_ColorBlurSymptom extends SymptomBase
 {
-
 	Material m_MatGauss;
-	float intense = 0.8;
-	FAEffects fafx;
 		
 	//this is just for the Symptom parameters set-up and is called even if the Symptom doesn't execute, don't put any gameplay code in here
 	override void OnInit()
@@ -12,10 +9,9 @@ class FA_ColorBlurSymptom extends SymptomBase
 		m_Priority = 100;
 		m_ID = fa_SymptomIDs.SYMPTOM_FACOLORBLUR;
 		m_DestroyOnAnimFinish = true;
-		m_IsPersistent = true;
-		
+		m_IsPersistent = true;	
 	}
-	
+
 	//!gets called every frame
 	override void OnUpdateServer(PlayerBase player, float deltatime)
 	{
@@ -24,7 +20,7 @@ class FA_ColorBlurSymptom extends SymptomBase
 
 	override void OnUpdateClient(PlayerBase player, float deltatime)
 	{
-		fafx.Shuffle(intense);
+	
 	}
 	
 	//!gets called once on an Symptom which is being activated
@@ -35,8 +31,7 @@ class FA_ColorBlurSymptom extends SymptomBase
 
 	override void OnGetActivatedClient(PlayerBase player)
 	{
-		//FAEffects.Init();
-		fafx.Init();
+		FAEffects.SetTrippyVignette();
 	}	
 
 	override void OnGetDeactivatedServer(PlayerBase player)
@@ -47,7 +42,7 @@ class FA_ColorBlurSymptom extends SymptomBase
 	//!only gets called once on an active Symptom that is being deactivated
 	override void OnGetDeactivatedClient(PlayerBase player)
 	{
-		
+		FAEffects.DisableTrippyVignette();
 	}
 	
 	override bool CanActivate()

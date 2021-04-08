@@ -30,7 +30,6 @@ class CfgVehicles
 	class Container_Base;
 	class Edible_Base;
 	class Bottle_Base: Edible_Base{};
-	class SodaCan_ColorBase: Edible_Base{};
 	class FA_Item: Container_Base {};
 	class FA_Item_Kit: FA_Item {};
 
@@ -116,15 +115,10 @@ class CfgVehicles
 	};
 
 	//ITEMS
-	class Heisenberg_Base: SodaCan_ColorBase
+	class FA_DrinkBase: Edible_Base
 	{
-		scope = 0;
 		model = "\Anarchotics\data\heisenberg\Heisenberg.p3d";
-		hiddenSelections[] = 
-		{
-			"can",
-			"can_blur"
-		};		
+		hiddenSelections[] = { "camoGround" };
 		stackedRandom = 0;
 		itemSize[] = {1,2};
 		weight = 15;
@@ -159,23 +153,6 @@ class CfgVehicles
 				range = 2.8;
 			};
 		};
-	};
-	class Heisenberg: Heisenberg_Base
-	{
-		scope = 2;
-		displayName = "Heisenberg's Blue Sky";
-		descriptionShort = "A high powered energy drink for the strong people with weak and heavy eyes. Guaranteed to give you a boost. Use with caution.";
-		//model = "\Anarchotics\data\heisenberg\Heisenberg.p3d";
-		hiddenSelections[] = 
-		{
-			"can",
-			"can_blur"
-		};
-		hiddenSelectionsTextures[] = 
-		{
-			"Anarchotics\data\heisenberg\data\Heisenberg_co.paa",
-			"Anarchotics\data\heisenberg\data\Heisenberg_co.paa"
-		};
 		class AnimEvents
 		{
 			class SoundWeapon
@@ -207,22 +184,78 @@ class CfgVehicles
 				};
 			};
 		};
-	};	
-	class BlurSoda: Heisenberg_Base
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=30;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\drinks\data\Drink_WaterPouch_Natural.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\drinks\data\Drink_WaterPouch_Natural_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\drinks\data\Drink_WaterPouch_Natural_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+	};
+	class Heisenberg: FA_DrinkBase
+	{
+		scope = 2;
+		displayName = "Heisenberg's Blue Sky";
+		descriptionShort = "A high powered energy drink for the strong people with weak and heavy eyes. Guaranteed to give you a boost. Use with caution.";
+		hiddenSelectionsTextures[] = 
+		{
+			"\Anarchotics\data\heisenberg\data\Heisenberg_co.paa"
+		};
+	};
+	class BlurSoda: FA_DrinkBase
 	{
 		scope = 2;
 		displayName = "Blur Soda";
-		descriptionShort = "Taste of BLUR with the added flavor of the acai berry!";
-		//model = "\Anarchotics\data\heisenberg\BlurSoda.p3d";
-		hiddenSelections[] = 
-		{
-			"can",
-			"can_blur"
-		};
+		descriptionShort = "Taste of BLUR with the added flavor of the acai berry!"
 		hiddenSelectionsTextures[] = 
 		{
-			"Anarchotics\data\heisenberg\data\blursoda_co.paa",
-			"Anarchotics\data\heisenberg\data\blursoda_co.paa"
+			"\Anarchotics\data\heisenberg\data\blursoda_co.paa"
 		};
 		class Nutrition
 		{
@@ -232,23 +265,15 @@ class CfgVehicles
 			nutritionalIndex = 1;
 			toxicity = 0;
 		};
-	}
-	class WarpedWaters: Heisenberg_Base
+	};
+	class WarpedWaters: FA_DrinkBase
 	{
 		scope = 2;
 		displayName = "Warped Water";
 		descriptionShort = "The wonderful taste of interdimensional water from no less than 3 dimension jumps from today!";
-		//model = "\Anarchotics\data\heisenberg\WarpedWaters.p3d";
-		hiddenSelections[] = 
+		hiddenSelectionsTextures[]=
 		{
-			"can",
-			"can_blur"
-		};
-		hiddenSelectionsTextures[] = 
-		{
-			"Anarchotics\data\heisenberg\data\warpedwaters_co.paa",
-			"Anarchotics\data\heisenberg\data\warpedwaters_co.paa"
-			
+			"\Anarchotics\data\heisenberg\data\warpedwaters_co.paa"
 		};
 		class Nutrition
 		{
@@ -258,8 +283,7 @@ class CfgVehicles
 			nutritionalIndex = 1;
 			toxicity = 0;
 		};
-	}
-
+	};
 };
 
 class CfgnonAIVehicles

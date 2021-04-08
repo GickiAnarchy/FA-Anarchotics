@@ -1,71 +1,38 @@
-/*
-\class FAEffects
-\brief An extention of PPEffects to set the vignette effect on drinks.
-*/
 class FAEffects extends PPEffects
 {
-	static int FA_VIGNETTE;
-	static float FA_R = 0.4;
-	static float FA_G = 0.9;
-	static float FA_B = 0.2;
-	static float FA_A = 0.5;
-	
+	static int 		m_VignetteTrippy;
+	static float	m_VignetteTrippy_R		 	= 20;
+	static float	m_VignetteTrippy_G	 		= 225;
+	static float	m_VignetteTrippy_B		 	= 20;
+	static float	m_VignetteTrippy_A	 		= 0.5;
+	static float vigColor[4];
 	
 	override static void Init()
 	{
 		PPEffects.Init();
-		if (!FA_VIGNETTE)
-		{
-			FA_VIGNETTE = RegisterVignetteEffect();
-		}
-		SetVignetteEffectValue(FA_VIGNETTE, 0.8, 0,0,0,0); //todo
+		m_VignetteTrippy = RegisterVignetteEffect();
+ 		vigColor[0] = m_VignetteTrippy_R;
+		vigColor[1] = m_VignetteTrippy_G;
+		vigColor[2] = m_VignetteTrippy_B;
+		vigColor[3] = m_VignetteTrippy_A;
+		//SetTrippyVignette();
+	}
+	
+	static void SetTrippyVignette(float value = 0.9)
+	{
+		SetVignetteEffectValue(m_VignetteTrippy, value, 20,225,20,0.5); //int, intensity, r,g,b,a
 		UpdateVignette();
 	}
-
-		/*!
-	set vignette
-	\param intensity <0, 1>, intensity of effect, 0 = disable
-	\param R
-	\param G
-	\param B
-	*/	
-	/*
-	static void FA_SetVignette(float intensity, float R, float G, float B, float A)
-	{
-		//Material matHDR = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/glow");
-
-		float color[4];
-		color[0] = R;
-		color[1] = G;
-		color[2] = B;
-		color[3] = A;
-
-		m_MatColors.SetParam("Vignette", intensity);
-		m_MatColors.SetParam("VignetteColor", color);
-	}
-	*/
 	
-	static void Shuffle(float intensity)
+	static void EnableTrippyVignette()
 	{
-		FA_R = Math.RandomFloat(0.1,1.0);
-		FA_G = Math.RandomFloat(0.1,1.0);
-		FA_B = Math.RandomFloat(0.1,1.0);
-		FA_SetVignette(intensity);
+		SetVignette(0.9, vigColor[0],vigColor[1],vigColor[2],vigColor[3]);
 	}
 	
-	static void FA_SetVignette(float intense = 0.8)
+	static void DisableTrippyVignette()
 	{
-		float color[4];
-		color[0] = FA_R;
-		color[1] = FA_G;
-		color[2] = FA_B;
-		color[3] = FA_A;
-
-		m_MatColors.SetParam("Vignette", intense);
-		m_MatColors.SetParam("VignetteColor", color);
+		SetVignetteEffectValue(m_VignetteTrippy, 0,0,0,0,0); //int, intensity, r,g,b,a
+		UpdateVignette();
 	}
 	
-	
-	
-	
-}
+};

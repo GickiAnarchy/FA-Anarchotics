@@ -1,8 +1,6 @@
 class TrippyMdfr: ModifierBase
 {
-	int counter;
-	float in = 0.8;
-	static const int AGENT_THRESHOLD_ACTIVATE = 100;
+	static const int AGENT_THRESHOLD_ACTIVATE = 30;
 	static const int AGENT_THRESHOLD_DEACTIVATE = 0;
 		
 	
@@ -12,7 +10,6 @@ class TrippyMdfr: ModifierBase
 		m_ID 					= faModifiers.MDF_TRIPPY;
 		m_TickIntervalInactive 	= DEFAULT_TICK_TIME_INACTIVE_LONG;
 		m_TickIntervalActive 	= DEFAULT_TICK_TIME_ACTIVE;
-		counter = 0;
 	}
 	
 	override bool ActivateCondition(PlayerBase player)
