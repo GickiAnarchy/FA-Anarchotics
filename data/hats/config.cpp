@@ -60,7 +60,19 @@ class CfgVehicles
 			"\Anarchotics\data\hats\data\CompletelyPoison_hat_co.paa",
 			"\Anarchotics\data\hats\data\CompletelyPoison_hat_co.paa"
 		};
-	}
+	};
+	class BlurSodaHat: FA_Hat
+	{
+		scope = 2;
+		displayName="Blur Soda Baseball Cap";
+		descriptionShort="A one size fits all cap with the Blur brand. A style for any type of misfit creature.";
+		hiddenSelectionsTextures[]=
+		{
+			"\Anarchotics\data\hats\data\BlurSoda_hat_co.paa",
+			"\Anarchotics\data\hats\data\BlurSoda_hat_co.paa",
+			"\Anarchotics\data\hats\data\BlurSoda_hat_co.paa"
+		};
+	};
 	
 	
 };
