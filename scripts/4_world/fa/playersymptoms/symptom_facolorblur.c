@@ -20,6 +20,18 @@ class FA_ColorBlurSymptom extends SymptomBase
 		return lifetime;
 	}
 	
+	void AddLife(int add)
+	{
+	  if ((GetLife() + add) <= 180)
+	  {
+	    lifetime =+ add;
+	  }
+	  else
+	  {
+	    lifetime = 180;
+	  }
+	}
+	
 	void CountdownLife()
 	{
 		lifetime = lifetime - 1;
@@ -32,12 +44,14 @@ class FA_ColorBlurSymptom extends SymptomBase
 	  	if (GetLife() > 0)
 		{
 			FAEffects.SetTrippyVignette(Math.RandomFloat(0.1,0.9));
+			FAEffects.EnableTrippyColor();
 			Print(GetLife());
 			CountdownLife();
 		}
 		else
 		{
 			FAEffects.DisableTrippyVignette();
+			FAEffects.DisableTrippyColor();
 		}
 	}
 
@@ -49,12 +63,12 @@ class FA_ColorBlurSymptom extends SymptomBase
 	//!gets called once on an Symptom which is being activated
 	override void OnGetActivatedServer(PlayerBase player)
 	{
-
+    
 	}
 
 	override void OnGetActivatedClient(PlayerBase player)
 	{
-		
+		AddLife(30);
 	}	
 
 	override void OnGetDeactivatedServer(PlayerBase player)
