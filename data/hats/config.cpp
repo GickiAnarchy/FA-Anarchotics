@@ -48,6 +48,7 @@ class CfgVehicles
 			"\Anarchotics\data\hats\data\WarpedWaters_Hat_co.paa",
 			"\Anarchotics\data\hats\data\WarpedWaters_Hat_co.paa"
 		};
+	};
 	class CompletelyPoisonHat: FA_Hat
 	{
 		scope = 2;
