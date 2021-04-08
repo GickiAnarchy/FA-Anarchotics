@@ -32,6 +32,7 @@ class FA_ColorBlurSymptom extends SymptomBase
 	override void OnGetActivatedClient(PlayerBase player)
 	{
 		FAEffects.SetTrippyVignette();
+		FAEffects.EnableTrippyVignette();
 	}	
 
 	override void OnGetDeactivatedServer(PlayerBase player)
