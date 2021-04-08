@@ -1,10 +1,10 @@
 class FAEffects extends PPEffects
 {
 	static int 		m_VignetteTrippy;
-	static float	m_VignetteTrippy_R		 	= 20;
-	static float	m_VignetteTrippy_G	 		= 225;
-	static float	m_VignetteTrippy_B		 	= 20;
-	static float	m_VignetteTrippy_A	 		= 0.5;
+	static float	m_VignetteTrippy_R		 	= 10;
+	static float	m_VignetteTrippy_G	 		= 150;
+	static float	m_VignetteTrippy_B		 	= 10;
+	static float	m_VignetteTrippy_A	 		= 0.2;
 	static float vigColor[4];
 	
 	override static void Init()
