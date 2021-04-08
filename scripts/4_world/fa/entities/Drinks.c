@@ -28,7 +28,7 @@ class BlurSoda extends FA_Drink
 {
 	void BlurSoda()
 	{
-		InsertAgent(faAgents.TRIPPING, 45);
+		InsertAgent(faAgents.TRIPPING, 15);
 	}
 
 	override void OnConsume(float amount, PlayerBase consumer)
@@ -43,14 +43,9 @@ class BlurSoda extends FA_Drink
 };
 
 
-class WarpedWaters extends Edible_Base
+class WarpedWaters extends FA_Drink
 {
-	override void SetActions()
-	{
-		super.SetActions();
-		AddAction(ActionForceDrink);
-		AddAction(ActionDrinkCan);
-	}
+
 	override void OnConsume(float amount, PlayerBase consumer)
 	{
 		super.OnConsume(amount,consumer);

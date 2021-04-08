@@ -1,7 +1,7 @@
 class TrippyMdfr: ModifierBase
 {
-	static const int AGENT_THRESHOLD_ACTIVATE = 30;
-	static const int AGENT_THRESHOLD_DEACTIVATE = 0;
+	static const int AGENT_THRESHOLD_ACTIVATE_TRIP = 30;
+	static const int AGENT_THRESHOLD_DEACTIVATE_TRIP = 0;
 		
 	
 	override void Init()
@@ -14,7 +14,7 @@ class TrippyMdfr: ModifierBase
 	
 	override bool ActivateCondition(PlayerBase player)
 	{
-		if (player.GetSingleAgentCount(faAgents.TRIPPING) >= AGENT_THRESHOLD_ACTIVATE)
+		if (player.GetSingleAgentCount(faAgents.TRIPPING) >= AGENT_THRESHOLD_ACTIVATE_TRIP)
 		{
 			return true;
 		}
@@ -43,7 +43,7 @@ class TrippyMdfr: ModifierBase
 
 	override bool DeactivateCondition(PlayerBase player)
 	{
-		if (player.GetSingleAgentCount(faAgents.TRIPPING) <= AGENT_THRESHOLD_DEACTIVATE)
+		if (player.GetSingleAgentCount(faAgents.TRIPPING) <= AGENT_THRESHOLD_DEACTIVATE_TRIP)
 		{
 			return true;
 		}
