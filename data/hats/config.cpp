@@ -48,6 +48,17 @@ class CfgVehicles
 			"\Anarchotics\data\hats\data\WarpedWaters_Hat_co.paa",
 			"\Anarchotics\data\hats\data\WarpedWaters_Hat_co.paa"
 		};
+	class CompletelyPoisonHat: FA_Hat
+	{
+		scope = 2;
+		displayName="Completely Poison Baseball Cap";
+		descriptionShort="A one size fits all cap with the Completely Poison brand. A style for any type of toxic creature.";
+		hiddenSelectionsTextures[]=
+		{
+			"\Anarchotics\data\hats\data\CompletelyPoison_hat_co.paa",
+			"\Anarchotics\data\hats\data\CompletelyPoison_hat_co.paa",
+			"\Anarchotics\data\hats\data\CompletelyPoison_hat_co.paa"
+		};
 	}
 	
 	
