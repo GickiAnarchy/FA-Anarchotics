@@ -22,7 +22,7 @@ class FA_ColorBlurSymptom extends SymptomBase
 	
 	void CountdownLife()
 	{
-		lifetime - 1;
+		lifetime = lifetime - 1;
 		return;
 	}
 	
