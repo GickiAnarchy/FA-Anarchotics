@@ -23,7 +23,7 @@ class CfgMods
 		hideName = 1;
 		hidePicture = 1;
 		name = "Anarchotics";
-		credits = "Code: GickiAnarchy	Modeling: SHoover";
+		credits = "Code: GickiAnarchy";
 		author = "GickiAnarchy";
 		version = "1.0";
 		type = "mod";
