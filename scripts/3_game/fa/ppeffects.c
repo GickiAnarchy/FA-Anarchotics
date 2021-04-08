@@ -18,7 +18,7 @@ class FAEffects extends PPEffects
 		//SetTrippyVignette();
 	}
 	
-	static void SetTrippyVignette(float value = 0.9)
+	static void SetTrippyVignette(float value = 0.9) //TODO- Make randomized
 	{
 		SetVignetteEffectValue(m_VignetteTrippy, value, 20,225,20,0.5); //int, intensity, r,g,b,a
 		UpdateVignette();
