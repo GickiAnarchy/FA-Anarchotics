@@ -5,7 +5,7 @@ class FA_Drink extends Edible_Base
 	{
 		super.SetActions();
 		AddAction(ActionForceDrink);
-		AddAction(ActionDrinkFACan);
+		AddAction(ActionDrinkCan);
 	}
 
 }
@@ -40,6 +40,13 @@ class BlurSoda extends FA_Drink
 		}
 			consumer.GetModifiersManager().ActivateModifier( faModifiers.MDF_TRIPPY );
 	}
+	override void SetActions()
+	{
+		super.SetActions();
+		AddAction(ActionForceDrink);
+		AddAction(ActionDrinkFACan);
+	}
+	
 };
 
 
