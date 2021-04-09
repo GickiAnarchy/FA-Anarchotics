@@ -1,9 +1,11 @@
 class FA_Hat extends BaseballCap_ColorBase
 {
   // Static constant typenames
-  static const typename HAT_WARPED = WarpedWatersHat;
-  static const typename HAT_POISON = CompletelyPoisonHat;
-  static const typename HAT_BLUR = BlurSodaHat;
+  typename HAT_WARPED = WarpedWatersHat;
+  typename HAT_POISON = CompletelyPoisonHat;
+  typename HAT_BLUR = BlurSodaHat;
+	
+	
 };
 
 class WarpedWatersHat : FA_Hat{};

@@ -4,7 +4,9 @@ class CfgPatches
 	{
 		units[] =
 		{
-			"WarpedWatersHat"
+			"WarpedWatersHat",
+			"CompletelyPoisonHat",
+			"BlurSodaHat"			
 		};
 		weapons[] = {};
 		requiredVersion = 0.1;
@@ -13,11 +15,6 @@ class CfgPatches
 			"DZ_Characters"
 		};
 	};
-};
-
-class CfgSlots
-{
-
 };
 
 class CfgVehicles
@@ -74,10 +71,4 @@ class CfgVehicles
 		};
 	};
 	
-	
-};
-
-class CfgnonAIVehicles
-{
-
 };

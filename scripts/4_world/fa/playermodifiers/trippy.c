@@ -14,6 +14,7 @@ class TrippyMdfr: ModifierBase
 	
 	override bool ActivateCondition(PlayerBase player)
 	{
+		
 		if (player.GetSingleAgentCount(faAgents.TRIPPING) >= AGENT_THRESHOLD_ACTIVATE_TRIP)
 		{
 			return true;

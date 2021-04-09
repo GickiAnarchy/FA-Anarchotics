@@ -1,7 +1,7 @@
 class FA_ColorBlurSymptom extends SymptomBase
 {
 	Material m_MatGauss;
-	int lifetime = 30;
+	int lifetime;
 	
 	//this is just for the Symptom parameters set-up and is called even if the Symptom doesn't execute, don't put any gameplay code in here
 	override void OnInit()
@@ -20,18 +20,6 @@ class FA_ColorBlurSymptom extends SymptomBase
 		return lifetime;
 	}
 	
-	void AddLife(int add)
-	{
-	  if ((GetLife() + add) <= 180)
-	  {
-	    lifetime =+ add;
-	  }
-	  else
-	  {
-	    lifetime = 180;
-	  }
-	}
-	
 	void CountdownLife()
 	{
 		lifetime = lifetime - 1;
@@ -41,17 +29,20 @@ class FA_ColorBlurSymptom extends SymptomBase
 	//!gets called every frame
 	override void OnUpdateServer(PlayerBase player, float deltatime)
 	{
-	  	if (GetLife() > 10)
+		
+		lifetime = player.GetSingleAgentCount(faAgents.TRIPPING);
+		
+		if (GetLife() > 10)
 		{
 			FAEffects.SetTrippyVignette(Math.RandomFloat(0.5,0.9));
-			FAEffects.EnableTrippyColor();
+			//FAEffects.EnableTrippyColor();
 			Print(GetLife());
 		}
 		
 		if (GetLife() > 0 && GetLife() <= 10)
 		{
-		  FAEffects.SetTrippyVignette(Math.RandomFloat(0.1,0.4));
-			FAEffects.EnableTrippyColor();
+		  	FAEffects.SetTrippyVignette(Math.RandomFloat(0.1,0.4));
+			//FAEffects.EnableTrippyColor();
 			Print(GetLife());
 		}
 		
@@ -61,13 +52,32 @@ class FA_ColorBlurSymptom extends SymptomBase
 			FAEffects.DisableTrippyColor();
 		}
 		
-		CountdownLife();
-		
+		//CountdownLife();
 	}
 
 	override void OnUpdateClient(PlayerBase player, float deltatime)
 	{
-
+		lifetime = player.GetSingleAgentCount(faAgents.TRIPPING);
+		
+		if (GetLife() > 10)
+		{
+			FAEffects.SetTrippyVignette(Math.RandomFloat(0.5,0.9));
+			//FAEffects.EnableTrippyColor();
+			Print(GetLife());
+		}
+		
+		if (GetLife() > 0 && GetLife() <= 10)
+		{
+		  	FAEffects.SetTrippyVignette(Math.RandomFloat(0.1,0.4));
+			//FAEffects.EnableTrippyColor();
+			Print(GetLife());
+		}
+		
+		if (GetLife() <=0)
+		{
+			FAEffects.DisableTrippyVignette();
+			FAEffects.DisableTrippyColor();
+		}
 	}
 	
 	//!gets called once on an Symptom which is being activated
@@ -78,7 +88,7 @@ class FA_ColorBlurSymptom extends SymptomBase
 
 	override void OnGetActivatedClient(PlayerBase player)
 	{
-		AddLife(30);
+		//lifetime = player.GetSingleAgentCount(faAgents.TRIPPING);
 	}	
 
 	override void OnGetDeactivatedServer(PlayerBase player)
