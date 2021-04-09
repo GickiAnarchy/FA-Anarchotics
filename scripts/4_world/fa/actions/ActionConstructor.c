@@ -6,6 +6,7 @@ modded class ActionConstructor
         super.RegisterActions(actions);
 		
 		actions.Insert(ActionRepack);		
-		
+		actions.Insert(ActionDrinkFACan_Trip);		
+		actions.Insert(ActionDrinkFACan_Blur);
     }
 }   
