@@ -12,11 +12,7 @@ class BlurSoda extends FA_Drink
 {
 	void BlurSoda()
 	{
-<<<<<<< Updated upstream
 		//InsertAgent(faAgents.TRIPPING, 1);
-=======
-		InsertAgent(faAgents.TRIPPING, 1);
->>>>>>> Stashed changes
 	}
 
 	override void OnConsume(float amount, PlayerBase consumer)
