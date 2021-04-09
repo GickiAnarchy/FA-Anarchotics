@@ -5,7 +5,7 @@ class FA_Drink extends Edible_Base
 	{
 		super.SetActions();
 		AddAction(ActionForceDrink);
-		AddAction(ActionDrinkCan);
+		AddAction(ActionDrinkFACan);
 	}
 
 }
