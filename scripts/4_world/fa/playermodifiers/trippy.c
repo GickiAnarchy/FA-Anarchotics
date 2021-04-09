@@ -14,15 +14,12 @@ class TrippyMdfr: ModifierBase
 	
 	override bool ActivateCondition(PlayerBase player)
 	{
-		
+		Print(player.GetSingleAgentCount(faAgents.TRIPPING));		
 		if (player.GetSingleAgentCount(faAgents.TRIPPING) >= AGENT_THRESHOLD_ACTIVATE_TRIP)
 		{
 			return true;
 		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
 
 	override void OnActivate(PlayerBase player)
@@ -48,10 +45,7 @@ class TrippyMdfr: ModifierBase
 		{
 			return true;
 		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
 
 	override void OnTick(PlayerBase player, float deltaT)
@@ -60,6 +54,7 @@ class TrippyMdfr: ModifierBase
 		
 		if (chance <= 20)
 		{
+			Print(player.GetName());
 			SymptomBase symptom = player.GetSymptomManager().QueueUpPrimarySymptom(SymptomIDs.SYMPTOM_LAUGHTER);
 		}
 	}

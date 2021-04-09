@@ -12,7 +12,7 @@
 //	NERVE_AGENT		= 128;
 //}
 
-enum faAgents : eAgents
+enum faAgents: eAgents
 {
 	TRIPPING = 7221;
 }

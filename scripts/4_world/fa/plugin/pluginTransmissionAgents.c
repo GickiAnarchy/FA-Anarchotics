@@ -1,4 +1,4 @@
-modded class PluginTransmissionAgents extends PluginBase
+/*modded class PluginTransmissionAgents extends PluginBase
 {
 	//static ref map<int, ref AgentBase> m_AgentList =  new map<int, ref AgentBase>;
 	//ref map<int, string> m_SimpleAgentList = new map<int, string>;
@@ -7,9 +7,12 @@ modded class PluginTransmissionAgents extends PluginBase
 	void PluginTransmissionAgents()
 	{
 		//add new agents here
-		m_AgentList.Insert(faAgents.TRIPPING, new Tripping);
+		//m_AgentList.Insert(faAgents.TRIPPING, new Tripping);
+		RegisterAgent(new Tripping);
+		//InjectAgentsWithoutPlayer(BlurSoda, faAgents.TRIPPING);
 			
 	}
 
 
 };
+*/
