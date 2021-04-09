@@ -23,7 +23,22 @@ class CfgVehicles
 	class Container_Base;
 	class Edible_Base;
 	class Bottle_Base: Edible_Base{};
-	
+	//Item
+	class FA_EmptyCan: Inventory_Base
+	{
+	  scope = 2;
+	  model="\dz\gear\drinks\SodaCan.p3d";
+	  hiddenSelections[]=
+		{
+			"camoGround"
+		};
+		hiddenSelectionsTextures[] = 
+		{
+			"\Anarchotics\data\drinks\data\FA_EmptyCan_co.paa"
+		};
+	  itemSize[] = {1,2};
+	};
+	//Drinks
 	class FA_DrinkBase: Edible_Base
 	{
 		model="\dz\gear\drinks\SodaCan.p3d";
@@ -158,7 +173,7 @@ class CfgVehicles
 		descriptionShort = "Taste of BLUR with the added flavor of the acai berry!"
 		hiddenSelectionsTextures[] = 
 		{
-			"\Anarchotics\data\drinks\data\fa_BlurSoda_co.paa"
+			"\Anarchotics\data\drinks\data\BlurSoda_co.paa"
 		};
 		class Nutrition
 		{
@@ -169,6 +184,7 @@ class CfgVehicles
 			toxicity = 0;
 		};
 	};
+	
 	class WarpedWaters: FA_DrinkBase
 	{
 		scope = 2;
