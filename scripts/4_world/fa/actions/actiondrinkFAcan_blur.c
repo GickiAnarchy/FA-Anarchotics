@@ -13,7 +13,7 @@ class ActionDrinkFACan_Blur: ActionDrink
 	
 	override void ApplyModifiers( ActionData action_data )
 	{
-	  action_data.m_Player.InsertAgent(FAagents.TRIPPING,100);
+	  action_data.m_Player.InsertAgent(faAgents.TRIPPING,100);
 	}
 	
 };

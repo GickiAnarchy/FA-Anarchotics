@@ -16,7 +16,6 @@ class CfgPatches
 	};
 };
 
-
 class CfgVehicles
 {
 	class Inventory_Base;
@@ -38,6 +37,11 @@ class CfgVehicles
 		};
 	  itemSize[] = {1,2};
 	};
+	class FA_24PackBase: Container_Base
+	{
+		scope = 0;
+	};
+	
 	//Drinks
 	class FA_DrinkBase: Edible_Base
 	{
