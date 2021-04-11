@@ -41,4 +41,17 @@ modded class PlayerBase extends ManBase
 			SetWearingFA_Hat(1);
 		};
 	}
+	
+	override void OnJumpStart()
+	{
+		Print(GetSingleAgentCount(faAgents.TRIPPING));
+		super.OnJumpStart();
+	}
+	
+	override void OnJumpEnd(int pLandType = 0)
+	{
+		int pass = pLandType;
+		Print(GetSingleAgentCount(faAgents.TRIPPING));
+		super.OnJumpEnd(pass);
+	}
 }

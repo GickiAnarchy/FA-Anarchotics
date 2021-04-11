@@ -181,11 +181,11 @@ class CfgVehicles
 		};
 		class Nutrition
 		{
-			totalVolume = 10;
+			totalVolume = 1;
 			energy = 15.5;
 			water = 75;
 			nutritionalIndex = 1;
-			toxicity = 3;
+			toxicity = 1;
 		};
 	};
 	

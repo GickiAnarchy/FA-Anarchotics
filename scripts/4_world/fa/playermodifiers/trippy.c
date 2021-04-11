@@ -14,17 +14,17 @@ class TrippyMdfr: ModifierBase
 	
 	override bool ActivateCondition(PlayerBase player)
 	{
-		Print(player.GetSingleAgentCount(faAgents.TRIPPING));		
+		/*Print(player.GetSingleAgentCount(faAgents.TRIPPING));		
 		if (player.GetSingleAgentCount(faAgents.TRIPPING) >= AGENT_THRESHOLD_ACTIVATE_TRIP)
 		{
 			return true;
-		}
+		}*/
 		return false;
 	}
 
 	override void OnActivate(PlayerBase player)
 	{
-		player.GetSymptomManager().QueueUpSecondarySymptom(fa_SymptomIDs.SYMPTOM_FACOLORBLUR);
+		//player.GetSymptomManager().QueueUpSecondarySymptom(fa_SymptomIDs.SYMPTOM_FACOLORBLUR);
 	}
 
 	override void OnReconnect(PlayerBase player)
@@ -41,16 +41,17 @@ class TrippyMdfr: ModifierBase
 
 	override bool DeactivateCondition(PlayerBase player)
 	{
-		return !ActivateCondition(player);
+		return true;
+		//return !ActivateCondition(player);
 	}
 
 	override void OnTick(PlayerBase player, float deltaT)
 	{
-		int chance = Math.RandomInt(1,100);
+		/*int chance = Math.RandomInt(1,100);
 		if (chance <= 20)
 		{
 			Print(player.GetName());
 			SymptomBase symptom = player.GetSymptomManager().QueueUpPrimarySymptom(SymptomIDs.SYMPTOM_LAUGHTER);
-		}
+		}*/
 	}
 };

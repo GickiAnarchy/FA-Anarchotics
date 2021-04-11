@@ -1,5 +1,6 @@
-class FA_Drink extends Edible_Base
+class FA_Drink extends SodaCan_ColorBase
 {
+
 	override void SetActions()
 	{
 		super.SetActions();
@@ -8,26 +9,30 @@ class FA_Drink extends Edible_Base
 	}
 };
 
-class BlurSoda extends FA_Drink
+class BlurSoda extends Edible_Base
 {
 	void BlurSoda()
 	{
-		InsertAgent(faAgents.TRIPPING, 1);
+		InsertAgent(faAgents.TRIPPING, 25);
 	}
 
 	override void OnConsume(float amount, PlayerBase consumer)
 	{
 		super.OnConsume(amount,consumer);
+		
+		
 		if( consumer.GetModifiersManager().IsModifierActive(faModifiers.MDF_TRIPPY) )//effectively resets the timer
 		{
 			consumer.GetModifiersManager().DeactivateModifier( faModifiers.MDF_TRIPPY, false );
 		}
 			consumer.GetModifiersManager().ActivateModifier( faModifiers.MDF_TRIPPY );
+		
 	}
 	
 	override void SetActions()
 	{
 		super.SetActions();
+		RemoveAction(ActionDrinkCan);
 		AddAction(ActionDrinkFACan_Trip); 
 	}
 	
