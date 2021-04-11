@@ -13,7 +13,7 @@ class BlurSoda extends Edible_Base
 {
 	void BlurSoda()
 	{
-		InsertAgent(faAgents.TRIPPING, 25);
+		InsertAgent(faAgents.TRIPPING, 25); //AAHHHHHHHHHHHHHHHHH
 	}
 
 	override void OnConsume(float amount, PlayerBase consumer)

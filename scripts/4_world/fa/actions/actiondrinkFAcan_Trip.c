@@ -13,13 +13,13 @@ class ActionDrinkFACan_Trip: ActionDrink
 	
 	override void ApplyModifiers( ActionData action_data )
 	{
-		//PlayerBase p = PlayerBase.Cast(action_data.m_Player);
+		PlayerBase p = PlayerBase.Cast(action_data.m_Player);
 		
 		//plugManager.TransmitAgents(action_data.m_MainItem, action_data
 		
-		//p.InsertAgent(faAgents.TRIPPING, 90);
+		p.InsertAgent(faAgents.TRIPPING, 25);
 		
-	 	//action_data.m_Player.InsertAgent(faAgents.TRIPPING,100);
+	 	//action_data.m_Player.InsertAgent(faAgents.TRIPPING,25);
 		
 		
 	}
