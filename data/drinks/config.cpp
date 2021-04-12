@@ -208,4 +208,14 @@ class CfgVehicles
 		};
 	};
 	
+	class CompletelyPoison: FA_DrinkBase
+	{
+		scope = 2;
+		displayName = "Completely Poison Original Soda";
+		descriptionShort = "A taste so wicked some are convinced that something so addictive can only be nothing but complete poison to the body, and soul.";
+		hiddenSelectionsTextures[]=
+		{
+			"\Anarchotics\data\drinks\data\CompletelyPoison_Drink_co.paa"
+		};
+	};
 };
