@@ -3,11 +3,14 @@ class AnarchoticsAgent
 	/*
 					VARIABLES
 	*/
-	string fa_AgentName = "";
+	string fa_AgentName = "";			//Class name
 	int fa_Type = 0;					//Type of AnarchoticsAgent this is
 	float fa_Duration = 0;				//Lifetime of the effect or modifier
 	int fa_Strength = 0;				//Current strength of this agent
-	bool fa_isActive = false;
+	bool fa_isActive = false;			//Is the agent active
+	EntityAI attachedTo;				//What is the agent attached to
+	bool attachedToPlayer = false;		//Attached to player?
+	bool attachedToItem = false;		//Attached to item?
 	
 	
 	/*
@@ -17,6 +20,7 @@ class AnarchoticsAgent
 	{
 		Init();
 	}
+	
 	void Init()
 	{
 		fa_AgentName = GetName();
@@ -78,5 +82,25 @@ class AnarchoticsAgent
 		result = GetName() + " active: " + fa_isActive.ToString();
 		Print(result);
 	}
+	
+	void SetAttachedItem(EntityAI att)
+	{
+		if (att.IsItemBase()) 
+		{
+			attachedToItem = true;
+			attachedToPlayer = false;
+			ItemBase item = ItemBase.Cast(att);
+			attachedTo = item;
+		}
+		if (att.IsMan())
+		{
+			attachedToItem = false;
+			attachedToPlayer = true;
+			PlayerBase pl = PlayerBase.Cast(att);
+			attachedTo = pl;
+		}
+	}
+	
+	
 		
 }

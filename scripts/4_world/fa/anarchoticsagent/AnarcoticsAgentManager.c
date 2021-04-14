@@ -28,6 +28,10 @@ class AnarchoticsAgentManager
 	void RegisterAnarchoticAgent(AnarchoticsAgent agent)
 	{
 		int type = agent.GetType();
+		if (fa_AnarchoticsPool.Get(type) == agent)
+		{
+			
+		}
 		
 	}
 	
