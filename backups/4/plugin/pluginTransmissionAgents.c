@@ -7,6 +7,10 @@ modded class PluginTransmissionAgents extends PluginBase
 	void PluginTransmissionAgents()
 	{
 		//add new agents here
+		RegisterAgent(new Tripping);
+		m_AgentList.Insert(faAgents.TRIPPING, new Tripping);
+		
+		//FUCK THIS CRAP!!!
 				
 	}
 

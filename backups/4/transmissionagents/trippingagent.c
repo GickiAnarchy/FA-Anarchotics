@@ -1,4 +1,4 @@
-/*class Tripping extends AgentBase
+class Tripping extends AgentBase
 {
 	override void Init()
 	{
@@ -12,4 +12,4 @@
 		m_DieOffSpeed 			= 1;					//how fast the agent dies off when not potent enough to grow(per sec)
 		m_Digestibility 		= 1;
 	}
-}*/
+}

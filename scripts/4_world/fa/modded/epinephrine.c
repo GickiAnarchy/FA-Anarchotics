@@ -4,9 +4,5 @@ modded class Epinephrine extends Inventory_Base
 	{
 		super.OnApply(player);
 		
-		if( player.GetModifiersManager().IsModifierActive(faModifiers.MDF_HIGH_DOPE) )//effectively resets the timer
-		{
-			player.GetModifiersManager().DeactivateModifier( faModifiers.MDF_HIGH_DOPE, false );
-		}
 	}
 };
