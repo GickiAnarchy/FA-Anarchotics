@@ -17,7 +17,7 @@ class AnarchoticsAgentManager
 	
 	void Init()
 	{
-		
+		RegisterAnarchoticAgent(new TrippingAgent);
 	}
 	
 	PlayerBase FA_GetPlayer()
@@ -27,12 +27,20 @@ class AnarchoticsAgentManager
 	
 	void RegisterAnarchoticAgent(AnarchoticsAgent agent)
 	{
-		int type = agent.GetType();
-		if (fa_AnarchoticsPool.Get(type) == agent)
-		{
-			
-		}
+		int count = fa_AnarchoticsPool.Count() + 1;
+		fa_AnarchoticsPool.Insert(count, agent);
+	}
+	
+	void GetAgentList(out array<AnarchoticsAgent> list)
+	{
+		list.Clear();
 		
+		int c = fa_AnarchoticsPool.Count();
+		for (int i = 0; i < c; i++)
+		{
+			AnarchoticsAgent ag = fa_AnarchoticsPool.Get(i);
+			list.Insert(ag);
+		}
 	}
 	
 }

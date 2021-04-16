@@ -24,7 +24,6 @@ class AnarchoticsAgent
 	void Init()
 	{
 		fa_AgentName = GetName();
-	
 	}
 	
 	
@@ -99,6 +98,11 @@ class AnarchoticsAgent
 			PlayerBase pl = PlayerBase.Cast(att);
 			attachedTo = pl;
 		}
+	}
+	
+	EntityAI GetAttachedItem()
+	{
+		return attachedTo;
 	}
 	
 	
