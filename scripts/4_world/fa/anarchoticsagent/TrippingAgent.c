@@ -8,17 +8,3 @@
 	bool attachedToPlayer = false;		//Attached to player?
 	bool attachedToItem = false;		//Attached to item? */
 	
-class TrippingAgent extends AnarchoticsAgent
-{
-	
-	override void Init()
-	{
-		super.Init();
-		SetType(FA_Specials.TUNNEL_VISION);
-		SetDuration(25.0);
-		AddStrength(5);	
-	}
-	
-	
-		
-}
