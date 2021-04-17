@@ -30,6 +30,33 @@ class FA_Agent
 	
 	
 	///		SETTERS
-	void SetID(
-
+	void SetID(FA_AGENTS faagent)
+	{
+		int s = faagent;
+		fa_ID = s;
+	}
+	
+	void SetAgentName()
+	{
+		string setter = ClassName();
+		fa_AgentName = setter;
+	}
+	
+	void SetLifetime(float life)
+	{
+		lifetime = life;
+	}
+	
+	
+	///		TRANSFERS
+	void TransferToItem(FA_Item item)
+	{
+		//TODO
+	}
+	
+	void TransferToPlayer(PlayerBase player)
+	{
+		//TODO
+	}
+	
 }
