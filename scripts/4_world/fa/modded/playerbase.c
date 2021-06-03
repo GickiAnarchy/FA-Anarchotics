@@ -6,12 +6,41 @@ modded class PlayerBase extends ManBase
 	
 	//Functions
 	
+	void AddTinkerLevel(int add)
+	{
+		if (FA_TinkerLevel < 50)
+		{
+			if ( (FA_TinkerLevel =+ add) > 10)
+			{
+				FA_TinkerLevel = 10;
+			} 
+			else
+			{
+				FA_TinkerLevel =+ add;
+			}
+		}
+		else
+		{
+			//Level Maxed Out
+		}
+	}
+
+	int GetTinkerLevel()
+	{
+		return FA_TinkerLevel;
+	}
+
+	bool isMixSuccessful()
+	{
+		
+	}
+
+
 	override void EEItemAttached(EntityAI item, string slot_name)
 	{
 		super.EEItemAttached(item, slot_name);
 		
 	}
-	
 	
 	override void EEItemDetached(EntityAI item, string slot_name)
 	{

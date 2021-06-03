@@ -8,8 +8,6 @@ class FA_DrinkBase extends Bottle_Base
     override void SetActions()
     {
         super.SetActions();
-
-        AddAction(ActionMixDrink);
     }
 
 }

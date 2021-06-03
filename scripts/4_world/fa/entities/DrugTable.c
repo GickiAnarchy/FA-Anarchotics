@@ -149,7 +149,6 @@ class DrugTable extends FA_Item
 		return false;
 	}
 		
-
 	//================================================================
 	//ACTIONS
 	//================================================================
@@ -158,14 +157,12 @@ class DrugTable extends FA_Item
 		super.SetActions();
 	}
 	
-	
 	//================================================================
 	//COMBINE INGREDIENTS
 	//================================================================	
 	
 	//REFERENCE TO CREATE AN ITEM IN THIS ITEMS INVENTORY
 	//entity.GetInventory().CreateInInventory( "TruckBattery" );
-
 
 }
 
