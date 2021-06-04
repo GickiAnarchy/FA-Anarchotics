@@ -3,9 +3,15 @@ modded class PlayerBase extends ManBase
 	//Variables
 	bool FA_SuccessfulMix;
 	int FA_TinkerLevel = 0;
-	
+
+	bool isKnockedOut = false;
+
 	//Functions
-	
+
+	void KnockOutMd
+
+
+
 	void AddTinkerLevel(int add)
 	{
 		if (FA_TinkerLevel < 50)
