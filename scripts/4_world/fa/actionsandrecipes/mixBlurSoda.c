@@ -1,12 +1,12 @@
-class MixDrink extends RecipeBase
+class MixBlurSoda extends RecipeBase
 {	
 
 	override void Init()
 	{
 		m_Name = "Mix Drink";
 		m_IsInstaRecipe = false;//should this recipe be performed instantly without animation
-		m_AnimationLength = 5;//animation length in relative time units
-		m_Specialty = 0;// value > 0 for roughness, value < 0 for precision
+		m_AnimationLength = 2;//animation length in relative time units
+		m_Specialty = 0.02;// value > 0 for roughness, value < 0 for precision
 		
 		
 		//conditions
@@ -25,16 +25,16 @@ class MixDrink extends RecipeBase
 		
 		//INGREDIENTS
 		//ingredient 1
-		InsertIngredient(0,"FA_DrinkBase");//you can insert multiple ingredients this way
+		InsertIngredient(0,"CharcoalTablets");//you can insert multiple ingredients this way
 		
 		m_IngredientAddHealth[0] = 0;// 0 = do nothing
 		m_IngredientSetHealth[0] = -1; // -1 = do nothing
-		m_IngredientAddQuantity[0] = 0;// 0 = do nothing
+		m_IngredientAddQuantity[0] = -1;// 0 = do nothing
 		m_IngredientDestroy[0] = false;//true = destroy, false = do nothing
 		m_IngredientUseSoftSkills[0] = false;// set 'true' to allow modification of the values by softskills on this ingredient
 		
 		//ingredient 2
-		InsertIngredient(1,"FA_MixBase");//you can insert multiple ingredients this way
+		InsertIngredient(1,"DrinkBase");//you can insert multiple ingredients this way
 		
 		m_IngredientAddHealth[1] = 0;// 0 = do nothing
 		m_IngredientSetHealth[1] = -1; // -1 = do nothing
@@ -44,7 +44,7 @@ class MixDrink extends RecipeBase
 		//----------------------------------------------------------------------------------------------------------------------
 		
 		//result1
-		//AddResult("");//add results here
+		//AddResult("BlurSoda");//add results here
 		
 
 		m_ResultSetFullQuantity[0] = false;//true = set full quantity, false = do nothing
@@ -59,11 +59,12 @@ class MixDrink extends RecipeBase
 
 	override bool CanDo(ItemBase ingredients[], PlayerBase player)//final check for recipe's validity
 	{
-		return player.isMixSuccessful();
+		return true;
 	}
 
 	override void Do(ItemBase ingredients[], PlayerBase player,array<ItemBase> results, float specialty_weight)//gets called upon recipe's completion
 	{
-		ItemBase ingredient2 = ingredients[1];
+		FA_DrinkBase ingredient2 = FA_DrinkBase.Cast(ingredients[1]);
+		ingredient2.Mix(1);
 	}
 };

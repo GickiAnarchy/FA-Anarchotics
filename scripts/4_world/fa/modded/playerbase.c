@@ -8,27 +8,13 @@ modded class PlayerBase extends ManBase
 
 	//Functions
 
-	void KnockOutMd
+	//void KnockOutMd
 
 
 
 	void AddTinkerLevel(int add)
 	{
-		if (FA_TinkerLevel < 50)
-		{
-			if ( (FA_TinkerLevel =+ add) > 10)
-			{
-				FA_TinkerLevel = 10;
-			} 
-			else
-			{
-				FA_TinkerLevel =+ add;
-			}
-		}
-		else
-		{
-			//Level Maxed Out
-		}
+		
 	}
 
 	int GetTinkerLevel()

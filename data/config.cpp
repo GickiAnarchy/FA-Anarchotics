@@ -25,10 +25,8 @@ class CfgVehicles
 {
 	class Inventory_Base;
 	class Container_Base;
-	class Edible_Base;
-	class Bottle_Base: Edible_Base{};
-	class FA_Item: Container_Base {};
-	class FA_Item_Kit: FA_Item {};
+	//class FA_Item: Container_Base {};
+	//class FA_Item_Kit: FA_Item {};
 
 	//ANARCHOTICS BASES
 	class FA_Item: Container_Base
@@ -111,6 +109,8 @@ class CfgVehicles
 		};
 	};
 };
+
+
 
 class CfgnonAIVehicles
 {
